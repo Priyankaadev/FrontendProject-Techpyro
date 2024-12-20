@@ -21,21 +21,21 @@ import {
 
 const header = () => {
   return (
-    <div className="container mx-auto px-8 py-5 flex items-start overflow: hidden;  justify-between text-sm ">
+    <div className="container mx-auto px-8 mt-5 flex items-start justify-between text-sm ">
       <div className="logo-container h-[100%] w-[100%] basis-[40%]   ">
-        <img src="/header/logo.png" className="logo-img h-[25%] w-[25%]" />
+        <img src="/header/logo.png" className="logo-img h-[72px] w-[225px]" />
       </div>
 
       <div className="row  basis-[60%] ">
-        <div className="row-1 justify-between flex mb-2 ">
-          <div className="items flex gap-5 ">
+        <div className="row-1 gap-[20%] flex mb-2 ">
+          <div className="items text-[14px] flex gap-10 ">
             <p>Contact</p>
             <p>Resource</p>
             <p>About</p>
             <p>Menu item</p>
             <p>Menu item</p>
           </div>
-          <ul className="icons flex gap-5 ">
+          <ul className="icons  flex gap-5 ">
             <li>
               {" "}
               <FaFacebookF />
@@ -59,8 +59,8 @@ const header = () => {
           </ul>
         </div>
         <hr />
-        <div className="row-2 flex justify-between items-center ">
-          <div className="dropdown-items flex gap-5 mt-3 ">
+        <div className="row-2 flex justify-between gap-4 items-center ">
+          <div className="dropdown-items flex gap-4 mt-3 text-[15px] ">
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1">Higher Education<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -92,9 +92,10 @@ const header = () => {
             </DropdownMenu>
          
           </div>
-          <IoSearch className="h-7 w-5" />
-          <button className="bg-orange-500 flex py-3 px-4 gap-1"><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
-        </div> 
+          <IoSearch className="h-8 w-6" />
+          <button className="bg-[#F7A70D] flex py-4 px-4 "><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
+        </div>
+     
        
       </div> 
       

@@ -8,10 +8,10 @@ import { FaYoutube } from "react-icons/fa";
 
 function footer() {
   return (
-    <div className="container px-[60px]  ">
+    <div className="container px-[60px] mt-[5%] ">
       <div className="row1 flex mb-5  justify-between ">
         <div className="logo-container h-[50%] w-[50%]  ">
-          <img src="/header/logo.png" className="logo-img h-[20%] w-[20%]" />
+          <img src="/header/logo.png" className="logo-img h-[72px] w-[225px]" />
         </div>
         <ul className="icons flex gap-5 ">
           <li>
