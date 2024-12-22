@@ -4,7 +4,7 @@ function journey({ head, year, idx }) {
   return (
     <>
       {idx % 2 === 0 ? (
-        <div className="container    ">
+        <div className="container ">
           <div className="flex flex-col items-center text-center w-full h-full">
             <div className="flex justify-end items-end h-[90px] ">
               <h1 className="font-bold text-[#FFE0A1] text-[48px] h-[59.2px]">

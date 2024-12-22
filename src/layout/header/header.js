@@ -9,6 +9,7 @@ import { FaYoutube } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { RiAccountCircleFill } from "react-icons/ri";
+import { CgMenuRight } from "react-icons/cg";
 
 import {
   DropdownMenu,
@@ -21,21 +22,28 @@ import {
 
 const header = () => {
   return (
-    <div className="container mx-auto px-8 mt-5 flex items-start justify-between text-sm ">
-      <div className="logo-container h-[100%] w-[100%] basis-[40%]   ">
-        <img src="/header/logo.png" className="logo-img h-[72px] w-[225px]" />
+    <div className="container md:h-[30vh] md:w-[100wh]  h-[15vh] w-[100%] px-8 mt-5 gap-[3rem] flex text-sm ">
+      <div className="logo-container flex  basis-1/3 ">
+        <img  src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2rem] w-[6rem] " />
       </div>
 
-      <div className="row  basis-[60%] ">
-        <div className="row-1 gap-[20%] flex mb-2 ">
-          <div className="items text-[14px] flex gap-10 ">
+      <div className="row flex basis-2/3  ">
+      <div className="md:hidden flex justify-between h-[100%] w-[100%]">
+        <IoSearch fontSize={28} />
+        <RiAccountCircleFill fontSize={26} />
+        <CgMenuRight fontSize={26} />
+      </div>
+     
+      <div className="hidden md:block ">
+        <div className="row-1  flex justify-between mb-2  ">
+          <div className="items md:text-[1em]  flex gap-[1rem] ">
             <p>Contact</p>
             <p>Resource</p>
             <p>About</p>
             <p>Menu item</p>
             <p>Menu item</p>
           </div>
-          <ul className="icons  flex gap-5 ">
+          <ul className="icons flex gap-[1rem] ">
             <li>
               {" "}
               <FaFacebookF />
@@ -58,9 +66,9 @@ const header = () => {
             </li>
           </ul>
         </div>
-        <hr />
+        <hr  className="md:block hidden"/>
         <div className="row-2 flex justify-between gap-4 items-center ">
-          <div className="dropdown-items flex gap-4 mt-3 text-[15px] ">
+          <div className="dropdown-items flex lg:gap-4 gap-2 mt-2 lg:text-[15px] md:text-[1em] ">
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1">Higher Education<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -92,11 +100,12 @@ const header = () => {
             </DropdownMenu>
          
           </div>
-          <IoSearch className="h-8 w-6" />
-          <button className="bg-[#F7A70D] flex py-4 px-4 "><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
+          <IoSearch className="h-7 w-5" />
+          <button className="bg-[#F7A70D] flex lg:py-4 lg:px-4 sm:py-2 sm-px-4 text-[10px]"><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
         </div>
      
-       
+       </div>
+       <hr className="hidden" />
       </div> 
       
     </div>

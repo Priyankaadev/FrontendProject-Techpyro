@@ -8,45 +8,51 @@ import { FaYoutube } from "react-icons/fa";
 
 function footer() {
   return (
-    <div className="container px-[60px] mt-[5%] ">
-      <div className="row1 flex mb-5  justify-between ">
+    <div className="container px-[60px] mt-[3%] overflow-hidden ">
+      {/* <div className="row1 flex mb-5  justify-between ">
         <div className="logo-container h-[50%] w-[50%]  ">
           <img src="/header/logo.png" className="logo-img h-[72px] w-[225px]" />
-        </div>
-        <ul className="icons flex gap-5 ">
+        </div> */}
+        <div className="row-1 h-[15vh] w-[100wh] mx-auto mt-5 flex gap-[10%] text-sm ">
+      <div className="logo-container flex  basis-2/3  md:basis-[1/2]">
+        <img  src="/header/logo.png" className="logo-img md:h-[3rem]  md:w-[8rem] h-[3em] w-[10em] " />
+      </div>
+
+        <ul className="icons flex gap-5 items-center">
           <li>
             {" "}
-            <FaFacebookF />
+            <FaFacebookF fontSize={20} />
           </li>
           <li>
             {" "}
-            <IoLogoInstagram />
+            <IoLogoInstagram fontSize={20}/>
           </li>
           <li>
             {" "}
-            <FaXTwitter />
+            <FaXTwitter fontSize={20}/>
+          </li> 
+          <li>
+            {" "}
+            <FaLinkedinIn fontSize={20}/>
           </li>
           <li>
             {" "}
-            <FaYoutube />
+            <FaYoutube fontSize={20}/>
           </li>
-          <li>
-            {" "}
-            <FaLinkedinIn />
-          </li>
+         
         </ul>
       </div>
-      <h3 className="mb-5 text-sm tracking-wide  ">
+      <h3 className="mb-5 mt-5 text-[12px] tracking-wide  ">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
         illo inventore
-        <br /> veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+       veritatis et quasi architecto beatae vitae dicta sunt explicabo.
         Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-        fugit, sed quia <br />
+        fugit, sed quia 
         consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
       </h3>
       <hr />
-      <div className="items flex py-8 gap-8 text-sm ">
+      <div className="items flex py-5 gap-5 md:flex-row flex-col text-sm ">
         <p>About I-Gauge</p>
         <p>University Rating</p>
         <p>College Rating</p>
@@ -57,11 +63,9 @@ function footer() {
         <p>Blogs</p>
       </div>
       <hr />
-      <div className="flex justify-between mt-5 text-xs mb-3">
-        <div className="copyright ">
-          <p>© 2024 QS Quacquarelli Symonds Limited. All rights reserved.</p>
-        </div>
-      <ul className="flex gap-6 ">
+      <div className="flex text-center md:flex-row flex-col md:justify-between mt-5 text-xs mb-[5%]">
+       
+      <ul className="flex gap-6  mb-[5%] justify-between">
         <li>
             Cookies
         </li>
@@ -71,7 +75,10 @@ function footer() {
         <li>
             Terms & Condition
         </li>
-      </ul>
+      </ul> 
+      <div className="copyright ">
+          <p>© 2024 QS Quacquarelli Symonds Limited. All rights reserved.</p>
+        </div>
       </div>
     </div>
   );

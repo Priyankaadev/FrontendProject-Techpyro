@@ -8,6 +8,7 @@ import Journey from "@/components/journey/journey";
 import Profile from "@/components/profileCard/profile";
 //constant js file
 import { constant } from "@/constant/constant";
+import {profile, profileConstant} from "@/constant/profile";
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -24,13 +25,13 @@ import 'swiper/css/scrollbar';
 
 function section3() {
   return (
-    <div className="container ">
+    <div className="container overflow-hidden ">
 
-      <div className="row-1 flex  ">
-        <div className=" flex basis-1/2">
+      <div className="row-1 flex md:flex-row flex-col  ">
+        <div className=" flex md:basis-1/2">
           <img src="/aboutus/approach.png" />
         </div>
-        <div className="flex basis-1/2 flex-col  px-[5%] justify-center">
+        <div className="flex md:basis-1/2 flex-col  px-[5%] justify-center">
           <Heading2
             head={"Our Approach"}
             body={
@@ -38,7 +39,7 @@ function section3() {
             }
           />
 
-          <div className=" grid grid-cols-2 gap-4">
+          <div className=" grid md:grid-cols-2 px-[5%] gap-4">
             <Point img={"/aboutus/Tick.png"} point={"Comprehensive evaluation"}/>
             <Point img={"/aboutus/Tick.png"} point={"Continuous improvement"} />
             <Point img={"/aboutus/Tick.png"} point={"Data-driven insights"} />
@@ -62,10 +63,28 @@ function section3() {
             }}
         modules={[Pagination]}
         className="mySwiper"
+        breakpoints={{
+          320:{
+            slidesPerView:1,
+            spaceBetween:0
+          },
+          640:{
+            slidesPerView:2,
+            spaceBetween:20
+          },
+          768:{
+            slidesPerView:3,
+            spaceBetween:30
+          },
+          1024:{
+            slidesPerView:4,
+            spaceBetween:40
+          }
+        }}
         >
             {constant.map((item, idx)=>(
                 <SwiperSlide>
-                    <Journey idx={idx}  year={item.number} head={item.title}  /> 
+                    <Journey idx={idx} year={item.number} head={item.title}  /> 
                 </SwiperSlide>
             ))}                   
           </Swiper>
@@ -74,31 +93,62 @@ function section3() {
 
       <div className="row-3 px-[5%] mt-[10%]">
      <Heading2 head={"Advisory Board"} body={"Meet the dedicated individuals driving our mission forward with expertise and passion."}/>
-     <div className="profile-cards flex gap-5">
-        <Profile img={'/aboutus/profile2.png'} name={"Person Name"} desc={"desc"}  />
-        <Profile img={'/aboutus/profile2.png'} name={"Person Name"} desc={"desc"}  />
-        <Profile img={'/aboutus/profile1.jpg'} name={"Person Name"} desc={"desc"}  />
-        <Profile img={'/aboutus/profile1.jpg'} name={"Person Name"} desc={"desc"}  />
+     <div className="profile-cards flex gap-5 ">
+     <Swiper
+            slidesPerView={4}
+            pagination={{
+                dynamicBullets: true,
+
+            }}
+        modules={[Pagination]}
+        className="mySwiper"
+        breakpoints={{
+          320:{
+            slidesPerView:1,
+            spaceBetween:0
+          },
+          640:{
+            slidesPerView:2,
+            spaceBetween:20
+          },
+          768:{
+            slidesPerView:3,
+            spaceBetween:30
+          },
+          1024:{
+            slidesPerView:4,
+            spaceBetween:40
+          }
+        }}
+        >
+          {profileConstant.map((item, idx)=>(
+           <SwiperSlide>
+            <Profile idx={idx} name={item.name} desc={item.desc} img={item.img}  /> 
+           </SwiperSlide>
+          ))}
+          </Swiper>
      </div>
      
       </div>
 
-      <div className="row-4  items-center flex mt-[8%] mb-[9%] ">
-        <div className="flex basis-1/2 flex-col px-[6%]">
-        <p className="font-semibold text-[40px] mb-5  ">Charting India's Education Odyssey</p>
-        <p className="text-[15px]   ">
-        The Indian education system is vast and multifaceted, 
-        catering to an extensive population, which necessitates
+      <div className="row-4  items-center flex flex-col md:flex-row  mt-[8%] mb-[9%] ">
+        
+        <div className="flex md:basis-1/2 md:px-5 bg-cover mb-5 ">
+          <img src="./aboutus/indianedu.jpg" className=" education-img " />
+        </div>
+
+        <div className="flex md:basis-1/2 flex-col px-[6%] py-[5%]">
+          <p className="font-semibold text-[40px] mb-5 leading-10  ">Charting India's Education Odyssey</p>
+          <p className="text-[15px]   ">
+         The Indian education system is vast and multifaceted, 
+          catering to an extensive population, which necessitates
          the presence of credible and reliable ratings. Institutional ratings play
           a crucial role in assisting students, parents, 
-        researchers, stakeholders, educators, and employers in selecting the most suitable institution
+          researchers, stakeholders, educators, and employers in selecting the most suitable institution
          based on globally recognised benchmarks. QS I-GAUGE specialises in ratings Indian educational institutions.
           Our aim is to elevate the quality of Indian education, enabling institutions to compete on
            an international level and fostering a culture of excellence in teaching, research, and innovation. 
         </p>
-        </div>
-        <div className="flex basis-1/2 px-5 ">
-          <img src="./aboutus/indianedu.jpg" className=" " />
         </div>
   
       </div>
