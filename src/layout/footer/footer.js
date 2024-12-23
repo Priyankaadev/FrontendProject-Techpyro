@@ -15,7 +15,7 @@ function footer() {
         </div> */}
         <div className="row-1 h-[15vh] w-[100wh] mx-auto mt-5 flex gap-[10%] text-sm ">
       <div className="logo-container flex  basis-2/3  md:basis-[1/2]">
-        <img  src="/header/logo.png" className="logo-img md:h-[3rem]  md:w-[8rem] h-[3em] w-[10em] " />
+        <img  src="/header/logo.png" className="logo-img md:h-[3rem]  md:w-[8rem] h-[2em] w-[8em] " />
       </div>
 
         <ul className="icons flex gap-5 items-center">

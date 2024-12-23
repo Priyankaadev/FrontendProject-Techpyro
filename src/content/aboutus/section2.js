@@ -49,11 +49,11 @@ function section2() {
       <div className='cards flex flex-col md:flex-row md:gap-7 basis-[60%] '> 
         
         <Card2 img={"/aboutus/Honesty.png"} head={"Honesty"} body={"Honesty implies our commitment to truthfulness and sincerity in all aspects of operations and reporting. "}/>
-        <div className="bg-[#FFD683] md:h-35 md:w-0.5 h-48 w-0.5 hidden md:block" />
+        <div className="bg-[#FFF1D2] md:h-35 md:w-0.5 h-48 w-0.5" />
       <Card2 img={"/aboutus/Transp.png"} head={"Transparency"} body={"We promote openness and accessibility of information related to educational quality and performance. "}/>
-      <div className="bg-[#FFD683] h-48 w-0.5 hidden md:block" />
+      <div className="bg-[#FFF1D2] h-48 w-0.5 " />
       <Card2 img={"/aboutus/Integ.png"} head={"Integrity"} body={"Integrity is a fundamental value within QS I-GAUGE, emphasizing ethical behaviour, reliability, and consistency in educational practices."}/>
-      <div className="bg-[#FFD683] h-48 w-0.5 hidden md:block" />
+      <div className="bg-[#FFF1D2] h-48 w-0.5 rotate-180" />
       <Card2 img={"/aboutus/Excellence.png"} head={"Excellence"} body={"Excellence is a central goal of the QS I-GAUGE framework, driving continuous improvement and innovation in higher education."}/>
       
       </div>

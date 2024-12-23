@@ -1,5 +1,6 @@
 import React from "react";
 
+
 //icons
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -19,6 +20,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import Link from 'next/link';
+
 
 const header = () => {
   return (
@@ -28,8 +31,8 @@ const header = () => {
       </div>
 
       <div className="row flex basis-2/3  ">
-      <div className="md:hidden flex justify-between h-[100%] w-[100%]">
-        <IoSearch fontSize={28} />
+      <div className="md:hidden flex justify-around  h-[100%] w-[100%]">
+        <IoSearch fontSize={28}  />
         <RiAccountCircleFill fontSize={26} />
         <CgMenuRight fontSize={26} />
       </div>
@@ -39,25 +42,22 @@ const header = () => {
           <div className="items md:text-[1em]  flex gap-[1rem] ">
             <p>Contact</p>
             <p>Resource</p>
-            <p>About</p>
+            <p> <Link href="/aboutus">About</Link></p>
             <p>Menu item</p>
             <p>Menu item</p>
           </div>
           <ul className="icons flex gap-[1rem] ">
             <li>
-              {" "}
+
               <FaFacebookF />
             </li>
             <li>
-              {" "}
               <IoLogoInstagram />
             </li>
             <li>
-              {" "}
               <FaXTwitter />
             </li>
             <li>
-              {" "}
               <FaYoutube />
             </li>
             <li>

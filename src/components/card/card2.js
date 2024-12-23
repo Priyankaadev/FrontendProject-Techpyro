@@ -10,7 +10,7 @@ function card2({ img, head, body }) {
       </div>
       <div className="flex basis-[60%] flex-col  justify-center ">
         <p className="font-semibold md:text-[15px] lg:text-[20px] text-[20px] mb-4">{head}</p>
-        <p className="card-body md:text-[10px] text-[15px] mb-[5em]">{body}</p>
+        <p className="card-body md:text-[15px] text-[15px] md:mb-[5em]">{body}</p>
         
       </div>
      
