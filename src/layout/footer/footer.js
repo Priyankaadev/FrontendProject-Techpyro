@@ -6,41 +6,40 @@ import { IoLogoInstagram } from "react-icons/io";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
+import Link from 'next/link';
+
 function footer() {
   return (
-    <div className="container px-[60px] mt-[3%] overflow-hidden ">
-      {/* <div className="row1 flex mb-5  justify-between ">
-        <div className="logo-container h-[50%] w-[50%]  ">
-          <img src="/header/logo.png" className="logo-img h-[72px] w-[225px]" />
-        </div> */}
-        <div className="row-1 h-[15vh] w-[100wh] mx-auto mt-5 flex gap-[10%] text-sm ">
-      <div className="logo-container flex  basis-2/3  md:basis-[1/2]">
-        <img  src="/header/logo.png" className="logo-img md:h-[3rem]  md:w-[8rem] h-[2em] w-[8em] " />
-      </div>
+    <div className="container p-[5%] mt-auto relative ">
+    
+        <div className="row-1 w-[100wh] mx-auto mt-5 flex-shrink-0 flex justify-between text-sm ">
+        
+        <div className="logo-container flex items-center basis-2/3  md:basis-[1/2]">
+           <img  src="/header/logo.png" className="logo-img md:h-[4rem] md:w-[12rem] h-[3rem] w-[8rem] " />
+           </div>
 
-        <ul className="icons flex gap-5 items-center">
-          <li>
+           <ul className="icons flex md:gap-5 sm:gap-3 gap-2 items-center">
+            <li>
             {" "}
-            <FaFacebookF fontSize={20} />
-          </li>
-          <li>
-            {" "}
-            <IoLogoInstagram fontSize={20}/>
-          </li>
-          <li>
-            {" "}
-            <FaXTwitter fontSize={20}/>
-          </li> 
-          <li>
-            {" "}
-            <FaLinkedinIn fontSize={20}/>
-          </li>
-          <li>
-            {" "}
-            <FaYoutube fontSize={20}/>
-          </li>
+            <FaFacebookF fontSize={18} />
+            </li>
+           <li>
+           
+            <IoLogoInstagram fontSize={18}/>
+           </li>
+           <li>
+          
+            <FaXTwitter fontSize={18}/>
+           </li> 
+           <li>
+            <FaLinkedinIn fontSize={18}/>
+           </li>
+           <li>
+        
+            <FaYoutube fontSize={18}/>
+           </li>
          
-        </ul>
+         </ul>
       </div>
       <h3 className="mb-5 mt-5 text-[12px] tracking-wide  ">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -58,12 +57,12 @@ function footer() {
         <p>College Rating</p>
         <p>Subject Rating</p>
         <p>School Education</p>
-        <p>News</p>
-        <p>Events</p>
+        <p><Link href="/news" >News</Link></p>
+        <p><Link href="/events" >Events</Link></p>
         <p>Blogs</p>
       </div>
       <hr />
-      <div className="flex text-center md:flex-row flex-col md:justify-between mt-5 text-xs mb-[5%]">
+      <div className="flex text-center md:flex-row flex-col md:justify-between mt-5 text-xs mb-[2%]">
        
       <ul className="flex gap-6  mb-[5%] justify-between">
         <li>

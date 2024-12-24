@@ -5,11 +5,11 @@ import Section3 from '@/content/events/section3'
 
 function page() {
   return (
-   <>
+   <div>
    <Section1 />
    <Section2 />
    <Section3 />
-   </>
+   </div>
   )
 }
 
