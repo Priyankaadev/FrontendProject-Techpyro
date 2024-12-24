@@ -64,7 +64,7 @@ function footer() {
       <hr />
       <div className="flex text-center md:flex-row flex-col md:justify-between mt-5 text-xs mb-[2%]">
        
-      <ul className="flex gap-6  mb-[5%] justify-between">
+      <ul className="flex gap-6 justify-between">
         <li>
             Cookies
         </li>

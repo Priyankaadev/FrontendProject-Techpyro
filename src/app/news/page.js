@@ -18,9 +18,10 @@ function page() {
            ))}
      
         </div>
-
-        <Register />
-   
+        <div className='px-[5%] md:px-0 relative'>
+         <Register />
+     </div>
+       
     </div>
   )
 }

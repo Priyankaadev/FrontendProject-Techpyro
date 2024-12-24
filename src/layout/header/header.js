@@ -87,8 +87,8 @@ const header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1 " >Events<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent >
-                <DropdownMenuLabel><Link href="/events">Upcoming Events</Link></DropdownMenuLabel>
-                <DropdownMenuLabel>Past Events</DropdownMenuLabel>
+                <DropdownMenuLabel><Link href="/events/upcomingEvents">Upcoming Events</Link></DropdownMenuLabel>
+                <DropdownMenuLabel><Link href="/events/pastEvents">Past Events</Link></DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>

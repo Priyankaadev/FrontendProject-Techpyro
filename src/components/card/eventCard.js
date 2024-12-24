@@ -23,7 +23,9 @@ function eventCard({ img, time, date, mode, name, place, desc}) {
       <p className='md:text-[20px] font-semibold'>{name}</p>
       <p  className='flex items-center gap-1'><ImLocation2/>{place}</p>
       <p className='description'>{desc}</p>
-      <button className='flex items-center w-[7rem] gap-1 px-2 h-[2rem] bg-[#F7A600] '><IoIosSend />Apply Now</button>
+      <button className='flex items-center w-[7rem] gap-1 px-2 h-[2rem] bg-[#F7A600] '
+      onClick={handleClick}
+      ><IoIosSend />Apply Now</button>
     </div>
     </div>
   )
