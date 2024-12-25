@@ -80,7 +80,7 @@ const header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex gap-1">Media<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+             <Link href='/videos'>  <DropdownMenuLabel>Videos</DropdownMenuLabel></Link> 
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>

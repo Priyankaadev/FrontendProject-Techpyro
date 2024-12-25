@@ -19,8 +19,9 @@ function page() {
     />
    
     <div className="row1 flex flex-col px-[4%]  md:grid md:grid-cols-2 md:px-[2%] md:gap-[5%]  ">
-      {upcomingEv.map((item) => (
+      {upcomingEv.map((item, idx) => (
         <EventCard
+         idx={idx}
           mode={item.mode}
           img={item.img}
           place={item.place}

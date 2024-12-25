@@ -17,8 +17,8 @@ function section1() {
           <img src="./aboutus/img2.png" className=" aboutus-img" />
         </div>
         <div className="flex md:basis-[50%] flex-col px-[4%] ">
-        <p className="font-semibold md:text-[58.98px] mb-4 mt-5  text-[27px] ">About QS I-GAUGE</p>
-        <p className="md:text-[20px] text-[16px] py-6  ">QS I-GAUGE, an esteemed brand established in India, 
+        <p className="font-semibold lg:text-[58.98px] mb-2 md:mb-0 mt-5 md:text-[40px] text-[27px] ">About QS I-GAUGE</p>
+        <p className="lg:text-[20px] md:text-[18px] text-[16px] py-6  ">QS I-GAUGE, an esteemed brand established in India, 
         specialises in rating universities, schools, and colleges, 
          drawing upon global expertise and the esteemed legacy of  
          QS (Quacquarelli Symonds) based in U.K. Our transparent 
