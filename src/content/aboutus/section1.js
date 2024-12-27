@@ -2,15 +2,15 @@ import React from "react";
 
 function section1() {
   return (
-    <div className="container flex flex-col justify-center border-t ">
+    <div className="w-full flex flex-col justify-center border-t mt-5 ">
       <div className="row-1 flex flex-col mt-4 items-center ">
         <img src="./aboutus/img1.png" className="h-[39px] w-[52px] mt-[5%] md:h-[4rem] md:mt-[10%] md:w-[5rem] " />
-        <h1 className="font-bold md:text-[48px] px-5 text-[25px] text-center mt-4 mb-4">
+        <h1 className="font-bold md:text-[48px] px-[3%] text-[25px] text-center mt-4 mb-4">
           A robust rating system ensures that this journey is 
            marked by integrity, transparency, and meaningful 
             outcomes.
         </h1>
-        <img src="./aboutus/star.png" className="md:h-[30em] md:w-[50em]] px-5 mt-[5%]" />
+        <img src="./aboutus/star.png" className="md:h-[25em] md:w-[50em]] px-5 mt-[5%]" />
       </div>
       <div className="row-2 md:flex  items-center mt-[10%] ">
         <div className="flex md:basis-[50%] cover ">

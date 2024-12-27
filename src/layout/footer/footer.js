@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 function footer() {
   return (
-    <div className="container p-[5%] mt-auto relative ">
+    <div className="w-full p-[5%] mt-auto relative   ">
     
         <div className="row-1 w-[100wh] mx-auto mt-5 flex-shrink-0 flex justify-between text-sm ">
         
@@ -52,7 +52,7 @@ function footer() {
       </h3>
       <hr />
       <div className="items flex py-5 gap-5 md:flex-row flex-col text-sm ">
-        <p>About I-Gauge</p>
+        <Link href='/aboutus'><p>About I-Gauge</p></Link>
         <p>University Rating</p>
         <p>College Rating</p>
         <p>Subject Rating</p>

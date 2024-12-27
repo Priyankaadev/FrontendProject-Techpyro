@@ -6,11 +6,11 @@ import Card2 from '@/components/card/card2'
 
 function section2() {
   return (
-    <div className='container block-1 bg-[#FFF1D2] '>
+    <div className='w-full block-1 bg-[#FFF1D2] py-[5%] '>
 
      <Heading head={"Our Purpose"} body={"Our mission and vision drive us towards a future where honest information is accessible to all students and institutions work towards their growth."} />
 
-      <div className='row-2 md:flex md:block hidden md:items-center '>
+      <div className='row-2 md:flex  hidden md:items-center '>
 
         <div className='cards flex flex-col gap-10 basis-[60%] justify-center items-center md:px-[2%] '>
 
@@ -24,7 +24,8 @@ function section2() {
         </div>
 
       </div>
-      <div className='row-2 md:flex md:hidden   '>
+
+      <div className='row-2 mflex md:hidden   '>
 
         <div className='cards flex flex-col gap-10 basis-[60%] justify-center items-center '>
 
@@ -40,20 +41,22 @@ function section2() {
 
       </div>
 
-      <div className='block-2 '>
+      <div className='block-2 lg:py-5 py-[15%] '>
 
         <Heading head={"Our Values"} body={"Our values guide every aspect of our work, ensuring trustworthy evaluations and positive contributions to the education sector."}/>
       
         <div className='row-2 flex  justify-center   '>
-
-      <div className='cards  flex flex-col lg:flex-row lg:gap-3 basis-[60%] items-center '> 
+      <div className='cards flex flex-col lg:flex-row lg:gap-3 basis-[60%] items-center gap-[5em] lg:ml-5 '> 
         
         <Card2 img={"/aboutus/Honesty.png"} head={"Honesty"} body={"Honesty implies our commitment to truthfulness and sincerity in all aspects of operations and reporting. "}/>
-        <div className="bg-[#FFD683] md:h-35 md:w-0.5 h-[20rem] w-0.5 rotate-90 md:rotate-180" />
+        <div className="bg-[#FFD683] md:h-35 lg:h-[15rem] w-0.5  md:rotate-180 hidden md:block" />
+
       <Card2 img={"/aboutus/Transp.png"} head={"Transparency"} body={"We promote openness and accessibility of information related to educational quality and performance. "}/>
-      <div className="bg-[#FFD683] md:h-35 md:w-0.5  h-[20rem] w-0.5 rotate-90 md:rotate-180" />
+      <div className="bg-[#FFD683] md:h-35 lg:h-[15rem] w-0.5  md:rotate-180 hidden md:block" />
+
       <Card2 img={"/aboutus/Integ.png"} head={"Integrity"} body={"Integrity is a fundamental value within QS I-GAUGE, emphasizing ethical behaviour, reliability, and consistency in educational practices."}/>
-      <div className="bg-[#FFD683] md:h-35 md:w-0.5 h-[20rem] w-0.5 rotate-90 md:rotate-180" />
+      <div className="bg-[#FFD683] md:h-35 lg:h-[15rem] w-0.5  md:rotate-180 hidden md:block" />
+
       <Card2 img={"/aboutus/Excellence.png"} head={"Excellence"} body={"Excellence is a central goal of the QS I-GAUGE framework, driving continuous improvement and innovation in higher education."}/>
       
       </div>
