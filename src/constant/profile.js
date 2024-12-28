@@ -29,4 +29,25 @@ export const profileConstant = [
       "name" : "Person Name",
       "id": "95"
     }
+    ,
+    {
+      "img":"/aboutus/profile1.jpg",
+      "desc" : "desc",
+      "name" : "Person Name",
+      "id": "96"
+    }
+    ,
+    {
+      "img":"/aboutus/profile1.jpg",
+      "desc" : "desc",
+      "name" : "Person Name",
+      "id": "97"
+    }
+    ,
+    {
+      "img":"/aboutus/profile1.jpg",
+      "desc" : "desc",
+      "name" : "Person Name",
+      "id": "98"
+    }
   ]

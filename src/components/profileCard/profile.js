@@ -5,7 +5,7 @@ import { IoLogoInstagram } from 'react-icons/io'
 
 function profile({img, name, desc}) {
   return (
-    <div className='container flex flex-col shadow-lg'>
+    <div className='w-fulll flex flex-col shadow-lg '>
       <div className='flex basis-[60%]  '>
       <img src={img} />
       </div>

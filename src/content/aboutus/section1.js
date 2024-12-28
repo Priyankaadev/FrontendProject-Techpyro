@@ -2,8 +2,8 @@ import React from "react";
 
 function section1() {
   return (
-    <div className="w-full flex flex-col justify-center border-t mt-5 ">
-      <div className="row-1 flex flex-col mt-4 items-center ">
+    <div className="w-full flex flex-col justify-center border-t ">
+      <div className="row-1 flex flex-col  items-center ">
         <img src="./aboutus/img1.png" className="h-[39px] w-[52px] mt-[5%] md:h-[4rem] md:mt-[10%] md:w-[5rem] " />
         <h1 className="font-bold md:text-[48px] px-[3%] text-[25px] text-center mt-4 mb-4">
           A robust rating system ensures that this journey is 

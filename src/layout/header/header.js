@@ -25,16 +25,16 @@ import Link from 'next/link';
 
 const header = () => {
   return (
-    <div className="w-full md:h-[30vh] h-[15vh]  flex-shrink-0 px-8 mt-5 gap-[3rem] flex text-sm  ">
+    <div className="w-full md:h-[27vh]  h-[15vh]  flex-shrink-0 px-8 mt-5 md:gap-[3rem] gap-[1rem] flex text-sm overflow-hidden">
       <div className="logo-container flex  basis-1/3 mb-2 ">
         <img  src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2rem] w-[6rem]  " />
       </div>
 
       <div className="row flex basis-2/3  ">
       <div className="md:hidden flex justify-around  h-[100%] w-[100%]">
-        <IoSearch fontSize={28}  />
-        <RiAccountCircleFill fontSize={26} />
-        <CgMenuRight fontSize={26} />
+        <IoSearch fontSize={25}  />
+        <RiAccountCircleFill fontSize={25} />
+        <CgMenuRight fontSize={25} />
       </div>
      
       <div className="hidden md:block w-full max-w-[800px] ">
