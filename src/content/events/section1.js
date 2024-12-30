@@ -2,7 +2,7 @@ import React from "react";
 
 function section1() {
   return (
-    <div className="container flex flex-col justify-center ">
+    <div className="w-full flex flex-col justify-center ">
       <div className="row-1 flex flex-col mt-3 items-center ">
         <img
           src="./aboutus/img1.png"

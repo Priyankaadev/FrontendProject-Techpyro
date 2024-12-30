@@ -6,7 +6,7 @@ import Card2 from "@/components/card/card2";
 
 function section2() {
   return (
-    <div className="container   ">
+    <div className="section2 py-[5%] justify-center ">
       <Heading
         head={"What to Expect"}
         body={
@@ -14,8 +14,8 @@ function section2() {
         }
       />
 
-      <div className="row-2 flex  justify-center">
-        <div className="cards flex flex-col md:flex-row md:gap-5 px-[5%] ">
+      <div className="row-2 flex justify-center items-center">
+        <div className="cards flex flex-col md:flex-row md:flex-wrap px-[5%] lg:gap-5 md:justify-center  ">
           <Card2
             img={"/events/stack.png"}
             head={"Lorem Ipsum"}
@@ -23,7 +23,9 @@ function section2() {
               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam"
             }
           />
-          <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 h-72 w-0.5 md:rotate-180 rotate-90" />
+          
+          <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 w-full h-[2px] my-10 " />
+     
           <Card2
             img={"/events/stack.png"}
             head={"Lorem Ipsum"}
@@ -31,7 +33,9 @@ function section2() {
               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam"
             }
           />
-          <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 h-72 w-0.5 md:rotate-180 rotate-90" />
+
+         <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 w-full h-[2px] my-10 lg:block md:hidden" />
+         
           <Card2
             img={"/events/stack.png"}
             head={"Lorem Ipsum"}
@@ -39,8 +43,10 @@ function section2() {
               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam"
             }
           />
-          <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 h-72 w-0.5 md:rotate-180 rotate-90" />
-          <Card2
+
+        <div className="bg-[#FFF1D2] mx-auto md:h-48 md:w-0.5 w-full h-[2px] my-10 " />        
+        
+         <Card2
             img={"/events/stack.png"}
             head={"Lorem Ipsum"}
             body={
