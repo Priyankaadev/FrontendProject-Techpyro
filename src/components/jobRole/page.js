@@ -13,7 +13,7 @@ function page({ title, place, desc }) {
   const [show, setShow] = useState(false);
 
   return (
-    <div className="container flex flex-col gap-4 justify-center border-2 w-[30em] max-h-[65em] min-h-[20em] px-[4%] ">
+    <div className=" w-full flex flex-col gap-4 justify-center border-2  h-auto p-[4%]  ">
       <p className="md:text-[20px] font-semibold">{title}</p>
       <p className="flex items-center gap-1">
         <ImLocation2 />

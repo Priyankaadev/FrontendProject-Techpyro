@@ -4,13 +4,13 @@ import Form from '@/components/form/form'
 
 function page() {
   return (
-    <div className='container bg-[#FFF1D2]'>
+    <div className=' bg-[#FFF1D2]'>
 
       <div className='flex flex-col md:flex-row px-[2%] '>
 
         <div className='contact-block flex flex-col p-[5%]  justify-center items-center basis-[50%]'>
             <div className='heading'>
-              <p className='font-semibold md:text-[58.98px] text-[27px] md:leading-9'>Get in Touch</p>
+              <p className='font-semibold md:text-[58.98px] text-[27px] md:leading-tight'>Get in Touch</p>
             
               <hr className='mt-5'  />
 

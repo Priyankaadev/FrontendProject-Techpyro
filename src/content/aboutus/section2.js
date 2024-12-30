@@ -25,7 +25,7 @@ function section2() {
 
       </div>
 
-      <div className='row-2 mflex md:hidden   '>
+      <div className='row-2 flex md:hidden items-center justify-center  '>
 
         <div className='cards flex flex-col gap-10 basis-[60%] justify-center items-center '>
 

@@ -6,12 +6,12 @@ import Heading from '@/components/heading/heading'
 
 function page() {
   return (
-    <div className='container md:py-2  '>
-        <div className='flex justify-between mb-[5%] font-semibold text-[27px] px-[9%] md:block hidden ' >
+    <div className=' md:py-6  '>
+        <div className='md:flex justify-between mb-[5%] font-semibold text-[27px] px-[9%]  hidden ' >
             <p>Videos</p>
         
         </div>
-        <div className='flex flex-col justify-between mb-[5%] font-semibold text-[27px] px-[5%] md:hidden block  ' >
+        <div className='flex flex-col justify-between mb-[5%] font-semibold text-[27px] px-[5%] md:hidden   ' >
            <Heading head={"Videos"}
             body={"Our mission and vision drive us towards a future where honest information is accessible to all students and institutions work towards their growth."}
             />
@@ -23,7 +23,7 @@ function page() {
             </div>
         </div>
         <div className='flex justify-center'>
-        <div className='videos grid lg:grid-cols-3 lg:grid-flow-row lg:gap-10  md:grid-cols-2 md:grid-flow-row md:gap-7 gap-5 '>
+        <div className='videos grid lg:grid-cols-3 lg:grid-flow-row lg:gap-10  md:grid-cols-2 md:grid-flow-row md:gap-7 gap-5 px-[5%] '>
             <EventVideo
              head={"Lorem ipsum dolor sit amet"}
              img={'/events/eventvideo1.png'}

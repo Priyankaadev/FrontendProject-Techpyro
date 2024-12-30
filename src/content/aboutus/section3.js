@@ -21,12 +21,12 @@ import "swiper/css/scrollbar";
 
 function section3() {
   return (
-    <div className="w-full overflow-hidden ">
+    <div className="w-full overflow-hidden  ">
       <div className="row-1 flex lg:flex-row flex-col  ">
         <div className=" flex md:basis-1/2">
           <img src="/aboutus/approach.png" />
         </div>
-        <div className="flex md:basis-1/2 flex-col px-[5%] justify-center">
+        <div className="flex md:basis-1/2 flex-col px-[5%] justify-center py-5">
           <Heading2
             head={"Our Approach"}
             body={
