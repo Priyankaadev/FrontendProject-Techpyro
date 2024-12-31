@@ -9,7 +9,7 @@ import { ImLocation2 } from "react-icons/im";
 
 function dedicatedEventCard({ img, time, date, mode, name, place, desc, idx}) {
   return (
-    <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[3%]  '>
+    <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[1%]  '>
    <div className='flex flex-col md:flex-row basis-[50%]'>
       <img src={img} className="md:bg-cover "/>
       </div>

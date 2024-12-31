@@ -17,7 +17,7 @@ import { Pagination } from "swiper/modules";
 
 function section1() {
   return (
-    <div className="section1 py-[5%]">
+    <div className="section1 w-full py-[5%]">
       {/* event details */}
       <div className="head-data flex px-[5%] lg:py-0 md:py-[5%]">
         <Heading2

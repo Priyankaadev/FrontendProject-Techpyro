@@ -8,7 +8,7 @@ import Register from '@/components/register/register';
 
 function page() {
   return (
-    <div className='container mb-[2%]'>
+    <div className='w-full mb-[2%]'>
       <Heading head={"Press Release"} 
       body={"Our mission and vision drive us towards a future where honest information is accessible to all students and institutions work towards their growth."}
       />

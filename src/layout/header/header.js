@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 
 
@@ -21,13 +22,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 
 
 const header = () => {
+  const router = useRouter();
+ 
+
   return (
     <div className="w-full md:h-[27vh]  h-[15vh]  flex-shrink-0 px-8 mt-5 md:gap-[3rem] gap-[1rem] flex text-sm overflow-hidden">
       <div className="logo-container flex  basis-1/3 mb-2 ">
-        <img  src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2rem] w-[6rem]  " />
+        <img onClick={()=> router.push('/')} src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2rem] w-[6rem]  " />
       </div>
 
       <div className="row flex basis-2/3  ">
@@ -43,8 +48,8 @@ const header = () => {
           <Link href="/contact">  <p>Contact</p></Link>
             <p>Resource</p>
             <p> <Link href="/aboutus">About</Link></p>
-            <p>Menu item</p>
-            <p>Menu item</p>
+            <p><Link href="/careers">Careers</Link></p>
+            <p><Link href="/press">Press Release</Link></p>
           </div>
           <ul className="icons flex gap-[1rem]  ">
            
@@ -67,9 +72,9 @@ const header = () => {
           </ul>
         </div>
         <hr  className="md:block hidden "/>
-        <div className="row-2  flex justify-between gap-4 flex-shrink-0 items-center  ">
+        <div className="row-2 flex xl:gap-8 md:gap-4  flex-shrink-0 items-center  ">
           <div className="dropdown-items flex lg:shrink-0 shrink lg:gap-3 gap-2 mt-2 lg:text-[14px]  md:text-[12px] ">
-            <DropdownMenu>
+            <DropdownMenu >
               <DropdownMenuTrigger className="flex gap-1">Higher Education<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>

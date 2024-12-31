@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 function footer() {
   return (
-    <div className="w-full p-[5%] mt-auto relative   ">
+    <div className="w-full p-[5%] mt-auto border-t  ">
     
         <div className="row-1 w-[100wh] mx-auto mt-5 flex-shrink-0 flex justify-between text-sm ">
         
@@ -75,7 +75,7 @@ function footer() {
             Terms & Condition
         </li>
       </ul> 
-      <div className="copyright ">
+      <div className="copyright mt-5  md:mt-0">
           <p>© 2024 QS Quacquarelli Symonds Limited. All rights reserved.</p>
         </div>
       </div>

@@ -14,7 +14,7 @@ function section2() {
       </div>
       <div className='flex flex-col justify-between items-center md:justify-normal md:items-stretch px-[5%] '>
         <p className='font-semibold md:text-[40px] text-[27px] mb-[3%]'>Event Video Highlights </p>
-        <div className='video-cards flex md:flex-row flex-col md:justify-between  '>
+        <div className='video-cards flex md:flex-row flex-col gap-5 md:justify-between  '>
             <EventVideo 
             head={"Lorem ipsum dolor sit amet"}
             img={'/events/eventvideo1.png'}
