@@ -12,15 +12,15 @@ function section2() {
 
       <div className='row-2 md:flex  hidden md:items-center '>
 
-        <div className='cards flex flex-col gap-10 basis-[60%] justify-center items-center md:px-[2%] '>
+        <div className='cards flex flex-col gap-10 basis-[50%] justify-center items-center md:px-[2%] '>
 
         <Card img={"/aboutus/mission.png"} head={"Mission"} body={"Our mission is aligned with the mission of QS, which is to enable people anywhere in the world to fulfil their dream through high quality education and career development."} />
         <Card img={"/aboutus/vision.png"} head={"Vision"} body={"Our vision is to be the leader in building world-class institutions in India through quality and excellence and a trusted partner to ambitious learners."}/>
        
         </div>
 
-        <div className='purpose-img h-[100%] w-[100%] flex basis-[40%] '>
-          <img src='./aboutus/purpose.png' className='h-[100%] w-[100%]'/>
+        <div className='purpose-img h-[100%] w-[100%] flex basis-[50%] '>
+          <img src='./aboutus/purpose.png' className='h-[90%] w-[90%]'/>
         </div>
 
       </div>

@@ -10,7 +10,7 @@ import { upcomingEv } from "@/constant/upcomingEvents";
 
 function page() {
   return (
-    <div className=" flex flex-col  mb-[10%] items-center  ">
+    <div className=" flex flex-col  mb-[10%] items-center  mt-8 ">
     <Heading
       head={"Past Events"}
       body={

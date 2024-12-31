@@ -10,9 +10,9 @@ function page() {
 
         <div className='contact-block flex flex-col p-[5%]  justify-center items-center basis-[50%]'>
             <div className='heading'>
-              <p className='font-semibold md:text-[58.98px] text-[27px] md:leading-tight'>Get in Touch</p>
+              <p className='font-semibold lg:text-[58.98px] md:text-[40px] text-[27px] md:leading-tight'>Get in Touch</p>
             
-              <hr className='mt-5'  />
+              <hr className='mt-3'  />
 
               <p className='text-[24px] mt-5'>
                 Sed ut perspiciatis unde omnis 
@@ -20,7 +20,7 @@ function page() {
                 voluptatem accusantium doloremque laudantium, 
                 totam rem aperian
               </p>
-              <img src='/contact/girl.png'/> 
+              <img src='/contact/girl.png' className='w-[60%]'/> 
               
               <div className='contact-details flex flex-col md:flex-row items-center justify-around mt-5 gap-3 md:gap-0'>
               <div className='message'>
