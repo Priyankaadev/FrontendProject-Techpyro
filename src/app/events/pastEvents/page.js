@@ -9,6 +9,7 @@ import { upcomingEv } from "@/constant/upcomingEvents";
 
 
 function page() {
+
   return (
     <div className=" flex flex-col  mb-[10%] items-center  mt-8 ">
     <Heading
@@ -19,9 +20,9 @@ function page() {
     />
    
     <div className="row1 flex flex-col px-[4%]  md:grid md:grid-cols-2 md:px-[2%] md:gap-5  ">
-      {upcomingEv.map((item, idx) => (
+      {upcomingEv.map((item) => (
         <EventCard
-         idx={idx}
+          idx={item.idx}
           mode={item.mode}
           img={item.img}
           place={item.place}
@@ -29,6 +30,7 @@ function page() {
           desc={item.desc}
           time={item.time}
           name={item.name}
+          type={"pastEvents"}
         />
       ))}
       

@@ -1,5 +1,6 @@
+"use client"
 import Heading from "@/components/heading/heading";
-import React from "react";
+import React, { useState } from "react";
 
 //components
 import EventCard from "@/components/card/eventCard";
@@ -11,6 +12,13 @@ import { upcomingEv } from "@/constant/upcomingEvents";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 function section3() {
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleEvents= ()=>{
+    {isOpen ? setIsOpen(!isOpen): setIsOpen(isOpen)}
+  }
+
   return (
     <div className=" flex flex-col items-center ">
       <Heading
@@ -22,13 +30,15 @@ function section3() {
 
       <div className="events">
         <div className="toggle-button flex gap-2 px-[5%] py-[5%] justify-center">
-          <button className="bg-[#F7A600] p-2">Upcoming Events</button>
-          <button className="p-2">Past Events</button>
+          <button className="bg-[#F7A600] p-2" onClick={handleEvents()}>Upcoming Events</button>
+          <button  onClick={handleEvents()} >
+            Past Events</button>
         </div>
 
         <div className="row1 flex flex-col px-[4%] relative justify-center  md:grid md:grid-cols-2 md:grid-flow-row md:gap-10 md:px-[5%]  ">
-          {upcomingEv.map((item) => (
+          {upcomingEv.map((item,idx) => (
             <EventCard
+              idx={item.idx}
               mode={item.mode}
               img={item.img}
               place={item.place}
@@ -36,6 +46,7 @@ function section3() {
               desc={item.desc}
               time={item.time}
               name={item.name}
+              type={"upcomingEvents"}
             />
           ))}
         </div>

@@ -18,8 +18,9 @@ function page() {
       />
 
       <div className="row1 flex flex-col py-10 px-[4%]  md:grid md:grid-cols-2 md:px-[2%] md:gap-5  ">
-        {upcomingEv.map((item) => (
+        {upcomingEv.map((item,idx) => (
           <EventCard
+            idx={item.idx}
             mode={item.mode}
             img={item.img}
             place={item.place}
@@ -27,6 +28,7 @@ function page() {
             desc={item.desc}
             time={item.time}
             name={item.name}
+            type={"upcomingEvents"}
           />
         ))}
       </div>

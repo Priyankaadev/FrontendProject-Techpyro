@@ -25,7 +25,7 @@ function section2() {
             img={'/events/eventvideo2.png'}
             body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}
             />
-            <EventVideo 
+            <EventVideo
             head={"Lorem ipsum dolor sit amet"}
             img={'/events/eventvideo3.png'}
             body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}

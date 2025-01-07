@@ -7,7 +7,9 @@ import { MdOutlineBroadcastOnPersonal } from "react-icons/md";
 import { ImLocation2 } from "react-icons/im";
 
 
-function dedicatedEventCard({ img, time, date, mode, name, place, desc, idx}) {
+function dedicatedEventCard({ img, time, date, mode, name, place, desc,idx, }) {
+  console.log(idx);
+  
   return (
     <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[1%]  '>
    <div className='flex flex-col md:flex-row basis-[50%]'>
