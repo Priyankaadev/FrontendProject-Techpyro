@@ -21,9 +21,9 @@ function eventCard({ img, time, date, mode, name, place, desc, idx,type}) {
       </div>
       <div className='flex flex-col basis-[45%] gap-1 px-5 py-4'>
        <div className='flex gap-[5%]'>
-        <p className='flex items-center gap-1 text-[8px] md:text-[15px]'><FaClock />{time}</p>
-        <p className='flex items-center gap-1 text-[8px] md:text-[15px]'><FaCalendarAlt />{date}</p>
-        <p className='flex items-center gap-1 text-[8px] md:text-[15px]'><MdOutlineBroadcastOnPersonal/>{mode}</p>
+        <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaClock />{time}</p>
+        <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaCalendarAlt />{date}</p>
+        <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><MdOutlineBroadcastOnPersonal/>{mode}</p>
       </div >
       <p className='md:text-[20px] font-semibold'>{name}</p>
       <p  className='flex items-center gap-1 md:text-[18px]'><ImLocation2/>{place}</p>

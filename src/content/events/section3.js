@@ -13,11 +13,9 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 
 function section3() {
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState("upcomingEvents")
 
-  const handleEvents= ()=>{
-    {isOpen ? setIsOpen(!isOpen): setIsOpen(isOpen)}
-  }
+  
 
   return (
     <div className=" flex flex-col items-center ">
@@ -30,12 +28,12 @@ function section3() {
 
       <div className="events">
         <div className="toggle-button flex gap-2 px-[5%] py-[5%] justify-center">
-          <button className="bg-[#F7A600] p-2" onClick={handleEvents()}>Upcoming Events</button>
-          <button  onClick={handleEvents()} >
+          <button className={` ${isOpen ==="upcomingEvents" ? "bg-[#F7A600] py-2" : "bg-white py-2"} `} onClick={()=>setIsOpen("upcomingEvents")}>Upcoming Events</button>
+          <button className={` ${isOpen ==="pastEvents" ? "bg-[#F7A600] py-2" : "bg-white py-2"}`} onClick={() => setIsOpen("pastEvents")} >
             Past Events</button>
         </div>
 
-        <div className="row1 flex flex-col px-[4%] relative justify-center  md:grid md:grid-cols-2 md:grid-flow-row md:gap-10 md:px-[5%]  ">
+        <div className="row1 flex flex-col px-[4%] relative justify-center md:grid md:grid-cols-2 md:grid-flow-row md:gap-10 md:px-[5%]  ">
           {upcomingEv.map((item,idx) => (
             <EventCard
               idx={item.idx}
@@ -46,7 +44,7 @@ function section3() {
               desc={item.desc}
               time={item.time}
               name={item.name}
-              type={"upcomingEvents"}
+              type={`${isOpen}`}
             />
           ))}
         </div>
