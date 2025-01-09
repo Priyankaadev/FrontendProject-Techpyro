@@ -55,9 +55,9 @@ const header = () => {
         <IoSearch fontSize={25}  className={
           menuOpen ? "hidden" : "flex"
         }  />
-        <RiAccountCircleFill fontSize={25} className={
+     <Link href='/auth/signup'> <RiAccountCircleFill fontSize={25} className={
           menuOpen ? "hidden" : "flex"
-        } />
+        } /></Link>  
         <CgMenuRight fontSize={25} onClick={handleNav}  className={
           menuOpen ? " ml-[50%]" : ""
         } />
@@ -69,9 +69,9 @@ const header = () => {
       }>
         <div className="flex w-full items-center justify-between ">
           
-           <img onClick={()=> router.push('/')} src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2.5em] w-[6.5em]  " />
-          <IoMdCloseCircleOutline fontSize={28} onClick={handleNav} className="cursor-pointer  " />
-        </div>
+      <img onClick={()=> router.push('/')} src="/header/logo.png" className="logo-img  md:h-[4rem] md:w-[12rem] h-[2.5em] w-[6.5em]  " />
+      <IoMdCloseCircleOutline fontSize={28} onClick={handleNav} className="cursor-pointer  " />
+      </div>
 
      {/* listed nav Items */}
 

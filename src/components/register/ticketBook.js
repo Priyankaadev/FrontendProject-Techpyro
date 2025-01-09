@@ -14,7 +14,7 @@ function ticketBook() {
         <p>Event Name</p>
       </div>
 
-      <div className="ticket-data p-[5%] ">
+      <div className="ticket-data p-[5%] bg-white ">
        {/* event-details */}
         <div className="event-details flex md:flex-row flex-col gap-[5%]  mt-[5%] mb-[5%]">
           <div className="event-item mb-2 md:mb-0 ">
@@ -43,12 +43,12 @@ function ticketBook() {
         <hr className=" border-dashed border-2 mb-[5%] " />
         {/* form */}
         <div className=" flex gap-5 md:gap-3  md:flex-row flex-col md:justify-between">
-          <input type="text" placeholder="Name" className="border-2 md:w-32 md:p-2 lg:w-40   mb-2 md:mb-0 " />
-          <input type="email" placeholder="E-mail" className="border-2 md:w-32 md:p-2 lg:w-40 mb-2 md:mb-0" />
+          <input type="text" placeholder="Name" className="border-2 md:w-32 md:p-2 lg:w-44  mb-2 md:mb-0 p-2" />
+          <input type="email" placeholder="E-mail" className="border-2 md:w-32 md:p-2 lg:w-44 mb-2 md:mb-0 p-2" />
           <input
             type="number"
             placeholder="Phone Number"
-            className="border-2  md:w-32 md:p-2 lg:w-40  mb-2 md:mb-0"
+            className="border-2  md:w-32 md:p-2 lg:w-44  mb-2 md:mb-0 p-2 "
           />
           <button className=" bg-[#F7A600]  py-2 px-4 font-semibold flex flex-shrink">Register Now</button>
         </div>

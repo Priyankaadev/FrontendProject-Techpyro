@@ -17,9 +17,12 @@ import { Pagination } from "swiper/modules";
 
 function section1() {
   return (
-    <div className="section1 w-full py-[5%]">
+    <div className="section1 w-full py-[2%]">
+      
+    <div className="bg-gradient-to-b from-[#FFF0D1]">
       {/* event details */}
-      <div className="head-data flex px-[5%] lg:py-0 md:py-[5%]">
+     <div className="head-data flex px-[5%] lg:py-0 md:py-[5%]">
+      
         <Heading2
           head={"Book Your Ticket Now"}
           body={
@@ -35,6 +38,7 @@ function section1() {
       <div className="ticket-card px-[8%] py-5 ">
         <TicketBook />
       </div>
+    </div> 
       {/* image slider */}
       <div className=" flex gap-1 mt-[5%]">
         <Swiper
