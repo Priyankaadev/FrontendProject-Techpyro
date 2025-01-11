@@ -219,7 +219,7 @@ const header = () => {
           </div>
           
           <IoSearch className=" h-7 w-5" />
-          <button className="bg-[#F7A70D] flex  p-2 text-[10px]"><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
+          <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/auth/signin')}><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
         </div>
      
       </div>
