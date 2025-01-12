@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 
 //icons
@@ -18,22 +18,29 @@ import { IoIosSettings } from "react-icons/io";
 
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from 'next/link';
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/context/authContext";
 
 
 const header = () => {
   const router = useRouter();
- 
+
+  const {userInfo} = useContext(AuthContext)
+
+
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleNav = ()=>{
+    setMenuOpen(!menuOpen)
+    console.log("clicked");
+    
+  }
+  const handleSearch = ()=>{
     setMenuOpen(!menuOpen)
     console.log("clicked");
     
@@ -52,12 +59,12 @@ const header = () => {
 
       {/* sm, md */}
       <div className="lg:hidden items-center flex justify-around  h-[100%] w-[100%]">
-        <IoSearch fontSize={25}  className={
+        <IoSearch fontSize={25} onClick={handleSearch}  className={
           menuOpen ? "hidden" : "flex"
         }  />
-     <Link href='/auth/signup'> <RiAccountCircleFill fontSize={25} className={
+      <RiAccountCircleFill fontSize={25} className={
           menuOpen ? "hidden" : "flex"
-        } /></Link>  
+        } />
         <CgMenuRight fontSize={25} onClick={handleNav}  className={
           menuOpen ? " ml-[50%]" : ""
         } />
@@ -219,7 +226,8 @@ const header = () => {
           </div>
           
           <IoSearch className=" h-7 w-5" />
-          <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/auth/signin')}><RiAccountCircleFill  className="h-5 w-5"/>SIGN IN</button>
+          {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/signin')}><RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button>}
+          {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
         </div>
      
       </div>

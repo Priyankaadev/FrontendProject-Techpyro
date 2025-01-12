@@ -1,31 +1,35 @@
 "use client"
 
 import * as Yup from "yup";
-import React from 'react'
+import React, { useContext } from 'react'
 import { useFormik } from "formik";
 import Link from "next/link";
+import { AuthContext } from "@/context/authContext";
 
 const schema = Yup.object().shape({
-  name: Yup.string().required("Name is required").matches(/^[A-Za-z\s]+$/, "name can only contain letters and spaces"),
-  email: Yup.string().required("Email is required").email("Invalid email"),
+  username: Yup.string().required("Email is required").email("Invalid email"),
   password: Yup.string().required("Password is incorrect").min(7),
 });
 
 
 function page() {
 
+const {handleLogin} = useContext(AuthContext)
+
   const formik = useFormik(
   {
     initialValues : {
-      name:"",
-      email:"",
+      
+      username:"",
       password:"",
     },
     //passing yup schema for validation   
     validationSchema: schema,
     onSubmit: (values) => {
       console.log("Form Submitted", values);
+      handleLogin({payload: values})
     },
+
   })
 
   const {errors, touched, values, handleChange, handleSubmit} = formik
@@ -42,8 +46,8 @@ function page() {
         <div className='signin-details flex w-full items-center flex-col  gap-2'>
        
    
-        <input type="email" placeholder="E-mail" className="border-2 w-[60%] p-1" name="email" value={values.email} onChange={handleChange}/>
-        <div className="text-[10px] md:text-[15px] text-red-500">  {errors.email && touched.email && <span>{errors.email}</span>}</div>
+        <input type="email" placeholder="username" className="border-2 w-[60%] p-1" name="username" value={values.username} onChange={handleChange}/>
+        <div className="text-[10px] md:text-[15px] text-red-500">  {errors.username && touched.username && <span>{errors.username}</span>}</div>
           
         <input type="password" placeholder="Password" className="border-2 w-[60%] p-1" name="password" value={values.password} onChange={handleChange}/>
         <div className="text-[10px] md:text-[15px] text-red-500">  {errors.password && touched.password && <span>{errors.password}</span>}</div>

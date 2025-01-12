@@ -1,12 +1,14 @@
 "use client"
 
 import * as Yup from "yup";
-import React from 'react'
+import React, { useContext } from 'react'
 import { useFormik } from "formik";
 import Link from "next/link";
+import { AuthContext } from "@/context/authContext";
+import { useRouter } from "next/navigation";
 
 const schema = Yup.object().shape({
-  name: Yup.string().required("Name is required").matches(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
+  full_name: Yup.string().required("Name is required").matches(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
   email: Yup.string().required("Email is required").email("Invalid email"),
   password: Yup.string().required("Password is required").min(7),
 });
@@ -14,10 +16,13 @@ const schema = Yup.object().shape({
 
 function page() {
 
+
+  const {handleSignup} = useContext(AuthContext)
+
   const formik = useFormik(
   {
     initialValues : {
-      name:"",
+      full_name:"",
       email:"",
       password:"",
     },
@@ -26,10 +31,13 @@ function page() {
 
     onSubmit: (values) => {
       console.log("Form Submitted", values);
+      handleSignup({payload: values})
     },
   })
 
   const {errors, touched, values, handleChange, handleSubmit} = formik
+
+  console.log(errors, touched)
 
   return (
     <div className=' w-full h-full flex justify-center items-center border-t'>
@@ -41,11 +49,11 @@ function page() {
        <form onSubmit={handleSubmit}>
 
         <div className='signup-details flex w-full items-center flex-col   gap-2'>
-        <input type="text" placeholder="Name" name="name" className="border-2 w-[60%]  p-1 " value={values.name} onChange={handleChange} />
-       <div className="text-[10px] md:text-[15px] text-red-500"> {errors.name && touched.name && <span>{errors.name}</span>}</div>
+        <input type="text" placeholder="Name" name="full_name" className="border-2 w-[60%]  p-1 " value={values.full_name} onChange={handleChange} />
+       <div className="text-[10px] md:text-[15px] text-red-500"> {errors.full_name && touched.full_name && <span>{errors.full_name}</span>}</div>
    
         <input type="email" placeholder="E-mail" className="border-2 w-[60%]  p-1" name="email" value={values.email} onChange={handleChange}/>
-        <div className="text-[10px] text-red-500 md:text-[15px]">  {errors.email && touched.email && <span>{errors.email}</span>}</div>
+        <div className="text-[10px] text-red-500 md:text-[15px]">  {errors.email  && <span>{errors.email}</span>}</div>
           
         <input type="password" placeholder="Password" className="border-2 w-[60%]  p-1" name="password" value={values.password} onChange={handleChange}/>
         <div className="text-[10px] text-red-500 md:text-[15px]"> {errors.password && touched.password && <span>{errors.password}</span>}</div>
@@ -56,7 +64,7 @@ function page() {
     </form>
     <div className="flex justify-center mt-5">
       <p className="md:text-[15px] text-[12px]">
-        Already have an account? <Link href="/auth/signin"><span className="text-blue-400">Sign In</span></Link>
+        Already have an account? <span className="text-blue-400">Sign In</span>
       </p>
       </div>
     </div>
