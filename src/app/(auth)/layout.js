@@ -1,35 +1,29 @@
-"use client"
-import React, { useContext, useEffect } from 'react'
+"use client";
+import React, { useContext, useEffect } from "react";
 
-import Loader from '@/components/loader/loader' 
-import { useRouter } from 'next/navigation'
-import { AuthContext } from '@/context/authContext'
+import Loader from "@/components/loader/loader";
+import { useRouter } from "next/navigation";
+import { AuthContext } from "@/context/authContext";
 
-function AuthLayout({children}) {
+function AuthLayout({ children }) {
+  const router = useRouter();
+  const { userInfo, isLoading } = useContext(AuthContext);
 
-    const router = useRouter()
-    const {userInfo, isLoading} = useContext(AuthContext)
-  
-    useEffect(()=>{
-      if(userInfo)
-        router.push("/")
-  
-        
-    })
-  
-    if(isLoading || userInfo){
-      return (
-  <Loader />
-  
-      )
-    }
+  useEffect(() => {
+    if (userInfo) router.push("/");
+  });
 
-    return (
-    <div>
+  if (isLoading || userInfo) {
+    return <Loader />;
+  }
 
-      {children}
+  return (
+ 
+    <div className="w-full h-full   ">
+    {children}
     </div>
-  )
+    
+)
 }
 
-export default AuthLayout
+export default AuthLayout;

@@ -43,20 +43,62 @@ export function AuthProvider({ children }) {
         });
     };
 
-      const handleLogout = () => {
-        axios.get('https://api.stru.ai/logout', { withCredentials: true })
-          .then(() => {
+      const handleLogout = async () => {
+
+        try {
+          const response = await axios.get(
+            `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/user/me`, 
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Send token if required
+              },
+            }
+          );
+      
+          if (response.data?.status === "SUCCESS") {
             setUserInfo(null);
-            window.location.href = process.env.NEXT_PUBLIC_LANDING_PAGE_URL;
-          })
-          .catch(error => {
-            console.error('Error logging out:', error);
-          });
+            console.log("remove auth");
+            
+            localStorage.removeItem("authToken"); // Clear auth token
+            router('/signin'); 
+          } else {
+            console.error("Logout failed:", response.data?.message || "Unknown error");
+          }
+        } catch (error) {
+          console.error("Error during logout:", error);
+          setUserInfo(null); 
+        }
       };
+
+      //   try {
+      //     const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/auth/login`) 
+      //     if (response.status === "SUCCESS") {
+      //       setUserInfo(null);
+      //       localStorage.removeItem("authToken");
+      //       router('/signin')
+      //     }else{
+      //       setUserInfo(null)
+      //   }
+          
+      //   } catch (error) {
+      //      console.error('Error logging out:', error);
+      //   }
+      // }
+
+      //   axios.get('https://api.stru.ai/logout', { withCredentials: true })
+      //     .then(() => {
+      //       setUserInfo(null);
+      //       window.location.href = process.env.NEXT_PUBLIC_LANDING_PAGE_URL;
+      //     })
+      //     .catch(error => {
+      //       console.error('Error logging out:', error);
+      //     });
+      // };
+
 
       const handleLogin = async ({payload}) => {
        try {
-       console.log("pay",payload);
+      //  console.log("pay",payload);
        
         const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/auth/login`, payload)
         if(response.data?.status=== "SUCCESS"){

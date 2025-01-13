@@ -1,6 +1,6 @@
 "use client"
-import React, { useContext, useState } from "react";
 
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 //icons
 import { FaLinkedinIn } from "react-icons/fa";
@@ -30,10 +30,18 @@ import { AuthContext } from "@/context/authContext";
 const header = () => {
   const router = useRouter();
 
-  const {userInfo} = useContext(AuthContext)
+  const {userInfo, handleLogout} = useContext(AuthContext)
+  const [showInput, setShowInput] = useState(false);
 
-
+  const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleDropdownToggle = (dropdownId) => {
+    // Toggle the dropdown or close all if clicked again
+    setOpenDropdown((prev) => (prev === dropdownId ? null : dropdownId));
+  };
+
+
 
   const handleNav = ()=>{
     setMenuOpen(!menuOpen)
@@ -41,8 +49,9 @@ const header = () => {
     
   }
   const handleSearch = ()=>{
-    setMenuOpen(!menuOpen)
+   
     console.log("clicked");
+    setShowInput(!showInput);
     
   }
 
@@ -59,9 +68,22 @@ const header = () => {
 
       {/* sm, md */}
       <div className="lg:hidden items-center flex justify-around  h-[100%] w-[100%]">
-        <IoSearch fontSize={25} onClick={handleSearch}  className={
-          menuOpen ? "hidden" : "flex"
-        }  />
+       
+         <IoSearch  fontSize={25} onClick={handleSearch}  className={
+          menuOpen ? "hidden" : "flex" && showInput? "hidden" :"flex" 
+          }  />
+    
+          {showInput && (
+        <form  className="flex items-center ">
+          <input
+           
+            type="text"
+            placeholder="Search..."        
+            className="border border-gray-300 rounded-lg p-1 w-[85%] focus:outline-none focus:ring focus:ring-blue-500 md:w-[100%]"
+          />
+          
+        </form>
+      )}
       <RiAccountCircleFill fontSize={25} className={
           menuOpen ? "hidden" : "flex"
         } />
@@ -149,7 +171,7 @@ const header = () => {
 
          <div  className="flex gap-4 py-3">
         <IoIosSettings fontSize={25}/>
-         <IoMdLogOut fontSize={25}/>
+         <IoMdLogOut fontSize={25} onClick={()=>handleLogout()}/>
          
          </div>
           
@@ -191,43 +213,72 @@ const header = () => {
         <hr  className="md:block hidden "/>
         <div className="row-2 flex xl:gap-8 md:gap-4 lg:justify-evenly flex-shrink-0 items-center  ">
           <div className="dropdown-items flex lg:shrink-0 shrink lg:gap-3 gap-2 mt-2 lg:text-[14px]  md:text-[12px] ">
-            <DropdownMenu >
-              <DropdownMenuTrigger className="flex gap-1">Higher Education<MdOutlineArrowDropDown /></DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenu 
+              open={openDropdown === "dropdown1"} // Check if this dropdown should be open
+              onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown1" : null)}
+            >
+              <DropdownMenuTrigger className="flex gap-1 focus:outline-none ">Higher Education<MdOutlineArrowDropDown /></DropdownMenuTrigger>
+              <DropdownMenuContent >
+                <DropdownMenuLabel className='bg-white'>My Account</DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <p>School Education</p>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1">Media<MdOutlineArrowDropDown /></DropdownMenuTrigger>
+            <DropdownMenu
+              open={openDropdown === "dropdown2"} // Check if this dropdown should be open
+              onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown2" : null)}
+            >
+              <DropdownMenuTrigger className="flex gap-1 focus:outline-none">Media<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
-             <Link href='/videos'>  <DropdownMenuLabel>Videos</DropdownMenuLabel></Link> 
-             <Link href='/press'>  <DropdownMenuLabel>Press Release</DropdownMenuLabel></Link> 
+             <Link href='/videos'>  <DropdownMenuLabel className='bg-white'>Videos</DropdownMenuLabel></Link> 
+             <Link href='/press'>  <DropdownMenuLabel className='bg-white'>Press Release</DropdownMenuLabel></Link> 
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1 " >Events<MdOutlineArrowDropDown /></DropdownMenuTrigger>
+            <DropdownMenu
+              open={openDropdown === "dropdown3"} // Check if this dropdown should be open
+              onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown3" : null)}
+            >
+              <DropdownMenuTrigger className="flex gap-1 focus:outline-none " >Events<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent >
-                <DropdownMenuLabel><Link href="/events/upcomingEvents">Upcoming Events</Link></DropdownMenuLabel>
-                <DropdownMenuLabel><Link href="/events/pastEvents">Past Events</Link></DropdownMenuLabel>
-                {/* <DropdownMenuSeparator /> */}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex gap-1">Thought Leadership<MdOutlineArrowDropDown /></DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel  className='bg-white'><Link href="/events/upcomingEvents">Upcoming Events</Link></DropdownMenuLabel>
+                <DropdownMenuLabel className='bg-white'><Link href="/events/pastEvents">Past Events</Link></DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
          
           </div>
+          <IoSearch fontSize={25} onClick={handleSearch}  className={
+          menuOpen ? "hidden" : "flex" && showInput? "hidden" :"flex mt-2" 
+          }  />
+    
+          {showInput && (
+        <form  className="flex items-center ">
+          <input
+            type="text"
+            placeholder="Search..."        
+            className="border border-gray-300 rounded-lg p-1 w-[85%] focus:outline-none focus:ring focus:ring-blue-500 md:w-[100%]"
+          />
           
-          <IoSearch className=" h-7 w-5" />
-          {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/signin')}><RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button>}
-          {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
+        </form>
+      )}
+          {/* <IoSearch className=" h-7 w-5" /> */}
+
+            <DropdownMenu
+              open={openDropdown === "dropdown4"} // Check if this dropdown should be open
+              onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown4" : null)}
+            >
+              <DropdownMenuTrigger className="flex gap-1 focus:outline-none ">
+              {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/signin')}><RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button>}
+              {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
+                <MdOutlineArrowDropDown /></DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel className='bg-white'>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel className='bg-white' onClick={()=>handleLogout()}>Logout</DropdownMenuLabel>
+                {/* <DropdownMenuSeparator /> */}
+              </DropdownMenuContent>
+            </DropdownMenu>
+         
         </div>
      
       </div>

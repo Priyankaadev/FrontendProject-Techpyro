@@ -16,6 +16,7 @@ function page() {
 
 const {handleLogin} = useContext(AuthContext)
 
+
   const formik = useFormik(
   {
     initialValues : {
@@ -35,8 +36,8 @@ const {handleLogin} = useContext(AuthContext)
   const {errors, touched, values, handleChange, handleSubmit} = formik
 
   return (
-    <div className=' w-full h-full flex justify-center items-center  border-t'>
-     <div className='flex flex-col justify-center  h-[90%] w-[70%]  bg-gray-100 py-[2%]'>
+    <div className='w-full h-full flex justify-center items-center  '>
+     <div className='flex flex-col w-[70%] h-[90%] justify-center bg-gray-100 py-[2%]'>
         <div className='heading mb-2 md:mb-4 flex flex-col items-center '>
            <p className='lg:text-[40px] md:text-[35px] text-[25px]'>Welcome! </p>
            <p className='md:text-[15px] text-[12px] '>Sign in to continue</p>
@@ -58,7 +59,7 @@ const {handleLogin} = useContext(AuthContext)
     </form>
     <div className="flex justify-center mt-5">
       <p className="md:text-[15px] text-[12px]">
-        Don't have an account? <Link href="/auth/signup"><span className="text-blue-400">Sign Up</span></Link>
+        Don't have an account? <Link href="/signup"><span className="text-blue-400">Sign Up</span></Link>
       </p>
       </div>
 

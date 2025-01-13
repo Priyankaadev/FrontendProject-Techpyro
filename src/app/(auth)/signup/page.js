@@ -3,9 +3,10 @@
 import * as Yup from "yup";
 import React, { useContext } from 'react'
 import { useFormik } from "formik";
-import Link from "next/link";
+
 import { AuthContext } from "@/context/authContext";
-import { useRouter } from "next/navigation";
+import Link from "next/navigation";
+
 
 const schema = Yup.object().shape({
   full_name: Yup.string().required("Name is required").matches(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
@@ -40,8 +41,8 @@ function page() {
   console.log(errors, touched)
 
   return (
-    <div className=' w-full h-full flex justify-center items-center border-t'>
-     <div className='flex flex-col justify-center  h-[90%] w-[70%]  bg-gray-100 py-[2%]'>
+    <div className=' w-full h-full flex justify-center items-center'>
+     <div className='flex flex-col w-[70%] h-[90%] justify-center bg-gray-100 py-[2%]'>
         <div className='heading md:mb-4 mb-2 flex flex-col items-center '>
            <p className='lg:text-[40px] md:text-[35px] text-[25px]'>Welcome! </p>
            <p className='md:text-[15px] text-[12px]'>Sign up to continue</p>
@@ -64,7 +65,7 @@ function page() {
     </form>
     <div className="flex justify-center mt-5">
       <p className="md:text-[15px] text-[12px]">
-        Already have an account? <span className="text-blue-400">Sign In</span>
+        Already have an account? <Link href='/signin'> <span className="text-blue-400">Sign In</span></Link>
       </p>
       </div>
     </div>
