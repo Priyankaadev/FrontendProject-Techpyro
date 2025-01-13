@@ -84,9 +84,11 @@ const header = () => {
           
         </form>
       )}
-      <RiAccountCircleFill fontSize={25} className={
-          menuOpen ? "hidden" : "flex"
-        } />
+       
+      <RiAccountCircleFill fontSize={25} className={ menuOpen ? "hidden" : "flex" }
+      onClick={userInfo? ()=>{router.push('/profile')} : ()=>{router.push('/signin')}}
+      />
+      
         <CgMenuRight fontSize={25} onClick={handleNav}  className={
           menuOpen ? " ml-[50%]" : ""
         } />
@@ -269,7 +271,13 @@ const header = () => {
               onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown4" : null)}
             >
               <DropdownMenuTrigger className="flex gap-1 focus:outline-none ">
-              {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]" onClick={()=> router.push('/signin')}><RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button>}
+
+
+              {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]"  onClick={()=> router.push('/signin')}>
+                <RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button> }
+            
+            
+            
               {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
                 <MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>

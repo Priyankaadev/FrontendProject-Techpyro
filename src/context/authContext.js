@@ -46,24 +46,10 @@ export function AuthProvider({ children }) {
       const handleLogout = async () => {
 
         try {
-          const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/user/me`, 
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Send token if required
-              },
-            }
-          );
-      
-          if (response.data?.status === "SUCCESS") {
-            setUserInfo(null);
-            console.log("remove auth");
-            
-            localStorage.removeItem("authToken"); // Clear auth token
-            router('/signin'); 
-          } else {
-            console.error("Logout failed:", response.data?.message || "Unknown error");
-          }
+         const response = await localStorage.removeItem("authToken")
+         console.log("removed authtoken",response);
+          
+         router('/signin'); 
         } catch (error) {
           console.error("Error during logout:", error);
           setUserInfo(null); 
