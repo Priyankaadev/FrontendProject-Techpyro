@@ -1,24 +1,27 @@
-// import axios from "axios";
+import axios from "axios";
 // // import seat from '../constant/seatStructure.json'
 
 
-// class CheckoutApi {
-//   async getItinaryPrice<T>(data:T) {
-//     try {
-//       const response = await axios.post(
-//         `${process.env.NEXT_PUBLIC_API_KEY}/TravelAPI/GetItineraryPrice`,
-//         data
-//       );
+class User {
 
-//       if (response.status === 200) {
-//         return response.data;
-//       } else {
-//         return false;
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
+  async userUpdate({newData, handle}) {
+    try {
+      const response = await axios.put(
+        `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/user/update/${id}`,
+        newData
+      );
+
+      if (response.status === 200) {
+        return response.data;
+      } else if(response.status === 401) {
+        handleLogout()
+      }else {
+        return false;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 //   async getItineraryDetails<T>(data:T) {
 //     try {
@@ -124,6 +127,6 @@
 //   }
 
 
-// }
+}
 
-// export const checkoutApi = new CheckoutApi();
+export const user = new User();

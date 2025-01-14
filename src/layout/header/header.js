@@ -281,7 +281,7 @@ const header = () => {
               {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
                 <MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel className='bg-white'>My Account</DropdownMenuLabel>
+             <DropdownMenuLabel className='bg-white' onClick={()=>router.push('/profile')}>My Account</DropdownMenuLabel>
                 <DropdownMenuLabel className='bg-white' onClick={()=>handleLogout()}>Logout</DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
