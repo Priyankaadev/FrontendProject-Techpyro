@@ -5,14 +5,15 @@ import { useState, createContext, useEffect } from 'react';
 
 export const AuthContext = createContext({});
 
-
-
 export function AuthProvider({ children }) {
     const [userInfo, setUserInfo] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
  
     const router = useRouter()
     
+    const updateUserInfo = (newInfo)=>{
+      setUserInfo(newInfo)
+    }
   
     useEffect(() => {
       let token = localStorage.getItem("authToken")
@@ -124,7 +125,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ userInfo, handleLogout,isLoading,handleLogin,handleSignup }}
+      value={{ userInfo, handleLogout,isLoading,handleLogin,handleSignup, updateUserInfo }}
     >
       {children}
     </AuthContext.Provider>

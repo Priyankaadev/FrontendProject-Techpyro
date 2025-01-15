@@ -20,6 +20,7 @@ function page() {
 
   const {handleSignup} = useContext(AuthContext)
 
+  
   const formik = useFormik(
   {
     initialValues : {
@@ -35,7 +36,6 @@ function page() {
       handleSignup({payload: values})
     },
   })
-
   const {errors, touched, values, handleChange, handleSubmit} = formik
 
   console.log(errors, touched)

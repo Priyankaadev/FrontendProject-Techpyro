@@ -4,15 +4,16 @@ import axios from "axios";
 
 class User {
 
-  async userUpdate({newData, handle}) {
+  async userUpdate({newData, id}) {
     try {
       const response = await axios.put(
         `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/user/update/${id}`,
-        newData
+        newData, {headers: {Authorization: `Bearer ${localStorage.getItem("authToken")}`}}
       );
 
       if (response.status === 200) {
-        return response.data;
+        return  response.data;
+
       } else if(response.status === 401) {
         handleLogout()
       }else {
