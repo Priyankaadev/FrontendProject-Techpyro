@@ -40,9 +40,31 @@ class Event {
     }
 
     async speakersList(){
+        let payload = {
+            "query":{},
+            "options": {
+              "collation": "",
+              "sort": {"name":1},
+              "populate": "",
+              "projection": "",
+              "lean": false,
+              "leanWithId": true,
+              "page": 1,
+              "limit": 10,
+              "pagination": true,
+              "useEstimatedCount": false,
+              "useCustomCountFn": false,
+              "forceCountFn": false,
+              "read": {},
+              "options": {}
+            },
+            "isCountOnly": false
+          }
         try {
                      
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/speaker/list`)
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/speaker/list`, payload, 
+                {headers: {Authorization: `Bearer ${localStorage.getItem("authToken")}`}}
+            )
 
             if (response.status ===200 ) {
             //    console.log(response.data.data);
