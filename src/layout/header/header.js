@@ -213,7 +213,7 @@ const header = () => {
           </ul>
         </div>
         <hr  className="md:block hidden "/>
-        <div className="row-2 flex xl:gap-8 md:gap-4 lg:justify-evenly flex-shrink-0 items-center  ">
+        <div className="row-2 flex xl:gap-8 md:gap-4 lg:justify-evenly flex-shrink-0 pointer items-center  ">
           <div className="dropdown-items flex lg:shrink-0 shrink lg:gap-3 gap-2 mt-2 lg:text-[14px]  md:text-[12px] ">
             <DropdownMenu 
               open={openDropdown === "dropdown1"} // Check if this dropdown should be open
@@ -278,9 +278,9 @@ const header = () => {
             
             
             
-              {userInfo?.full_name && <div>{userInfo?.full_name}</div>}
+              {userInfo?.full_name && <div className="pointer">{userInfo?.full_name}</div>}
                 <MdOutlineArrowDropDown /></DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className='cursor-pointer'>
              <DropdownMenuLabel className='bg-white' onClick={()=>router.push('/profile')}>My Account</DropdownMenuLabel>
                 <DropdownMenuLabel className='bg-white' onClick={()=>handleLogout()}>Logout</DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}

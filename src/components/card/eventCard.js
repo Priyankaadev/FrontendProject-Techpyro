@@ -12,18 +12,18 @@ import { useRouter } from 'next/navigation';
 
 
 
-function eventCard({ img, time, date, mode, name, place, desc, idx,type}) {
+function eventCard({ img, date, name, place, desc, idx,type}) {
   const router = useRouter()
   return (
     <div className='w-full flex flex-col shadow-lg mb-[7%] '>
-   <div className='flex basis-[40%]'>
+   <div className='flex basis-[30%]'>
       <img src={img} className="md:bg-cover "/>
       </div>
-      <div className='flex flex-col basis-[45%] gap-1 px-5 py-4'>
+      <div className='flex flex-col basis-[55%] gap-1 px-5 py-4'>
        <div className='flex gap-[5%]'>
-        <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaClock />{time}</p>
+        {/* <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaClock />{time}</p> */}
         <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaCalendarAlt />{date}</p>
-        <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><MdOutlineBroadcastOnPersonal/>{mode}</p>
+        {/* <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><MdOutlineBroadcastOnPersonal/>{mode}</p> */}
       </div >
       <p className='md:text-[20px] font-semibold'>{name}</p>
       <p  className='flex items-center gap-1 md:text-[18px]'><ImLocation2/>{place}</p>
