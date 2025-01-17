@@ -12,7 +12,7 @@ function PagesLayout({children}) {
   const {userInfo, isLoading} = useContext(AuthContext)
 
   useEffect(()=>{
-    if(!userInfo)
+    if(!userInfo && !isLoading)
       router.push("/signin")
 
       
