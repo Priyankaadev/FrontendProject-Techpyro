@@ -3,18 +3,18 @@ import axios from "axios";
 
 class Event {
 
-    async eventList(){
+    async eventList({query,sort,populate,page,limit}){
         let payload = {
-            "query":{},
+            "query":query,
             "options": {
               "collation": "",
-              "sort": {"name":1},
-              "populate": "eventId",
+              "sort": sort,
+              "populate": populate,
               "projection": "",
               "lean": false,
               "leanWithId": true,
-              "page": 1,
-              "limit": 10,
+              "page": page,
+              "limit": limit,
               "pagination": true,
               "useEstimatedCount": false,
               "useCustomCountFn": false,

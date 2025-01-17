@@ -5,7 +5,7 @@ import React, { useContext } from 'react'
 import { useFormik } from "formik";
 
 import { AuthContext } from "@/context/authContext";
-import Link from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
 const schema = Yup.object().shape({
@@ -16,6 +16,8 @@ const schema = Yup.object().shape({
 
 
 function page() {
+
+  const router = useRouter()
 
 
   const {handleSignup} = useContext(AuthContext)
@@ -65,7 +67,7 @@ function page() {
     </form>
     <div className="flex justify-center mt-5">
       <p className="md:text-[15px] text-[12px]">
-        Already have an account? <Link href='/signin'> <span className="text-blue-400">Sign In</span></Link>
+        Already have an account?  <span className="text-blue-400" onClick={()=> router.push('/signin')}>Sign In</span>
       </p>
       </div>
     </div>

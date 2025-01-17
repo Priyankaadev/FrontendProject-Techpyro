@@ -7,11 +7,13 @@ import React from "react";
 //   }
 // ]
 
-function ticketBook() {
+function ticketBook({eventName, eventDate, eventLocation}) {
+
+  
   return (
     <div className="event-card shadow-lg">
       <div className="event-heading bg-[#272761] text-white font-semibold py-3 md:text-[35px] text-[20px] px-[5%]">
-        <p>Event Name</p>
+        <p>{eventName}</p>
       </div>
 
       <div className="ticket-data p-[5%] bg-white ">
@@ -22,21 +24,21 @@ function ticketBook() {
               <img src="/upcomingEvent/calender.png" className="h-4 w-4" />
               <p className="text-[13px]">Event Date</p>
             </div>
-            <p className="text-[17px]">13 April 2024</p>
+            <p className="text-[17px]">{eventDate}</p>
           </div>
-          <div className="event-item mb-2 md:mb-0  ">
+          {/* <div className="event-item mb-2 md:mb-0  ">
             <div className="flex items-center gap-2">
               <img src="/upcomingEvent/clock.png" className="h-4 w-4" />
               <p className="text-[13px]" >Event Time</p>
             </div>
             <p className="text-[17px]">9:30 AM to 11:00 AM</p>
-          </div>
+          </div> */}
           <div className="event-item">
             <div className="flex items-center gap-2">
               <img src="/upcomingEvent/location.png" className="h-5 w-4" />
               <p className="text-[13px]">Location</p>
             </div>
-            <p className="text-[17px]">Delhi, India</p>
+            <p className="text-[17px]">{eventLocation}</p>
           </div>
         </div>
         {/* dash */}

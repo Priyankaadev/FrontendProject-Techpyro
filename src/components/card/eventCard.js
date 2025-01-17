@@ -15,12 +15,12 @@ import { useRouter } from 'next/navigation';
 function eventCard({ img, date, name, place, desc, idx,type}) {
   const router = useRouter()
   return (
-    <div className='w-full flex flex-col shadow-lg mb-[7%] '>
-   <div className='flex basis-[30%]'>
-      <img src={img} className="md:bg-cover "/>
-      </div>
-      <div className='flex flex-col basis-[55%] gap-1 px-5 py-4'>
-       <div className='flex gap-[5%]'>
+    <div className=' flex flex-col shadow-lg  '>
+  
+      <img src={img} className=" flex basis-[30%] object-cover  " alt='event image'/>
+     
+      <div className='flex flex-col basis-[70%]  gap-1 px-5 py-4'>
+       <div className='flex '>
         {/* <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaClock />{time}</p> */}
         <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaCalendarAlt />{date}</p>
         {/* <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><MdOutlineBroadcastOnPersonal/>{mode}</p> */}
@@ -28,15 +28,17 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
       <p className='md:text-[20px] font-semibold'>{name}</p>
       <p  className='flex items-center gap-1 md:text-[18px]'><ImLocation2/>{place}</p>
       <p className='description md:text-[18px]'>{desc}</p>
-     
+      </div>
+      <div className=' py-4 px-5'>
       <button 
-      className='flex items-center w-[7rem] gap-1 px-2 h-[2rem] bg-[#F7A600] '  
+      className='flex items-center p-2 w-[7rem] gap-1 h-[2rem] bg-[#F7A600] '  
      onClick={()=>router.push(`/events/${type}/${idx}`)
      }
       
       >
         <IoIosSend />Apply Now</button>
-    </div>
+        </div>
+   
     </div>
   )
 }

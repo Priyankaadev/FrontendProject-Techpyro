@@ -8,6 +8,7 @@ import {event} from "@/mocks/event"
 
 //react icons
 import { FaAngleDoubleRight } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 function section3() {
 
@@ -16,12 +17,14 @@ function section3() {
     upcomingEvents: [],
     pastEvents: []
   })
+
+  const router = useRouter()
  
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await event.eventList();
+        const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:10});
         console.log("api Response:", response);
 
         const currentDate = new Date(); 
@@ -73,10 +76,10 @@ function section3() {
             Past Events</button>
         </div>
 
-        <div className="row1 flex flex-col px-[4%] relative justify-center md:grid md:grid-cols-2 md:grid-flow-row md:gap-10 md:px-[5%]  ">
+        <div className="row1 flex flex-col px-[10%] relative justify-center md:grid md:grid-cols-2 md:grid-flow-row  md:gap-10 md:px-[10%] md:py-5 gap-5 ">
           {isOpen && eventList[isOpen].length > 0 ? eventList[isOpen].map((event) => (
             <EventCard
-              idx={event.eventId._id}
+              idx={event.id}
               img={event.image}
               place={event.eventId.city}
               date={event.eventId.date}
@@ -89,8 +92,10 @@ function section3() {
           
         </div>
 
-        <div className="flex justify-center items-center ">
-          <button className="bg-[#F7A600] gap-1 p-2 flex justify-center items-center max-w-[10rem]  ">
+        <div className="flex justify-center items-center mt-5 mb-5 ">
+           <button className="bg-[#F7A600] gap-1 p-2 flex justify-center items-center max-w-[10rem] "
+           onClick={()=>router.push(`/events/${isOpen}`)}
+           >
             View More <FaAngleDoubleRight />
           </button>
         </div>

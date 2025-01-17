@@ -4,7 +4,7 @@ import React from "react";
 //components
 import EventCard from "@/components/card/eventCard";
 
-//constant js file
+// //constant js file
 import { upcomingEv } from "@/constant/upcomingEvents";
 
 

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 // import images from "@/constant/images";
 import { Images } from "@/constant/images";
@@ -15,7 +15,10 @@ import Heading2 from "@/components/heading/heading2";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-function section1() {
+function section1({eventData}) {
+
+  // console.log('EVENT DATA',eventData?.title);
+
   return (
     <div className="section1 w-full py-[2%]">
       
@@ -36,7 +39,7 @@ function section1() {
       </div>
       {/* Register */}
       <div className="ticket-card px-[8%] py-5 ">
-        <TicketBook />
+        <TicketBook eventDate={eventData?.eventId?.date} eventLocation={eventData?.eventId?.city} eventName={eventData?.title}  />
       </div>
     </div> 
       {/* image slider */}

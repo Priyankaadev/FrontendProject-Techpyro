@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 
 //components
 import DedicatedEventCard from "@/components/card/dedicatedEventCard";
-import { upcomingEv } from "@/constant/upcomingEvents";
 
-function section1({item}) {
+
+function section1({eventDetails}) {
   
+
 
   return (
    
+        
+     <DedicatedEventCard
+        idx={eventDetails?.id}
+        img={eventDetails?.image}
+        date={eventDetails?.eventId?.date}
+        name={eventDetails?.title}
+        place={eventDetails?.eventId?.city}
+        desc={eventDetails?.description}
+      />
+     
       
-        <DedicatedEventCard
-          idx={item.idx}
-          img={item.img}
-          time={item.time}
-          date={item.date}
-          mode={item.mode}
-          name={item.name}
-          place={item.place}
-          desc={item.desc}
-        />
     
-  );
+  )
 }
 
 export default section1;
