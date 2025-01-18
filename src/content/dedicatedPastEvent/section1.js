@@ -5,11 +5,8 @@ import DedicatedEventCard from "@/components/card/dedicatedEventCard";
 
 
 function section1({eventDetails}) {
-  
-
 
   return (
-   
         
      <DedicatedEventCard
         idx={eventDetails?.id}
@@ -19,9 +16,6 @@ function section1({eventDetails}) {
         place={eventDetails?.eventId?.city}
         desc={eventDetails?.description}
       />
-     
-      
-    
   )
 }
 

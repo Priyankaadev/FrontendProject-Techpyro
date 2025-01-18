@@ -16,6 +16,9 @@ import Heading2 from '@/components/heading/heading2'
  function section2({speakerData, eventData} ) {
   
   console.log("fetched speakerDATA", speakerData)
+  console.log("fetched eventDATA", eventData)
+  
+  console.log("descript", eventData?.description)
   return (   
     
     <div className='section2 py-[5%]'>

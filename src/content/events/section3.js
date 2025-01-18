@@ -17,14 +17,13 @@ function section3() {
     upcomingEvents: [],
     pastEvents: []
   })
-
   const router = useRouter()
  
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:10});
+        const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:50});
         console.log("api Response:", response);
 
         const currentDate = new Date(); 
@@ -45,7 +44,7 @@ function section3() {
           pastEvents: pastEv
         })
 
-        console.log("Filtered upcoming events:", upcomingEv[0].image);
+        // console.log("Filtered upcoming events:", upcomingEv[0].image);
         console.log("Filtered past events:", pastEv);
       } catch (err) {
         console.error("Error fetching events:", err);
@@ -55,8 +54,8 @@ function section3() {
     fetchEvents();
   }, []);
 
-  console.log( 'eventList', eventList);
-  console.log('isOpen', isOpen);
+  // console.log( 'eventList', eventList);
+  console.log('slice',eventList[isOpen].slice(0,1));
   
   
 
@@ -77,7 +76,7 @@ function section3() {
         </div>
 
         <div className="row1 flex flex-col px-[10%] relative justify-center md:grid md:grid-cols-2 md:grid-flow-row  md:gap-10 md:px-[10%] md:py-5 gap-5 ">
-          {isOpen && eventList[isOpen].length > 0 ? eventList[isOpen].map((event) => (
+          {isOpen && eventList[isOpen].length > 0 ? eventList[isOpen].slice(0,2).map((event) => (
             <EventCard
               idx={event.id}
               img={event.image}

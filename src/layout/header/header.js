@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext,  useState } from "react";
 
 //icons
 import { FaLinkedinIn } from "react-icons/fa";
@@ -119,9 +119,9 @@ const header = () => {
              Contact
             </li>
             </Link>
-            <Link href='/'>
+            <Link href='/committee'>
             <li className="py-2 md:py-5 cursor-pointer">
-              Resource
+              Committee
             </li>
             </Link>
             <Link href='/events'>
@@ -144,9 +144,9 @@ const header = () => {
               Media
             </li>
             </Link>
-            <Link href='/'>
+            <Link href='/delegates'>
             <li className="py-2 md:py-5 cursor-pointer">
-              Blogs
+              Delegates
             </li>
             </Link>
           </ul>
@@ -186,11 +186,12 @@ const header = () => {
       <div className="hidden lg:block w-full  ">
         <div className="row-1  flex justify-evenly mb-2  ">
           <div className="items md:text-[12px] lg:text-[15px] flex gap-[1rem] ">
-          <Link href="/contact">  <p>Contact</p></Link>
-            <p>Resource</p>
+            <p><Link href="/contact">Contact</Link></p>
+            <p><Link href="/aboutus">Committee</Link></p>
             <p> <Link href="/aboutus">About</Link></p>
             <p><Link href="/careers">Careers</Link></p>
             <p><Link href="/press">Press Release</Link></p>
+           
           </div>
           <ul className="icons flex gap-[1rem]  ">
            
@@ -225,7 +226,7 @@ const header = () => {
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
-            <p>School Education</p>
+            <p >Delegates</p>
             <DropdownMenu
               open={openDropdown === "dropdown2"} // Check if this dropdown should be open
               onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown2" : null)}

@@ -6,7 +6,7 @@ import Section1 from '@/content/dedicatedUpcomingEvent/section1'
 import Section2 from '@/content/dedicatedUpcomingEvent/section2'
 import Section3 from '@/content/dedicatedUpcomingEvent/section3'
 import { useParams } from 'next/navigation'
-import { upcomingEv } from '@/constant/upcomingEvents'
+// import { upcomingEv } from '@/constant/upcomingEvents'
 import { event } from '@/mocks/event'
 
 function page() {
@@ -17,17 +17,15 @@ function page() {
   // const [item, setItem] = useState(upcomingEv.find((maping)=>maping.idx === params.id))
 
   const [speakers, setSpeakers ] = useState([])
-  const [upcomingEvDetails, setUpcomingEvDetails] = useState()
-
-
+  const [upcomingEvDetails, setUpcomingEvDetails] = useState(null)
 
   useEffect(()=>{
 
     const fetchSpeakers = async () => {
       try { 
-        const response = await event.speakersList();
+        const response = await event.speakersList({query:{}, sort:{name:1}, populate:"eventId", limit:10, page:1});
         const list = response?.data?.data || []
-        console.log("response : ",list);   
+        // console.log("response : ",list);   
 
         if (list) {
           // console.log("inside the if cond");       
@@ -44,13 +42,14 @@ function page() {
     const fetchEvents = async  () => {
       try {
         const response = await event.eventList({query:{"_id":params.id}, sort:{name:1},populate:'eventId',page:1,limit:10});
-        console.log("api Response for id:", response);
+        // console.log("api Response for id:", response);
         const details = response?.data?.data[0] || null
-        console.log(details);
+        console.log("details",details);
 
         if (details) {
           console.log("inside the if cond");       
-          setUpcomingEvDetailst(details);
+          setUpcomingEvDetails(details);
+          console.log("upcomdetails",upcomingEvDetails);
           
           
         } else {
