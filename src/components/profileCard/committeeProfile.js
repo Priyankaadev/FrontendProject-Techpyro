@@ -8,10 +8,10 @@ function committeeProfile({img, name, designation,type, city,id}) {
         <img src={img}  alt='committee member' className='w-full h-[100%]'/>
       </div>
       <div className='flex h-[30%] flex-col px-5 justify-center gap-2 mb-5 mt-4'>
-        <p>Name: {name}</p>
-        <p>Designation: {designation}</p>
-        <p>Committee : {type}</p>
-        <p>Place: {city}</p>
+        <p> {name}</p>
+        <p> {designation}</p>
+        <p> {type}</p>
+        <p> {city}</p>
         
 
       </div>

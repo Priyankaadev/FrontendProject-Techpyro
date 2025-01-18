@@ -81,6 +81,47 @@ class Event {
 
     }
 
+    async DelegatesList({query,sort,populate,page,limit}){
+        let payload = {
+            "query":query,
+            "options": {
+              "collation": "",
+              "sort": sort,
+              "populate": populate,
+              "projection": "",
+              "lean": false,
+              "leanWithId": true,
+              "page": page,
+              "limit": limit,
+              "pagination": true,
+              "useEstimatedCount": false,
+              "useCustomCountFn": false,
+              "forceCountFn": false,
+              "read": {},
+              "options": {}
+            },
+            "isCountOnly": false
+          }
+
+          try {
+            const response = await axios.post( `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/delegate/list`, payload, 
+               {headers:{Authorization: `Bearer ${localStorage.getItem("authToken")}` }}
+            )
+            if (response.status ===200 ) {
+                //    console.log(response.data.data);
+                return  response.data
+                   
+                } else {
+                    console.log('err in success of delegatesList', response.status);
+                }
+            
+          } catch (error) {
+            console.log("error", error);
+            
+          }
+
+    }
+
     async speakersList({query,sort,populate,page,limit}){
         let payload = {
             "query":query,

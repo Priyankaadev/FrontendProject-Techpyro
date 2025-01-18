@@ -187,7 +187,7 @@ const header = () => {
         <div className="row-1  flex justify-evenly mb-2  ">
           <div className="items md:text-[12px] lg:text-[15px] flex gap-[1rem] ">
             <p><Link href="/contact">Contact</Link></p>
-            <p><Link href="/aboutus">Committee</Link></p>
+            <p><Link href="/committee">Committee</Link></p>
             <p> <Link href="/aboutus">About</Link></p>
             <p><Link href="/careers">Careers</Link></p>
             <p><Link href="/press">Press Release</Link></p>
@@ -226,7 +226,9 @@ const header = () => {
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
-            <p >Delegates</p>
+
+           <p ><Link href='/delegates'>Delegates</Link> </p>
+
             <DropdownMenu
               open={openDropdown === "dropdown2"} // Check if this dropdown should be open
               onOpenChange={(isOpen) => handleDropdownToggle(isOpen ? "dropdown2" : null)}
