@@ -15,9 +15,12 @@ function page() {
   console.log(params);
 
   const [pastEvDetails, setPastEvDetails] = useState();
+  const [committeeList, setCommitteeList] = useState([]);
+  const [delegateList, setDelegateList] = useState([]);
   // const [item, setItem] = useState(upcomingEv.find((maping)=>maping.idx === params.id))
 
   useEffect(() => {
+
     const fetchEvents = async () => {
       try {
         const response = await event.eventList({
@@ -38,14 +41,64 @@ function page() {
       } catch (error) {
         console.log(error);
       }
-    };
-    fetchEvents();
+    }
+     const fetchCommittee = async () =>{
+          try {
+              
+              const response = await event.CommitteeList({limit:50, sort:{name:1}, populate:"eventId", query:{}, page:1  })
+              const list = response?.data?.data || []
+    
+              console.log(list);
+              
+              if(response){
+                setCommitteeList(response?.data?.data) 
+              
+              }else{
+                console.log("error in fetching committee");
+                
+              }
+           
+         } 
+          catch (error) {
+              console.log("error", error);
+              
+          }
+    
+        }
+    
+         const fetchDelegates = async () => {
+              try { 
+                const response = await event.DelegatesList({
+                  query: {},
+                  sort: { name: 1 },
+                  populate: "eventId",
+                  page: 1,
+                  limit: 50,
+                });
+                const list = response?.data?.data || []
+                if (response) {
+                  setDelegateList(list);
+                  // console.log(list);
+                  
+        
+                } else {
+                  console.log("err");
+                }
+              } catch (error) {
+                console.log("error while fetching delegates", error);
+              }
+            }
+           
+        
+    fetchEvents()
+    fetchCommittee()
+    fetchDelegates()
   }, []);
 
   return (
     <>
       <Section1 eventDetails={pastEvDetails} />
-      <Section2 eventDetails={pastEvDetails}/>
+      <Section2 eventDetails={pastEvDetails} committeeData={committeeList} delegateData={delegateList}/>
       <Section3 />
     </>
   );

@@ -36,7 +36,7 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
      }
       
       >
-        <IoIosSend />Apply Now</button>
+        <IoIosSend />{type==="upcomingEvents" ?  "Apply Now": "View More" }</button>
         </div>
    
     </div>
