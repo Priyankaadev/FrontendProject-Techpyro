@@ -1,13 +1,13 @@
 import React from 'react'
 
-function committeeProfile({img, name, designation,type, city,id}) {
+function Profile2({img, name, designation,type, city,id}) {
   
   return (
     <div className='w-full flex flex-col shadow-lg ' key={id}>
       <div className='h-[70%]'>
         <img src={img}  alt='committee member' className='w-full h-[100%]'/>
       </div>
-      <div className='flex h-[30%] flex-col px-5 justify-center gap-2 mb-5 mt-4'>
+      <div className='flex h-[30%] flex-col  justify-center p-5'>
         <p> {name}</p>
         <p> {designation}</p>
         <p> {type}</p>
@@ -18,4 +18,4 @@ function committeeProfile({img, name, designation,type, city,id}) {
   )
 }
 
-export default committeeProfile
+export default Profile2

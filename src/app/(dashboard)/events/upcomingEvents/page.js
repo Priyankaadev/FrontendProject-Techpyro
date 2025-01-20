@@ -13,6 +13,7 @@ import { useParams } from "next/navigation";
 function page() {
 
   const [upcomingList, setUpcomingList] = useState([])
+  
 
   useEffect(() => {
     const fetchEvents = async () => {

@@ -18,6 +18,8 @@ function page() {
 
   const [speakers, setSpeakers ] = useState([])
   const [upcomingEvDetails, setUpcomingEvDetails] = useState(null)
+    const [committeeList, setCommitteeList] = useState([])
+    const [delegateList, setDelegateList] = useState([]);
 
   useEffect(()=>{
 
@@ -39,17 +41,66 @@ function page() {
         console.log("Error fetching speakers:", err);
       }
     }
+
+    const fetchCommittee = async () =>{
+      try {
+          
+          const response = await event.CommitteeList({limit:50, sort:{name:1}, populate:"eventId", query:{}, page:1  })
+          const list = response?.data?.data || []
+
+          console.log(list);
+          
+          if(response){
+            setCommitteeList(response?.data?.data) 
+          
+          }else{
+            console.log("error in fetching committee");
+            
+          }
+       
+     } 
+      catch (error) {
+          console.log("error", error);
+          
+      }
+
+    }
+
+     const fetchDelegates = async () => {
+          try { 
+            const response = await event.DelegatesList({
+              query: {},
+              sort: { name: 1 },
+              populate: "eventId",
+              page: 1,
+              limit: 50,
+            });
+            const list = response?.data?.data || []
+            if (response) {
+              setDelegateList(list);
+              // console.log(list);
+              
+    
+            } else {
+              console.log("err");
+            }
+          } catch (error) {
+            console.log("error while fetching delegates", error);
+          }
+        }
+       
+    
     const fetchEvents = async  () => {
       try {
         const response = await event.eventList({query:{"_id":params.id}, sort:{name:1},populate:'eventId',page:1,limit:10});
         // console.log("api Response for id:", response);
         const details = response?.data?.data[0] || null
-        console.log("details",details);
+        // console.log("details",details);
 
         if (details) {
           console.log("inside the if cond");       
           setUpcomingEvDetails(details);
-          console.log("upcomdetails",upcomingEvDetails);
+          // console.log("upcomdetails",upcomingEvDetails);
           
           
         } else {
@@ -63,6 +114,8 @@ function page() {
     }
     fetchSpeakers()
     fetchEvents()
+    fetchCommittee()   
+    fetchDelegates();
 
   },[])
   
@@ -70,7 +123,7 @@ function page() {
 
    <>
    <Section1 eventData={upcomingEvDetails} />
-   <Section2 speakerData={ speakers } eventData={upcomingEvDetails} />
+   <Section2 speakerData={ speakers } committeeData={committeeList} delegateData={delegateList} eventData={upcomingEvDetails} />
    <Section3/>
 
    </>

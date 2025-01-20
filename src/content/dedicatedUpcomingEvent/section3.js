@@ -1,11 +1,41 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 // import { data } from "@/constant/tableData";
 
 //components
 import Table from "@/components/table/table";
 import RegisterEvent from "@/components/register/registerEvent";
+import { event } from "@/mocks/event";
 
 function section3() {
+
+  const [agendaList, setAgendaList] = useState([])
+
+  useEffect(()=>{
+    const fetchAgenda = async ()=>{
+      try {
+        const response = await event.Agenda({query:{}, sort:{name:1}, populate:"eventId", page:1, limit:50})
+        // console.log(response.data.data);
+        const list = response?.data?.data 
+        if(response){
+          setAgendaList(list)
+          // console.log('length' , list.length);
+          
+        }else{
+          console.log('error in storing' );
+          
+        }
+      
+      } catch (error) {
+        console.log('err', error);
+        
+      }
+    }
+    fetchAgenda()
+  })
+
+
+  
   return (
     <div className=" section3 p-[5%]">
       <p className="md:text-[36px] text-[27px] mb-5 font-semibold">
@@ -23,7 +53,7 @@ function section3() {
         </div>
 
         {/* {data?.map((item, index) => ( */}
-          <Table />
+          <Table agendaData={agendaList} />
         {/* //    time={item.time} event={item.event} key={index}  */}
           
         {/* ))} */}
