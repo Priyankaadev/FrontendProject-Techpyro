@@ -12,8 +12,7 @@ function committeeProfile({img, name, designation,type, city,id}) {
         <p> {designation}</p>
         <p> {type}</p>
         <p> {city}</p>
-        
-
+      
       </div>
     </div>
   )

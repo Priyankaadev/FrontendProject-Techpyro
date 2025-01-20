@@ -48,7 +48,7 @@ function page() {
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam"
       }
     />
-    <div className="row1 flex flex-col px-[4%]  md:grid md:grid-cols-2 md:grid-flow-row md:px-[5%]  md:gap-5 py-5  ">
+    <div className="row1 flex flex-col px-[4%] md:grid md:grid-cols-2 md:grid-flow-row md:px-[5%] gap-4  md:gap-5 py-5  ">
 
      { committeeList && committeeList.length > 0 ?  committeeList.slice(0,10).map((committee)=>(
       <CommitteeProfile 

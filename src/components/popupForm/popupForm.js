@@ -51,7 +51,7 @@ function PopupForm({ handleClick, updated , userData}) {
 
   return (
     <div className="update-details w-[80%] h-[100%] flex flex-col justify-center items-center bg-orange-100 p-[5%] ">
-        <p className="font-bold text-[30px] mb-5 text-blue-500">Update Details</p>
+        <p className="font-bold md:text-[30px] text-[25px] mb-5 text-blue-500">Update Details</p>
       <div className="form-items  ">
         <form onSubmit={handleSubmit}>
           <input
@@ -59,7 +59,7 @@ function PopupForm({ handleClick, updated , userData}) {
             name="full_name"
             placeholder="username.."
             value={values.full_name}
-            className=" border-gray-400 p-2 mb-2 border-2"
+            className=" border-gray-400 md:p-2 p-1 mb-2 border-2"
             onChange={handleChange}
           />
           <div className="text-[10px] md:text-[15px] text-red-500">
@@ -74,7 +74,7 @@ function PopupForm({ handleClick, updated , userData}) {
             placeholder="email.."
             value={values.email}
             onChange={handleChange}
-            className="  border-gray-400 p-2 mb-2 border-2"
+            className="  border-gray-400 md:p-2 p-1 mb-2 border-2"
           />
           <div className="text-[10px] md:text-[15px] text-red-500">
             {errors.email && touched.email && (
@@ -88,7 +88,7 @@ function PopupForm({ handleClick, updated , userData}) {
             placeholder="Country"
             value={values.country}
             onChange={handleChange}
-            className="border-gray-400 p-2  mb-2 border-2"
+            className="border-gray-400 md:p-2 p-1  mb-2 border-2"
           />
            <div className="text-[10px] md:text-[15px] text-red-500">
             {errors.country && touched.country && (
@@ -101,7 +101,7 @@ function PopupForm({ handleClick, updated , userData}) {
             placeholder="language Preference"
             onChange={handleChange}
             value={values.languagePreference}
-            className=" border-gray-400 p-2 mb-2 border-2"
+            className=" border-gray-400 md:p-2 p-1 mb-2 border-2"
           />
           <div className="text-[10px] md:text-[15px] text-red-500">
             {errors.languagePreference && touched.languagePreference && (
@@ -109,7 +109,7 @@ function PopupForm({ handleClick, updated , userData}) {
             )}
           </div>
 
-          <button type="submit" className="bg-[#272761] text-white mt-3 py-2 px-6 flex justify-self-center">
+          <button type="submit" className="bg-[#272761] text-white mt-3 md:py-2 md:px-6 py-1 px-3 flex justify-self-center">
             Submit
           </button>
           
@@ -118,7 +118,7 @@ function PopupForm({ handleClick, updated , userData}) {
       </div>
       <button 
       onClick={()=>handleCancel()}
-      className="bg-red-400 py-2 px-6 mt-2 flex "
+      className="bg-red-400 md:py-2 md:px-6 py-1 px-4 mt-2 flex "
       >
         Cancel
       </button>

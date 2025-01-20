@@ -25,15 +25,15 @@ function page() {
       </div>
      
       <div className="profile-items flex flex-col justify-center font-semibold items-center  gap-2 py-2 ">
-        <p className=" text-[25px] text-orange-600 "> { userInfo.full_name }</p>
-      <div className="text-[20px] ">
+        <p className=" md:text-[25px] text-[20px] text-orange-600 "> { userInfo.full_name }</p>
+      <div className="md:text-[20px] text-[15px] ">
          <p className="">E-mail : {userInfo.email}</p>
         <p className="">Country : {userInfo.country} </p>
         <p className="">Language Preference : {userInfo.languagePreference}</p>
         <p className="">Active : {userInfo.isActive? "Active": "Inactive"}</p>
         </div> 
       </div>
-      <button className="py-2 px-4 bg-blue-300" onClick={()=>handleEdit()} >Edit</button>
+      <button className="md:py-2 md:px-4 px-3 py-1 bg-blue-300" onClick={()=>handleEdit()} >Edit</button>
       </div>}
       {openPopup? <PopupForm handleClick={handleEdit} updated={handleUpdatedData} userData={userInfo} /> : '' }
     </div>
