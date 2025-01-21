@@ -12,6 +12,8 @@ function section3() {
         const list = response?.data?.data || []
         if(response){
           setExhibitorList(list)
+     
+          
         }else{
           console.log("error in storing");
           
@@ -24,6 +26,8 @@ function section3() {
     fetchExhibitor()
 
   })
+
+
   return (
     <div className='w-full mt-[5%] md:px-[5%]'>
       <p className='md:text-[40px] font-semibold mb-[3%] text-[27px] px-[5%]'>Event Gallery</p>
@@ -46,7 +50,7 @@ function section3() {
     {
       exhibitorList.length > 0 ? exhibitorList.map((exhibitor)=>(
         <Exhibitor
-        id={exhibitor?.id}
+        idx={exhibitor?._id}
         img={exhibitor?.image}
         hall={exhibitor?.hall}
         stall={exhibitor?.stall}
