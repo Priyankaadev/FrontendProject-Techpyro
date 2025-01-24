@@ -122,6 +122,30 @@ class Event {
 
     }
 
+    async Review(payload){
+
+      console.log("payload inside payload", payload)
+       
+          try {
+               const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/review/create`, payload,
+                {headers: {Authorization: `Bearer ${localStorage.getItem("authToken")}`}}
+               )
+               if (response.status ===200 ) {
+               
+                return  response.data
+                   
+                } else {
+                    console.log('err in success of review', response.status);
+                }
+
+          } catch (error) {
+            console.log("error", error);
+            
+          }
+
+    }
+  
+
     async Agenda({query, sort,populate, page, limit}){
       let payload ={
         "query":query,
