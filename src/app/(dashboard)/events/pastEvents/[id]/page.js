@@ -4,34 +4,33 @@ import React, { useEffect, useState } from "react";
 import Section1 from "@/content/dedicatedPastEvent/section1";
 import Section2 from "@/content/dedicatedPastEvent/section2";
 import Section3 from "@/content/dedicatedPastEvent/section3";
+import  {eventListData}  from "@/redux/slices/event";
 //next imports
 import { useParams } from "next/navigation";
 //mock import
 import { event } from "@/mocks/event";
+import { useDispatch, useSelector } from "react-redux";
 // import { upcomingEv } from '@/constant/upcomingEvents'
 
 function page() {
   const params = useParams();
-  console.log(params);
-
   const [pastEvDetails, setPastEvDetails] = useState();
   const [committeeList, setCommitteeList] = useState([]);
   const [delegateList, setDelegateList] = useState([]);
   // const [item, setItem] = useState(upcomingEv.find((maping)=>maping.idx === params.id))
 
+  const dispatch = useDispatch();
+  const eventData = useSelector((state) => state.event);
+
   useEffect(() => {
 
     const fetchEvents = async () => {
       try {
-        const response = await event.eventList({
-          query: { _id: params.id },
-          sort: { name: 1 },
-          populate: "eventId",
-          page: 1,
-          limit: 10,
-        });
-        console.log("api Response for id:", response);
-        const details = response?.data?.data[0] || null;
+        const details = eventData?.data?.find((event) => event.id === params.id);
+        // const details = eventData?.data?.data || null;
+        console.log("details", details );
+
+        
 
         if (details) {
           setPastEvDetails(details);
@@ -47,8 +46,6 @@ function page() {
               
               const response = await event.CommitteeList({limit:50, sort:{name:1}, populate:"eventId", query:{}, page:1  })
               const list = response?.data?.data || []
-    
-              console.log(list);
               
               if(response){
                 setCommitteeList(response?.data?.data) 
@@ -63,7 +60,6 @@ function page() {
               console.log("error", error);
               
           }
-    
         }
     
          const fetchDelegates = async () => {

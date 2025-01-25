@@ -90,12 +90,10 @@ function section2({eventDetails, committeeData, delegateData}) {
               />
           </SwiperSlide>
             ))
-          ) 
-    
+          )  
         } 
           </Swiper> 
           </div>
-       
     
 
       {/* Delegates */}
@@ -120,9 +118,6 @@ function section2({eventDetails, committeeData, delegateData}) {
       )}
       
       </div>
-
-
-
       
     </div>
   )

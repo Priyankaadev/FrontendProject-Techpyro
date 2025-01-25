@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 //mui
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { Bounce, toast } from "react-toastify";
+import Link from "next/link";
 
 function page() {
   const params = useParams();
@@ -34,6 +36,7 @@ function page() {
   const handleDocumentClick = (openDiv) => {
     if (isOpen) {
       console.log("already open");
+      setIsOpen(!isOpen)
     } else {
       setIsOpen(!isOpen);
     }
@@ -44,9 +47,22 @@ function page() {
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-    setReviewData({ rating: value, review: reviewComment });
-    // console.log("review", reviewData);
-    Review({
+    if(reviewComment === "" && value === "0") {
+      toast.error('Please fill the review and rating!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+      return;
+    }else{
+      setReviewData({ rating: value, review: reviewComment });
+     Review({
       review: reviewComment,
       rating: value,
       review_type: {
@@ -54,15 +70,31 @@ function page() {
         type: 1, // Replace with actual type
       },
     });
+    toast.success('Thanks for the review!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      });
     setIsOpen(false);
     setDivOpen("");
-    setValue(0);
+    setValue("0");
     setReviewComment("");
+    }
+ 
   };
+
   const handleReviewClick = (openDiv) => {
     if (isOpen) {
       console.log("already open");
     } else {
+      setValue("0");
+      setReviewComment("");
       setIsOpen(!isOpen);
     }
 
@@ -75,7 +107,7 @@ function page() {
     try {
       const response = await event.Review(payload);
 
-      if (response?.data?.status === 200) {
+      if (response) {
         console.log("Review submitted successfully");
         setExhibitorReview(response.data);
       } else {
@@ -165,8 +197,9 @@ function page() {
               </p>
             </div>
             <div className="flex items-center gap-1 ">
-              <p className={"bg-white py-2 flex items-center gap-1"}>
-                <TbWorldSearch /> Website
+              <p className="bg-white py-2 flex items-center gap-1 cursor-pointer" >
+              <Link href={`https://${exhibitorDetails?.website ? exhibitorDetails?.website : "" }`} target="_blank" >
+              <TbWorldSearch /> Website </Link>
               </p>
             </div>
             <div
@@ -181,7 +214,6 @@ function page() {
                     : "bg-white py-2 flex items-center gap-1"
                 }`}
               >
-                {" "}
                 <IoDocumentTextOutline /> Documents
               </p>
             </div>
@@ -197,10 +229,7 @@ function page() {
                         size="large"
                         // defaultValue={2.5}
                         precision={0.5}
-                        // value={value}
-                        // onChange={(event, newValue)=>{
-                        //   setValue(newValue)
-                        // }}
+
                         value={Number(value)} // Ensure it renders as a number
                         onChange={(event, newValue) => {
                           setValue(newValue.toString()); // Convert number to string before storing
@@ -218,13 +247,16 @@ function page() {
                   <div className="buttons flex justify-end mt-2">
                     <button
                       className="py-1 px-4 bg-blue-400"
-                      onClick={(e) => handleSubmit(e)}
+                      onClick={(e) => 
+                        handleSubmit(e)
+                      }
                     >
                       Submit
                     </button>
                     <button
                       className="py-1 px-4 bg-blue-400 ml-5"
                       onClick={() => {
+                        
                         setIsOpen(false);
                         setDivOpen("");
                         setValue(0);

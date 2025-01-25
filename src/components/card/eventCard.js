@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 function eventCard({ img, date, name, place, desc, idx,type}) {
   const router = useRouter()
   return (
-    <div className=' flex flex-col shadow-lg  '>
+    <div className=' flex flex-col shadow-lg  ' key={idx}>
   
       <img src={img} className=" flex basis-[30%] object-cover  " alt='event image'/>
      

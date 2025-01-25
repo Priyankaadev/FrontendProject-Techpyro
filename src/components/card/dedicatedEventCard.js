@@ -8,10 +8,9 @@ import { ImLocation2 } from "react-icons/im";
 
 
 function dedicatedEventCard({ img,date, name, place, desc,idx }) {
-  console.log(idx);
   
   return (
-    <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[1%]  '>
+    <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[1%]  ' key={idx}>
    <div className='flex flex-col md:flex-row basis-[40%] items-center '>
       <img src={img} className="h-[90%] w-full "/>
       </div>

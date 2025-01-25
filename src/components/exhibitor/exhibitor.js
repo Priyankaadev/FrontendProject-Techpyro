@@ -3,13 +3,13 @@ import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 
 
-function exhibitor({img, name, stall, hall,idx }) {
+function exhibitor({img, name, stall, hall,idx,id }) {
 
   const router = useRouter()
   const params = useParams()
   
   return (
-    <div className='w-full flex flex-col shadow-lg' key={idx}>
+    <div className='w-full flex flex-col shadow-lg' key={id}>
         <img src={img} alt='exhibitor Image' className='' />
         <p className='text-[20px] md:text-[25px] font-semibold p-1'>{name}</p>
         <div className='flex flex-col text-[15px] md:text-[20px] p-2 '>

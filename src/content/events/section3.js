@@ -2,6 +2,7 @@
 import Heading from "@/components/heading/heading";
 import React, { useEffect, useState } from "react";
 
+
 //components
 import EventCard from "@/components/card/eventCard";
 import {event} from "@/mocks/event"
@@ -9,6 +10,9 @@ import {event} from "@/mocks/event"
 //react icons
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+
+import { eventListData } from "@/redux/slices/event";
+import { useDispatch, useSelector } from "react-redux";
 
 function section3() {
 
@@ -18,23 +22,28 @@ function section3() {
     pastEvents: []
   })
   const router = useRouter()
- 
+  const dispatch = useDispatch()
+  const eventData = useSelector((state)=> state.event)
+
+ console.log("zffjhklljvgk",eventData)
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:50});
+        // const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:50});
+        const response = await dispatch(eventListData({query:{}, sort:{name:1},populate:'eventId',page:1,limit:50}))
+
         console.log("api Response:", response);
 
         const currentDate = new Date(); 
 
         //upcomingEvents
-        const upcomingEv = response?.data?.data.filter((event) => {
+        const upcomingEv = eventData.data.filter((event) => {
           const eventDate = new Date(event.eventId.date); 
           return eventDate >= currentDate; 
         }) || [];
 
-        const pastEv = response?.data?.data.filter((event) => {
+        const pastEv = eventData.data.filter((event) => {
           const eventDate = new Date(event.eventId.date)
           return eventDate < currentDate
         }) || [];
@@ -52,12 +61,7 @@ function section3() {
     };
 
     fetchEvents();
-  }, []);
-
-  // console.log( 'eventList', eventList);
-  console.log('slice',eventList[isOpen].slice(0,1));
-  
-  
+  }, []);  
 
   return (
     <div className=" flex flex-col items-center ">

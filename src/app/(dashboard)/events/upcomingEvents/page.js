@@ -9,22 +9,19 @@ import EventCard from "@/components/card/eventCard";
 //constant js file
 import { upcomingEv } from "@/constant/upcomingEvents";
 import { useParams } from "next/navigation";
+import { useSelector } from "react-redux";
 
 function page() {
 
   const [upcomingList, setUpcomingList] = useState([])
-  
+  const eventData = useSelector((state)=> state.event)
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await event.eventList({query:{}, sort:{name:1},populate:'eventId',page:1,limit:50});
-        console.log("api Response:", response);
-
-        const currentDate = new Date(); 
-
+        const currentDate = new Date();
         //upcomingEvents
-        const upcomingEv = response?.data?.data.filter((event) => {
+        const upcomingEv = eventData.data.filter((event) => {
           const eventDate = new Date(event.eventId.date); 
           return eventDate >= currentDate; 
         }) || [];
@@ -38,6 +35,7 @@ function page() {
     };
 
     fetchEvents();
+    
   }, []);
 
   return (

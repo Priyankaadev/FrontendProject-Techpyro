@@ -25,7 +25,7 @@ function section3() {
 
     fetchExhibitor()
 
-  })
+  },[])
 
 
   return (
@@ -48,8 +48,9 @@ function section3() {
     <p className='md:text-[40px] font-semibold mb-[3%] text-[27px] px-[5%] mt-5'>Exhibitors</p>
 <div className='exhibitors md:grid md:grid-cols-4 md:grid-flow-row flex flex-col gap-6 px-[5%] mb-[5%]'>
     {
-      exhibitorList.length > 0 ? exhibitorList.map((exhibitor)=>(
+      exhibitorList.length > 0 ? exhibitorList.map((exhibitor, idx)=>(
         <Exhibitor
+        id={idx}
         idx={exhibitor?._id}
         img={exhibitor?.image}
         hall={exhibitor?.hall}
