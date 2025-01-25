@@ -38,12 +38,12 @@ function section3() {
         const currentDate = new Date(); 
 
         //upcomingEvents
-        const upcomingEv = eventData.data.filter((event) => {
+        const upcomingEv = eventData?.data?.filter((event) => {
           const eventDate = new Date(event.eventId.date); 
           return eventDate >= currentDate; 
         }) || [];
 
-        const pastEv = eventData.data.filter((event) => {
+        const pastEv = eventData?.data?.filter((event) => {
           const eventDate = new Date(event.eventId.date)
           return eventDate < currentDate
         }) || [];

@@ -95,7 +95,7 @@ const header = () => {
       </div>
 
       <div className={
-        menuOpen ? "fixed left-0 top-0 w-[65%] h-screen bg-[#ecf0f3] p-6 ease-in duration-500" 
+        menuOpen ? "fixed left-0 top-0 w-[65%] h-screen bg-[#ecf0f3] overflow-y-auto p-6 ease-in duration-500" 
         : "fixed left-[-100%] top-0 p-10 ease-in duration-400"
       }>
         <div className="flex w-full items-center justify-between ">
