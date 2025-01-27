@@ -1,49 +1,64 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Form from '@/components/form/form'
 import { Loader } from '@googlemaps/js-api-loader'
 
 
-const containerStyle = {
-  width: '100%',
-  height: '100vh'
-}
+
 
 
 function page() {
 
   const mapRef = useRef(null)
+  const [coords, setCoords] = useState(null)
+ 
 
   useEffect(() => {
-    const initMap = async ()=>{
-      console.log("map initialized");
+    const gotLocation = (position) => {
+      const newCoords = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+      console.log("coords", newCoords)
+      setCoords(newCoords)
+
+      // Initialize the map once coordinates are available
+      initMap(newCoords)
+    }
+      const failedToGet = ()=>{
+        console.log('failed to get location');
+        
+      }
+    
+    const location = async () => {
+         navigator.geolocation.getCurrentPosition(gotLocation, failedToGet)
+        
+      }
+
+    const initMap = async (coords)=>{
+      console.log("map initialized", coords);
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY ,
         version: "weekly",
 
       })
       const {Map} = await loader.importLibrary("maps")
-
-      const {Marker} = await loader.importLibrary("marker")
       const position = {
-        lat: 30.7333,
-        lng: 76.7794
+        lat: coords.latitude,
+        lng: coords.longitude
 
       }
       const mapOptions = {
         center: position,
         zoom: 17,
-        mapId : 'MY-NEXTJS_MAPID'
+        mapId : loader.apiKey
         
       }
-      const map = new Map(mapRef.current, mapOptions)
-      const marker = new Marker({
-        map: map,
-        position: position,
-      })
+     new Map(mapRef.current, mapOptions)
+   
 
-    }
-    initMap()
+    }  
+    navigator.geolocation.getCurrentPosition(gotLocation, failedToGet)
   }, [])
 
   return (

@@ -82,12 +82,12 @@ function section3() {
         <div className="row1 flex flex-col px-[10%] relative justify-center md:grid md:grid-cols-2 md:grid-flow-row  md:gap-10 md:px-[10%] md:py-5 gap-5 ">
           {isOpen && eventList[isOpen].length > 0 ? eventList[isOpen].slice(0,2).map((event) => (
             <EventCard
-              idx={event.id}
-              img={event.image}
-              place={event.eventId.city}
-              date={event.eventId.date}
-              desc={event.description}
-              name={event.eventId.name}
+              idx={event?.id}
+              img={event?.image}
+              place={event?.eventId.city}
+              date={event?.eventId.date}
+              desc={event?.description}
+              name={event?.eventId.name}
               type={`${isOpen}`}
             />
           ))  : <p>Data not found</p>

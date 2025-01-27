@@ -17,9 +17,9 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
   return (
     <div className=' flex flex-col shadow-lg  ' key={idx}>
   
-      <img src={img} className=" flex basis-[30%] object-cover  " alt='event image'/>
+      <img src={img} className=" flex  object-cover h-[20rem] " alt='event image'/>
      
-      <div className='flex flex-col basis-[70%]  gap-1 px-5 py-4'>
+      <div className='flex flex-col   gap-1 px-5 py-4'>
        <div className='flex '>
         {/* <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaClock />{time}</p> */}
         <p className='flex items-center gap-1 text-[1rem] md:text-[15px]'><FaCalendarAlt />{date}</p>
@@ -29,7 +29,7 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
       <p  className='flex items-center gap-1 md:text-[18px]'><ImLocation2/>{place}</p>
       <p className='description md:text-[18px]'>{desc}</p>
       </div>
-      <div className=' py-4 px-5'>
+      <div className=' flex items-baseline py-4 px-5'>
       <button 
       className='flex items-center p-2 w-[7rem] gap-1 h-[2rem] bg-[#F7A600] '  
      onClick={()=>router.push(`/events/${type}/${idx}`)
