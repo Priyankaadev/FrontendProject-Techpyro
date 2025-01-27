@@ -3,21 +3,23 @@ import React, { useContext, useEffect } from "react";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import { AuthContext } from "@/context/authContext";
-import { useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import Loader from "@/components/loader/loader";
 import { Provider } from "react-redux";
 import store from "@/redux/store/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BreadcrumbHeader from "@/components/breadcrumb/breadcrumb";
 
 function PagesLayout({ children }) {
   const router = useRouter();
+
   const { userInfo, isLoading } = useContext(AuthContext);
 
   useEffect(() => {
     if (!userInfo && !isLoading) router.push("/signin");
   });
-
+  
   if (isLoading || !userInfo) {
     return <Loader />;
   }
@@ -25,6 +27,7 @@ function PagesLayout({ children }) {
     <div>
       <Provider store={store}>
         <Header />
+       <BreadcrumbHeader /> 
         {children}
         <Footer />
         <ToastContainer />
