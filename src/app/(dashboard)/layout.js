@@ -30,7 +30,7 @@ function PagesLayout({ children }) {
     <div>
       <Provider store={store}>
         <Header />
-     {isPageIncluded ? null : <BreadcrumbHeader /> }
+         {isPageIncluded ? null : <BreadcrumbHeader /> }
         {children}
         <Footer />
         <ToastContainer />
