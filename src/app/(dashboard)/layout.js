@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import { AuthContext } from "@/context/authContext";
-import {  useRouter } from "next/navigation";
+import {  usePathname, useRouter } from "next/navigation";
 import Loader from "@/components/loader/loader";
 import { Provider } from "react-redux";
 import store from "@/redux/store/store";
@@ -13,6 +13,9 @@ import BreadcrumbHeader from "@/components/breadcrumb/breadcrumb";
 
 function PagesLayout({ children }) {
   const router = useRouter();
+  const path = usePathname();
+  const pages = ['contact', 'aboutus']
+  const isPageIncluded = pages.some((page) => path.includes(page));
 
   const { userInfo, isLoading } = useContext(AuthContext);
 
@@ -27,7 +30,7 @@ function PagesLayout({ children }) {
     <div>
       <Provider store={store}>
         <Header />
-       <BreadcrumbHeader /> 
+     {isPageIncluded ? null : <BreadcrumbHeader /> }
         {children}
         <Footer />
         <ToastContainer />
