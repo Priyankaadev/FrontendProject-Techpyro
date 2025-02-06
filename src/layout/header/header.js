@@ -30,9 +30,13 @@ import EventSearch from "@/components/EventSearch/eventSearch";
 const Header = () => {
   const router = useRouter();
 
-  
-  const {userInfo, handleLogout} = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
+
   // const [showInput, setShowInput] = useState(false);
+
+if (!authContext) return null; // Prevents using undefined values
+const { userInfo, handleLogout } = authContext;
+
   
 
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
@@ -42,8 +46,6 @@ const Header = () => {
     // Toggle the dropdown or close all if clicked again
     setOpenDropdown((prev) => (prev === dropdownId ? null : dropdownId));
   };
-
-
 
   const handleNav = ()=>{
     setMenuOpen(!menuOpen)

@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 
 export const AuthContext = createContext({});
 
+
 export function AuthProvider({ children }) {
   const [userInfo, setUserInfo] = useState(null);
 
@@ -63,6 +64,7 @@ export function AuthProvider({ children }) {
     try {
       const response = await axios
       .post(`${process.env.NEXT_PUBLIC_HOST_URL}/userapp/auth/firebase/google`, payload)
+
       if(response.data?.status === "SUCCESS"){
         setUserInfo(response.data.data);
         localStorage.setItem("authToken", response.data.data.token);
