@@ -117,7 +117,7 @@ function Page() {
 
         <div className="flex justify-center mt-5">
           <p className="md:text-[15px] text-[12px]">
-            Don't have an account?{" "}
+            Don't have an account?
             <span
               className="text-blue-400 cursor-pointer"
               onClick={() => router.push("/signup")}

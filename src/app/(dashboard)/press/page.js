@@ -13,8 +13,8 @@ function Page() {
       body={"Our mission and vision drive us towards a future where honest information is accessible to all students and institutions work towards their growth."}
       />
       <div className='row1 flex flex-col px-[4%] justify-center md:grid md:grid-cols-2  lg:grid lg:grid-cols-3 lg:px-[5%]  md:gap-[5%] md:px-[2%]  '>
-        {news.map(( item)=>(
-             <NewsCard img={item.img} date={item.date} desc={item.desc}  name={item.name}/>
+        {news.map(( item, idx)=>(
+             <NewsCard key={idx} img={item.img} date={item.date} desc={item.desc}  name={item.name}/>
            ))}
      
         </div>

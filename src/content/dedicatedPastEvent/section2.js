@@ -81,10 +81,11 @@ function Section2({eventDetails, committeeData, delegateData}) {
             }}
             >
         {committeeData &&  (
-          committeeData.map((committee) => (
+          committeeData.map((committee,idx) => (
             <SwiperSlide key={committee?.id}>
             <div className="p-2">
               <Profile2
+              key={idx}
                 id={committee?.id}
                 img={committee?.image}
                 designation={committee?.designation}

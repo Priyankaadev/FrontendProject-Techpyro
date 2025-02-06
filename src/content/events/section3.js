@@ -111,8 +111,9 @@ function Section3() {
           {isOpen && eventList[isOpen].length > 0 ? (
             eventList[isOpen]
               .slice(0, 2)
-              .map((event) => (
+              .map((event, idx) => (
                 <EventCard
+                key={idx}
                   idx={event?.id}
                   img={event?.image}
                   place={event?.eventId.city}

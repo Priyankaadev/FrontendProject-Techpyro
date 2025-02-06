@@ -86,6 +86,7 @@ function EventSearch({menu}) {
           
               {searchedEventList.map((result, idx) => (
                 <div
+              
                 onClick={()=>{
                     console.log("clicked");
                     

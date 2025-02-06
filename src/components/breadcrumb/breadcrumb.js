@@ -43,7 +43,7 @@ function BreadcrumbHeader() {
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                  <Link href={idx === home.length-1  ? "":`/${path} `}>
+                  <Link href={idx === home.length-1  ? "":`/${path} `} key={idx}>
                     <BreadcrumbPage className={idx === home.length-1 ?"capitalize" : "capitalize text-blue-400 cursor-pointer"} >
                       {path}
                     </BreadcrumbPage>

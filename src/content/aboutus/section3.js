@@ -84,7 +84,7 @@ function Section3() {
           >
             {constant.map((item, idx) => (
               <SwiperSlide >
-                <Journey idx={idx} year={item.number} head={item.title} />
+                <Journey key={idx} idx={idx} year={item.number} head={item.title} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -128,6 +128,7 @@ function Section3() {
             {profileConstant.map((item, idx) => (
               <SwiperSlide>
                 <Profile
+                key={idx}
                   idx={idx}
                   name={item.name}
                   desc={item.desc}

@@ -290,8 +290,8 @@ function Page() {
             ) : (
               <div className=" w-full border-1 border-solid-red">
                 {exhibitorDocs.length > 0 ? (
-                  exhibitorDocs.map((docs) => (
-                    <li className="border-1 border-solid-red">{docs.title}</li>
+                  exhibitorDocs.map((docs, idx) => (
+                    <li className="border-1 border-solid-red" key={idx}>{docs.title}</li>
                   ))
                 ) : (
                   <p className="flex justify-end">No document</p>

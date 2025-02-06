@@ -40,8 +40,9 @@ function Page() {
       }
     />
     <div className="row1 flex flex-col px-[4%]  md:grid md:grid-cols-2 md:px-[5%] md:gap-8  ">
-      {pastList? pastList.map((event) => (
+      {pastList? pastList.map((event, idx) => (
         <EventCard
+        key={idx}
           idx={event?.id}
           img={event?.image}
           place={event?.eventId.city}

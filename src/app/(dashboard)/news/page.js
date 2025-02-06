@@ -13,8 +13,8 @@ function Page() {
       body={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam"}/>
 
       <div className='row1 flex flex-col p-[4%] justify-center md:grid md:grid-cols-2  lg:grid lg:grid-cols-3 lg:px-[5%]  md:gap-[3%] md:px-[2%]  '>
-        {news.map(( item)=>(
-             <NewsCard img={item.img} date={item.date} desc={item.desc}  name={item.name}/>
+        {news.map(( item, idx)=>(
+             <NewsCard key={idx} img={item.img} date={item.date} desc={item.desc}  name={item.name}/>
            ))}
      
         </div>

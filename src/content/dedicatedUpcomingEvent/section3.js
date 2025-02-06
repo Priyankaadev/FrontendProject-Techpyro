@@ -58,7 +58,7 @@ function Section3() {
         </div>
 
         {/* {data?.map((item, index) => ( */}
-          <Table agendaData={agendaList} />
+          <Table key={agendaList.data.data.id} agendaData={agendaList} />
         {/* //    time={item.time} event={item.event} key={index}  */}
           
         {/* ))} */}

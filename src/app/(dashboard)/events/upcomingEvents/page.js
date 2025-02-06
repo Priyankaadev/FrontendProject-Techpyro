@@ -48,8 +48,9 @@ function Page() {
       />
  
     <div className="row1 flex flex-col py-10 px-[4%]  md:grid md:grid-cols-2 md:px-[2%] md:gap-5  ">
-        {upcomingList? upcomingList.map((event) => (
+        {upcomingList? upcomingList.map((event, idx) => (
           <EventCard
+          key={idx}
             idx={event?.id}
             // mode={item.mode}
             img={event?.image}

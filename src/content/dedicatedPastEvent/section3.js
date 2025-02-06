@@ -56,6 +56,7 @@ function Section3() {
     {
       exhibitorList.length > 0 ? exhibitorList.map((exhibitor, idx)=>(
         <Exhibitor
+        key={idx}
         id={idx}
         idx={exhibitor?._id}
         img={exhibitor?.image}
