@@ -4,7 +4,7 @@ import Section2 from '@/content/events/section2'
 import Section3 from '@/content/events/section3'
 
 
-function page() {
+function Page() {
     
   return (
    <div>
@@ -15,4 +15,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

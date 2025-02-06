@@ -4,7 +4,7 @@ import Heading from '@/components/heading/heading'
 import { role } from '@/constant/career'
 import  JobRole from '@/components/jobRole/page'
 
-function section2() {
+function Section2() {
   return (  
 
   <div className='flex flex-col mt-[5%] items-center justify-center '>
@@ -24,4 +24,4 @@ function section2() {
   )
 }
 
-export default section2
+export default Section2

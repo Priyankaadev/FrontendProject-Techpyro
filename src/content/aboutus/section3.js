@@ -19,7 +19,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-function section3() {
+function Section3() {
   return (
     <div className="w-full overflow-hidden  ">
       <div className="row-1 flex lg:flex-row flex-col  ">
@@ -166,4 +166,4 @@ function section3() {
   );
 }
 
-export default section3;
+export default Section3;

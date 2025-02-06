@@ -4,7 +4,7 @@ import EventVideo from '@/components/card/eventVideo'
 import Register from '@/components/register/register'
 import Heading from '@/components/heading/heading'
 
-function page() {
+function Page() {
   return (
     <div className=' md:py-6  '>
         <div className='md:flex justify-between mb-[5%] font-semibold text-[27px] px-[9%]  hidden ' >
@@ -81,4 +81,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

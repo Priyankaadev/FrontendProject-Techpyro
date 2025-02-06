@@ -5,7 +5,7 @@ import Section2 from '@/content/aboutus/section2'
 import Section3 from '@/content/aboutus/section3'
 
 
-function aboutpage() {
+function Aboutpage() {
  
   // const queryString = QueryString.stringify({
   //   where: {
@@ -42,4 +42,4 @@ function aboutpage() {
   )
 }
 
-export default aboutpage
+export default Aboutpage

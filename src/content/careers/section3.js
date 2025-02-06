@@ -3,7 +3,7 @@ import React from 'react'
 import Heading from '@/components/heading/heading'
 import Form from '@/components/form/form'
 
-function section3() {
+function Section3() {
   return (
     <div className='flex flex-col mt-[8%]'>
       <Heading head={"Apply For Other Positions"}
@@ -23,4 +23,4 @@ function section3() {
   )
 }
 
-export default section3
+export default Section3

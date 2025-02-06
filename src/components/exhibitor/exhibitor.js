@@ -3,7 +3,7 @@ import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 
 
-function exhibitor({img, name, stall, hall,idx,id }) {
+function Exhibitor({img, name, stall, hall,idx,id }) {
 
   const router = useRouter()
   const params = useParams()
@@ -27,4 +27,4 @@ function exhibitor({img, name, stall, hall,idx,id }) {
   )
 }
 
-export default exhibitor
+export default Exhibitor

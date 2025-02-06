@@ -6,7 +6,7 @@ import EventCard from "@/components/card/eventCard";
 
 import { useSelector } from "react-redux";
 
-function page() {
+function Page() {
    const [pastList, setPastList] = useState([])
    const eventData = useSelector((state)=> state.event)
   
@@ -58,4 +58,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

@@ -3,7 +3,7 @@ import { FaFacebookF, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { IoLogoInstagram } from 'react-icons/io'
 
-function profile({idx,img, name, designation}) {
+function Profile({idx,img, name, designation}) {
   
   return (
     <div className='w-fulll flex flex-col shadow-lg ' key={idx}>
@@ -35,4 +35,4 @@ function profile({idx,img, name, designation}) {
   )
 }
 
-export default profile
+export default Profile

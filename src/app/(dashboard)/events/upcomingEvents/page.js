@@ -11,7 +11,7 @@ import { upcomingEv } from "@/constant/upcomingEvents";
 import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 
-function page() {
+function Page() {
 
   const [upcomingList, setUpcomingList] = useState([])
   const eventData = useSelector((state)=> state.event)
@@ -68,4 +68,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

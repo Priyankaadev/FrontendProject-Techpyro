@@ -8,7 +8,7 @@ import { FaYoutube } from "react-icons/fa";
 
 import Link from 'next/link';
 
-function footer() {
+function Footer() {
   return (
     <div className="w-full p-[5%] mt-auto border-t  ">
     
@@ -83,4 +83,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;

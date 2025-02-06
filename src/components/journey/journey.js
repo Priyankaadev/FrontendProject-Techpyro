@@ -1,6 +1,6 @@
 import React from "react";
 
-function journey({ head, year, idx }) {
+function Journey({ head, year, idx }) {
   return (
     <>
       {idx % 2 === 0 ? (
@@ -59,4 +59,4 @@ function journey({ head, year, idx }) {
   );
 }
 
-export default journey;
+export default Journey;

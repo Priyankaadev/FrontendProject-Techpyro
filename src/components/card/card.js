@@ -1,6 +1,6 @@
 import React from 'react'
 
-function card({img, head, body}) {
+function Card({img, head, body}) {
   return (
     <div className='outer-container  h-auto w-full bg-white px-[5%] flex md:flex-row flex-col '>
       <div className='flex basis-[30%]  card-img md:items-center md:justify-center'>
@@ -14,4 +14,4 @@ function card({img, head, body}) {
   )
 }
 
-export default card
+export default Card

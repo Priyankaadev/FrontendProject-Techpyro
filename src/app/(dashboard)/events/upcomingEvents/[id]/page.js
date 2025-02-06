@@ -10,7 +10,7 @@ import { useParams } from "next/navigation";
 import { event } from "@/mocks/event";
 import { useRouter } from "next/navigation";
 
-function page() {
+function Page() {
   const params = useParams();
   const router = useRouter();
 
@@ -144,4 +144,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

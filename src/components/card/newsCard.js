@@ -4,7 +4,7 @@ import React from 'react'
 import { FaAngleDoubleRight, FaCalendarAlt } from "react-icons/fa";
 
 
-function newsCard({ img, date, name, desc}) {
+function NewsCard({ img, date, name, desc}) {
   return (
     <div className='w-full flex flex-col shadow-lg mb-[5%]   '>
     <div className='flex '>
@@ -23,5 +23,5 @@ function newsCard({ img, date, name, desc}) {
   )
 }
 
-export default newsCard
+export default NewsCard
 

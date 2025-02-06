@@ -8,7 +8,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 
 import Collapse from "../collapse/collapse";
 
-function page({ title, place, desc }) {
+function Page({ title, place, desc }) {
 
   const [show, setShow] = useState(false);
 
@@ -33,4 +33,4 @@ function page({ title, place, desc }) {
   );
 }
 
-export default page;
+export default Page;

@@ -4,7 +4,7 @@ import React from "react";
 import DedicatedEventCard from "@/components/card/dedicatedEventCard";
 
 
-function section1({eventDetails}) {
+function Section1({eventDetails}) {
 
   return (
         
@@ -19,4 +19,4 @@ function section1({eventDetails}) {
   )
 }
 
-export default section1;
+export default Section1;

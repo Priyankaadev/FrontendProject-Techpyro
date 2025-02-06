@@ -15,7 +15,7 @@ import Heading2 from '@/components/heading/heading2'
 import EventVideo from '@/components/card/eventVideo'
 import Profile2 from '@/components/profileCard/Profile2';
 
-function section2({eventDetails, committeeData, delegateData}) {
+function Section2({eventDetails, committeeData, delegateData}) {
   return (
     <div className='w-full md:px-[5%]' >
       <div className='hidden md:block'>
@@ -130,4 +130,4 @@ function section2({eventDetails, committeeData, delegateData}) {
   )
 }
 
-export default section2
+export default Section2

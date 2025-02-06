@@ -1,6 +1,6 @@
 import React from 'react'
 
-function eventVideo({vid, head, body}) {
+function EventVideo({vid, head, body}) {
   // const videoUrl = `https://www.youtube.com/embed/${videoId}`;
   return (
     <div className='outer h-auto w-full mb-[5%] md:mb-0 bg-white  flex flex-col '>
@@ -26,4 +26,4 @@ function eventVideo({vid, head, body}) {
   )
 }
 
-export default eventVideo
+export default EventVideo

@@ -7,7 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
 
 
-function dedicatedEventCard({ img,date, name, place, desc,idx }) {
+function DedicatedEventCard({ img,date, name, place, desc,idx }) {
   
   return (
     <div className='w-full flex flex-col  md:flex-row mb-[5%] py-[1%]  ' key={idx}>
@@ -29,4 +29,4 @@ function dedicatedEventCard({ img,date, name, place, desc,idx }) {
   )
 }
 
-export default dedicatedEventCard;
+export default DedicatedEventCard;

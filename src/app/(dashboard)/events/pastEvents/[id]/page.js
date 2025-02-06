@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoader } from "@/context/loader";
 // import { upcomingEv } from '@/constant/upcomingEvents'
 
-function page() {
+function Page() {
   const params = useParams();
   const {setLoading} = useLoader()
 
@@ -114,4 +114,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

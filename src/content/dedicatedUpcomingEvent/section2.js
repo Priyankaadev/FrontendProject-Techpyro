@@ -17,7 +17,7 @@ import Heading2 from "@/components/heading/heading2";
 import Profile2 from "@/components/profileCard/Profile2";
 
 
-function section2({ speakerData, committeeData, eventData,delegateData }) {
+function Section2({ speakerData, committeeData, eventData,delegateData }) {
 
   return (
     <div className="section2 py-[5%]">
@@ -127,4 +127,4 @@ function section2({ speakerData, committeeData, eventData,delegateData }) {
   );
 }
 
-export default section2;
+export default Section2;

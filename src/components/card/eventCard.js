@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-function eventCard({ img, date, name, place, desc, idx,type}) {
+function EventCard({ img, date, name, place, desc, idx,type}) {
   const router = useRouter()
   return (
     <div className=' flex flex-col shadow-lg  ' key={idx}>
@@ -44,4 +44,4 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
   )
 }
 
-export default eventCard;
+export default EventCard;

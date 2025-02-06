@@ -1,6 +1,6 @@
 import React from "react";
 
-function section1() {
+function Section1() {
   return (
     <div className="w-full flex flex-col justify-center ">
       <div className="row-1 flex flex-col mt-3 items-center ">
@@ -32,4 +32,4 @@ function section1() {
   );
 }
 
-export default section1;
+export default Section1;

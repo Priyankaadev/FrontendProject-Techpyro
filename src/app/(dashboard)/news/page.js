@@ -6,7 +6,7 @@ import { news } from '@/constant/news';
 import NewsCard from '@/components/card/newsCard';
 import Register from '@/components/register/register';
 
-function page() {
+function Page() {
   return (
     <div className='w-full py-[5%]'>
       <Heading head={"News"} 
@@ -26,4 +26,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

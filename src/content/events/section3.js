@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { eventListData } from "@/redux/slices/event";
 import { useDispatch, useSelector } from "react-redux";
 
-function section3() {
+function Section3() {
   const [isOpen, setIsOpen] = useState("upcomingEvents");
   const [eventList, setEventList] = useState({
     upcomingEvents: [],
@@ -140,4 +140,4 @@ function section3() {
   );
 }
 
-export default section3;
+export default Section3;

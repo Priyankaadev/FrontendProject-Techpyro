@@ -19,7 +19,7 @@ const schema = Yup.object().shape({
 });
 
 
-function page() {
+function Page() {
 
   const [isSigningUp, setIsSigningUp] =  useState(false)
   const { handleSignup, googleLoginFirebase} = useContext(AuthContext);
@@ -168,4 +168,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

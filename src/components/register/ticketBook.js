@@ -7,7 +7,7 @@ import React from "react";
 //   }
 // ]
 
-function ticketBook({eventName, eventDate, eventLocation}) {
+function TicketBook({eventName, eventDate, eventLocation}) {
 
   
   return (
@@ -60,4 +60,4 @@ function ticketBook({eventName, eventDate, eventLocation}) {
   );
 }
 
-export default ticketBook;
+export default TicketBook;

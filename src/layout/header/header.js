@@ -27,7 +27,7 @@ import {  useRouter } from "next/navigation";
 import { AuthContext } from "@/context/authContext";
 import EventSearch from "@/components/EventSearch/eventSearch";
 
-const header = () => {
+const Header = () => {
   const router = useRouter();
 
   
@@ -310,4 +310,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

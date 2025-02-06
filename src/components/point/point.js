@@ -1,6 +1,6 @@
 import React from 'react'
 
-function point({img, point}) {
+function Point({img, point}) {
   return (
     <div className='container flex gap-3'>
       <div className='row-1'>
@@ -14,4 +14,4 @@ function point({img, point}) {
   )
 }
 
-export default point
+export default Point

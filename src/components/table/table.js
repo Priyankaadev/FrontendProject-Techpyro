@@ -2,7 +2,7 @@
 import React from "react";
 // import { data } from "@/constant/tableData";
 
-function table({agendaData}) {
+function Table({agendaData}) {
   // console.log("agendadata", agendaData);
   return (
     <div>
@@ -21,4 +21,4 @@ function table({agendaData}) {
   );
 }
 
-export default table;
+export default Table;

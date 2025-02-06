@@ -1,6 +1,6 @@
 import React from "react";
 
-function card2({ img, head, body }) {
+function Card2({ img, head, body }) {
   return (
     
     <div className="outer-container lg:h-auto lg:w-[15em] md:h-[6em] md:w-[20em] w-full max-w-[500px] ">
@@ -19,4 +19,4 @@ function card2({ img, head, body }) {
   );
 }
 
-export default card2;
+export default Card2;

@@ -3,7 +3,7 @@ import Exhibitor from '@/components/exhibitor/exhibitor'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-function section3() {
+function Section3() {
   const [exhibitorList, setExhibitorList] = useState([])
   const router = useRouter()
 
@@ -72,4 +72,4 @@ function section3() {
   )
 }
 
-export default section3
+export default Section3

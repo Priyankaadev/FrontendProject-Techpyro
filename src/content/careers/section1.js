@@ -4,7 +4,7 @@ import React from 'react'
 import Heading2 from '@/components/heading/heading2'
 import Heading from '@/components/heading/heading'
 
-function section1() {
+function Section1() {
   return (
     <div className='careers-div'>
       <Heading head={"Careers"}
@@ -20,4 +20,4 @@ function section1() {
   )
 }
 
-export default section1
+export default Section1

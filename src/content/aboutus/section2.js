@@ -4,7 +4,7 @@ import Heading from '@/components/heading/heading'
 import Card2 from '@/components/card/card2'
 
 
-function section2() {
+function Section2() {
   return (
     <div className='w-full block-1 bg-[#FFF1D2] py-[5%] '>
 
@@ -67,4 +67,4 @@ function section2() {
   )
 }
 
-export default section2
+export default Section2

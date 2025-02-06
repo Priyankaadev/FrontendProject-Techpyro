@@ -1,6 +1,6 @@
 import React from 'react'
 
-function heading({head, body}) {
+function Heading({head, body}) {
   return (
     <div className='row-1 flex flex-col items-center mb-[5%] mt-[4%] md:mt-0 '>
         <p className='font-semibold text-[27px] md:text-[58.98px] mb-5 '>{head}</p>
@@ -9,4 +9,4 @@ function heading({head, body}) {
   )
 }
 
-export default heading
+export default Heading

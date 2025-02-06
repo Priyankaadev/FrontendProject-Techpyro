@@ -14,7 +14,7 @@ const schema = Yup.object().shape({
   password: Yup.string().required("Password is incorrect").min(7),
 });
 
-function page() {
+function Page() {
   const router = useRouter();
   const { handleLogin, googleLoginFirebase } = useContext(AuthContext);
   
@@ -131,4 +131,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

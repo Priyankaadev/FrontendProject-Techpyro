@@ -3,7 +3,7 @@ import PopupForm from "@/components/popupForm/popupForm";
 import { AuthContext } from "@/context/authContext";
 import React, { useContext, useState} from "react";
 
-function page() {
+function Page() {
 
   const {userInfo, updateUserInfo} = useContext(AuthContext)
   const [openPopup, setOpenPopup] = useState(false)
@@ -40,4 +40,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

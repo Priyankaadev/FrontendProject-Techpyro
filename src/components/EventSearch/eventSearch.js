@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 
 
-function eventSearch({menu}) {
+function EventSearch({menu}) {
     const router = useRouter()
   const [showInput, setShowInput] = useState(false);
   const [searchInput, setSearchInput]= useState("");
@@ -109,4 +109,4 @@ function eventSearch({menu}) {
   );
 }
 
-export default eventSearch;
+export default EventSearch;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function registerEvent() {
+function RegisterEvent() {
   
   return (
     <>
@@ -33,4 +33,4 @@ function registerEvent() {
   );
 }
 
-export default registerEvent;
+export default RegisterEvent;

@@ -15,7 +15,7 @@ import Heading2 from "@/components/heading/heading2";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-function section1({eventData}) {
+function Section1({eventData}) {
 
   return (
     <div className="section1 w-full py-[2%]">
@@ -81,4 +81,4 @@ function section1({eventData}) {
   );
 }
 
-export default section1;
+export default Section1;

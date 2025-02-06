@@ -2,7 +2,7 @@ import React from 'react'
 
 import Point from '../point/point'
 
-function collapse() {
+function Collapse() {
   return (
     <div className=' flex flex-col gap-2'>
      
@@ -33,4 +33,4 @@ function collapse() {
   )
 }
 
-export default collapse
+export default Collapse

@@ -8,7 +8,7 @@ import RegisterEvent from "@/components/register/registerEvent";
 import { event } from "@/mocks/event";
 import { useRouter } from "next/navigation";
 
-function section3() {
+function Section3() {
 
 
   const [agendaList, setAgendaList] = useState([])
@@ -69,4 +69,4 @@ function section3() {
   );
 }
 
-export default section3;
+export default Section3;
