@@ -40,10 +40,10 @@ function BreadcrumbHeader() {
       <div className="breadcrumb flex gap-2  text-[8x] md:text-[12px]">
         {home.length > 1
           ? home.map((path,idx) => (
-              <Breadcrumb>
+              <Breadcrumb key={idx}>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                  <Link href={idx === home.length-1  ? "":`/${path} `} key={idx}>
+                  <Link href={idx === home.length-1  ? "":`/${path} `} >
                     <BreadcrumbPage className={idx === home.length-1 ?"capitalize" : "capitalize text-blue-400 cursor-pointer"} >
                       {path}
                     </BreadcrumbPage>

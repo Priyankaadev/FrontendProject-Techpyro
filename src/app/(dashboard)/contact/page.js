@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ContactForm from '@/components/form/form';
 import { Loader } from '@googlemaps/js-api-loader';
 import { Marker } from '@react-google-maps/api';
+import Image from 'next/image';
 
 const ContactPage = () => {
   const mapRef = useRef(null);
@@ -69,15 +70,15 @@ const ContactPage = () => {
             <p className='text-[24px] mt-5'>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
             </p>
-            <img src='/contact/girl.png' className='w-[60%]' alt='Contact' />
+            <Image src='/contact/girl.png' className='w-[60%]' alt='Contact' />
             <div className='contact-details flex flex-col md:flex-row items-center justify-around mt-5 gap-3 md:gap-0'>
               <div className='message'>
-                <img src='/contact/message.png' alt='Email' />
+                <Image src='/contact/message.png' alt='Email' />
                 <p>Email</p>
                 <p>contact@igauge.in</p>
               </div>
               <div className='phone'>
-                <img src='/contact/phone.png' className='h-[40%]' alt='Phone' />
+                <Image src='/contact/phone.png' className='h-[40%]' alt='Phone' />
                 <p>Phone Number</p>
                 <p>+91 80 46469200</p>
               </div>

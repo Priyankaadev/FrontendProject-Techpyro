@@ -83,7 +83,7 @@ function Section3() {
             }}
           >
             {constant.map((item, idx) => (
-              <SwiperSlide >
+              <SwiperSlide key={idx} >
                 <Journey key={idx} idx={idx} year={item.number} head={item.title} />
               </SwiperSlide>
             ))}
@@ -126,7 +126,7 @@ function Section3() {
             }}
           >
             {profileConstant.map((item, idx) => (
-              <SwiperSlide>
+              <SwiperSlide key={idx}>
                 <Profile
                 key={idx}
                   idx={idx}
@@ -147,7 +147,7 @@ function Section3() {
 
         <div className="flex md:basis-1/2 flex-col px-[6%] py-[5%]">
           <p className="font-semibold text-[40px] mb-5 leading-10  ">
-            Charting India's Education Odyssey
+            Charting India&apos;s Education Odyssey
           </p>
           <p className="text-[15px]   ">
             The Indian education system is vast and multifaceted, catering to an

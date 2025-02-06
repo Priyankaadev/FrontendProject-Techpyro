@@ -6,6 +6,7 @@ import { TbWorldSearch } from "react-icons/tb";
 import { useParams } from "next/navigation";
 import { event } from "@/mocks/event";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 //mui
 import Rating from "@mui/material/Rating";
@@ -189,7 +190,7 @@ function Page() {
     <div className="w-full ">
       <div className="flex flex-col md:flex-row mb-5 py-[1%] ">
         <div className=" flex flex-col md:flex-row basis-[40%] items-center ">
-          <img src={exhibitorDetails?.image} className="h-[90%] w-full " />
+          <Image src={exhibitorDetails?.image} className="h-[90%] w-full " alt="exhibitor image"/>
         </div>
 
         <div className="flex flex-col basis-[60%] gap-1 px-[5%] md:py-0  py-[2%] justify-center ">
