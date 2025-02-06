@@ -28,16 +28,13 @@ import { AuthContext } from "@/context/authContext";
 import EventSearch from "@/components/EventSearch/eventSearch";
 
 const Header = () => {
-  const router = useRouter();
-
-  const authContext = useContext(AuthContext);
+  const router = useRouter()
 
   // const [showInput, setShowInput] = useState(false);
 
-if (!authContext) return null; // Prevents using undefined values
-const { userInfo, handleLogout } = authContext;
-
-  
+  const authContext = useContext(AuthContext);
+  const userInfo = authContext?.userInfo || null;
+  const handleLogout = authContext?.handleLogout || (() => {});
 
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
   const [menuOpen, setMenuOpen] = useState(false)
