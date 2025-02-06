@@ -28,13 +28,12 @@ import { AuthContext } from "@/context/authContext";
 import EventSearch from "@/components/EventSearch/eventSearch";
 
 const Header = () => {
-  const router = useRouter()
+  const router = useRouter();
 
+  
+  const {userInfo, handleLogout} = useContext(AuthContext)
   // const [showInput, setShowInput] = useState(false);
-
-  const authContext = useContext(AuthContext);
-  const userInfo = authContext?.userInfo || null;
-  const handleLogout = authContext?.handleLogout || (() => {});
+  
 
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
   const [menuOpen, setMenuOpen] = useState(false)
@@ -49,7 +48,6 @@ const Header = () => {
     console.log("clicked");
     
   }
-
 
   return (
     <div className="w-full md:h-[20vh]  h-[15vh]  flex-shrink-0 px-8 lg:mt-5 md:gap-[3rem] gap-[1rem] flex text-sm ">
