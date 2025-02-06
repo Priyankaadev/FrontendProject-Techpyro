@@ -17,7 +17,8 @@ function eventCard({ img, date, name, place, desc, idx,type}) {
   return (
     <div className=' flex flex-col shadow-lg  ' key={idx}>
   
-      <img src={img} className=" flex  object-cover h-[20rem] " alt='event image'/>
+      <img src={img} className=" flex  object-cover h-[20rem] " alt='event image'   onClick={()=>router.push(`/events/${type}/${idx}`)
+     }/>
      
       <div className='flex flex-col   gap-1 px-5 py-4'>
        <div className='flex '>

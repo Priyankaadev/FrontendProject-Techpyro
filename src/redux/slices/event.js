@@ -24,9 +24,11 @@ const eventSlice = createSlice({
 });
 
 export const { getEventData } = eventSlice.actions;
-export const eventReducer = eventSlice.reducer;
+const eventReducer = eventSlice.reducer;
+export default eventReducer;
 
 export const eventListData = ({ query, sort, populate, page, limit }) => async (dispatch) => {
+
   try {
     const response = await event.eventList({
       query,
@@ -43,4 +45,5 @@ export const eventListData = ({ query, sort, populate, page, limit }) => async (
     console.log(error);
     throw error;
   }
+  
 };

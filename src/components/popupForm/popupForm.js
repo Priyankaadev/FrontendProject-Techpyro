@@ -5,8 +5,6 @@ import * as Yup from "yup";
 
 import { user } from "@/mocks/user";
 
-
-
 const schema = Yup.object().shape({
   full_name: Yup.string().required("Name is required").matches(/^[A-Za-z\s]+$/, "Name can only contain letters and spaces"),
   email: Yup.string().required("Email is required").email("Invalid email"),
@@ -29,9 +27,10 @@ function PopupForm({ handleClick, updated , userData}) {
     
       try {  
         console.log("Form Submitted", values);
+        
         const updatedData = await user.userUpdate({newData: values, id:userData.id})
         if(updatedData){
-            updated(updatedData.data)
+            updated(updatedData?.data)
             handleClick();
         }
       } catch (error) {

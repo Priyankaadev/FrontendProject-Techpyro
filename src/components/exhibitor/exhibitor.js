@@ -19,7 +19,7 @@ function exhibitor({img, name, stall, hall,idx,id }) {
         <div className='button-div'>
      <button 
      onClick={()=>router.push(`${params.id}/${idx}`)}
-        className='bg-orange-300 md:py-2 py-1 px-4 mb-4 ml-2'
+        className='bg-orange-300 md:py-2 py-1 px-4 md:px-2 mb-4 ml-2'
         
         >View More</button>
        </div>

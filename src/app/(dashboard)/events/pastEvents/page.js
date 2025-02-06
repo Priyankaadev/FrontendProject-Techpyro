@@ -3,7 +3,7 @@ import Heading from "@/components/heading/heading";
 import React, { useEffect, useState } from "react";
 //components
 import EventCard from "@/components/card/eventCard";
-import { event } from "@/mocks/event";
+
 import { useSelector } from "react-redux";
 
 function page() {
@@ -23,6 +23,7 @@ function page() {
           setPastList(pastEv)
 
           console.log("Filtered upcoming:" , pastEv);
+         
         } catch (err) {
           console.error("Error fetching events:", err);
         }};

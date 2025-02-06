@@ -6,7 +6,7 @@ import Section3 from '@/content/aboutus/section3'
 
 
 function aboutpage() {
-
+ 
   // const queryString = QueryString.stringify({
   //   where: {
   //     slug : {

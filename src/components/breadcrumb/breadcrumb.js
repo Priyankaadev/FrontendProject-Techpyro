@@ -9,12 +9,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useParams, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
+import Link from "next/link";
 
 function BreadcrumbHeader() {
   const regex = /\d/;
 
-  const home = ["Home"];
+  const home = ["aboutus"];
 
   const paths = usePathname();
   const pathname = paths.split("/").filter((path) => path);
@@ -28,23 +29,25 @@ function BreadcrumbHeader() {
   console.log("home", home);
 
   return (
-    <div className="w-full bg-[#FFF1D2] border-t-2 border-b-2 border-[#F7A600] flex justify-between items-center py-8 px-[5%] mt-5">
+    <div className="w-full bg-[#FFF1D2] border-t-2 border-b-2 border-[#F7A600] flex justify-between items-center md:py-8 py-4 px-[5%]  mt-2">
       <div className=" PageTitle">
-        <p className="text-[20px] md:text-[25px] capitalize font-bold tracking-wide">
+        <p className="text-[15px] md:text-[20px] capitalize font-bold tracking-wide">
           {home[[home.length - 1]]}
         </p>
       </div>
 
       {/* breadcrumb */}
-      <div className="breadcrumb flex gap-2 ">
+      <div className="breadcrumb flex gap-2  text-[8x] md:text-[12px]">
         {home.length > 1
           ? home.map((path,idx) => (
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
-                    <BreadcrumbPage className="capitalize">
+                  <Link href={idx === home.length-1  ? "":`/${path} `}>
+                    <BreadcrumbPage className={idx === home.length-1 ?"capitalize" : "capitalize text-blue-400 cursor-pointer"} >
                       {path}
                     </BreadcrumbPage>
+                    </Link>
                   </BreadcrumbItem>
                   {idx=== home.length-1 ? null :<BreadcrumbSeparator />}
                 </BreadcrumbList>

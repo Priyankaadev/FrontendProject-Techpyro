@@ -1,133 +1,147 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import Section1 from '@/content/dedicatedUpcomingEvent/section1'
-import Section2 from '@/content/dedicatedUpcomingEvent/section2'
-import Section3 from '@/content/dedicatedUpcomingEvent/section3'
-import { useParams } from 'next/navigation'
+import Section1 from "@/content/dedicatedUpcomingEvent/section1";
+import Section2 from "@/content/dedicatedUpcomingEvent/section2";
+import Section3 from "@/content/dedicatedUpcomingEvent/section3";
+import { useParams } from "next/navigation";
 // import { upcomingEv } from '@/constant/upcomingEvents'
-import { event } from '@/mocks/event'
+import { event } from "@/mocks/event";
+import { useRouter } from "next/navigation";
 
 function page() {
+  const params = useParams();
+  const router = useRouter();
 
-  const params = useParams()
-  console.log(params);
-  
   // const [item, setItem] = useState(upcomingEv.find((maping)=>maping.idx === params.id))
 
-  const [speakers, setSpeakers ] = useState([])
-  const [upcomingEvDetails, setUpcomingEvDetails] = useState(null)
-    const [committeeList, setCommitteeList] = useState([])
-    const [delegateList, setDelegateList] = useState([]);
+  const [speakers, setSpeakers] = useState([]);
+  const [upcomingEvDetails, setUpcomingEvDetails] = useState(null);
+  const [committeeList, setCommitteeList] = useState([]);
+  const [delegateList, setDelegateList] = useState([]);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     const fetchSpeakers = async () => {
-      try { 
-        const response = await event.speakersList({query:{}, sort:{name:1}, populate:"eventId", limit:10, page:1});
-        const list = response?.data?.data || []
-        // console.log("response : ",list);   
+      try {
+        const response = await event.speakersList({
+          query: {},
+          sort: { name: 1 },
+          populate: "eventId",
+          limit: 10,
+          page: 1,
+        });
+        const list = response?.data?.data || [];
+        // console.log("response : ",list);
 
         if (list) {
-          // console.log("inside the if cond");       
+          // console.log("inside the if cond");
           setSpeakers(list);
-          
+        } else if (response.data.data.status === 401) {
+          localStorage.removeItem("authToken");
+          router.push("/signin");
         } else {
-         console.log("can't fetch speakers");
-         
+          console.log("can't fetch speakers");
         }
       } catch (err) {
         console.log("Error fetching speakers:", err);
       }
-    }
+    };
 
-    const fetchCommittee = async () =>{
+    const fetchCommittee = async () => {
       try {
-          
-          const response = await event.CommitteeList({limit:50, sort:{name:1}, populate:"eventId", query:{}, page:1  })
-          const list = response?.data?.data || []
+        const response = await event.CommitteeList({
+          limit: 50,
+          sort: { name: 1 },
+          populate: "eventId",
+          query: {},
+          page: 1,
+        });
+        const list = response?.data?.data || [];
 
-          console.log(list);
-          
-          if(response){
-            setCommitteeList(response?.data?.data) 
-          
-          }else{
-            console.log("error in fetching committee");
-            
-          }
-       
-     } 
-      catch (error) {
-          console.log("error", error);
-          
-      }
+        console.log(list);
 
-    }
-
-     const fetchDelegates = async () => {
-          try { 
-            const response = await event.DelegatesList({
-              query: {},
-              sort: { name: 1 },
-              populate: "eventId",
-              page: 1,
-              limit: 50,
-            });
-            const list = response?.data?.data || []
-            if (response) {
-              setDelegateList(list);
-              // console.log(list);
-              
-    
-            } else {
-              console.log("err");
-            }
-          } catch (error) {
-            console.log("error while fetching delegates", error);
-          }
+        if (response) {
+          setCommitteeList(response?.data?.data);
+        } else if (response.data.data.status === 401) {
+          localStorage.removeItem("authToken");
+          router.push("/signin");
+        } else {
+          console.log("error in fetching committee");
         }
-       
-    
-    const fetchEvents = async  () => {
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    const fetchDelegates = async () => {
       try {
-        const response = await event.eventList({query:{"_id":params.id}, sort:{name:1},populate:'eventId',page:1,limit:10});
+        const response = await event.DelegatesList({
+          query: {},
+          sort: { name: 1 },
+          populate: "eventId",
+          page: 1,
+          limit: 50,
+        });
+        const list = response?.data?.data;
+        if (response) {
+          setDelegateList(list);
+        } else if (response.data.data.status === 401) {
+          localStorage.removeItem("authToken");
+          router.push("/signin");
+        } else {
+          console.log("err");
+        }
+      } catch (error) {
+        console.log("error while fetching delegates", error);
+      }
+    };
+
+    const fetchEvents = async () => {
+      try {
+        const response = await event.eventList({
+          query: { _id: params.id },
+          sort: { name: 1 },
+          populate: "eventId",
+          page: 1,
+          limit: 10,
+        });
         // console.log("api Response for id:", response);
-        const details = response?.data?.data[0] || null
+        const details = response?.data?.data[0];
         // console.log("details",details);
 
         if (details) {
-          console.log("inside the if cond");       
+          console.log("inside the if cond");
           setUpcomingEvDetails(details);
           // console.log("upcomdetails",upcomingEvDetails);
-          
-          
+        } else if (response.data.data.status === 401) {
+          localStorage.removeItem("authToken");
+          router.push("/signin");
         } else {
-         console.log("can't fetch details");
-         
+          console.log("can't fetch details");
         }
       } catch (error) {
-        console.log('error is',error)
+        console.log("error is", error);
       }
-
-    }
-    fetchSpeakers()
-    fetchEvents()
-    fetchCommittee()   
+    };
+    fetchSpeakers();
+    fetchEvents();
+    fetchCommittee();
     fetchDelegates();
+  }, []);
 
-  },[])
-  
   return (
-
-   <>
-   <Section1 eventData={upcomingEvDetails} />
-   <Section2 speakerData={ speakers } committeeData={committeeList} delegateData={delegateList} eventData={upcomingEvDetails} />
-   <Section3/>
-
-   </>
-  )
+    <>
+      <Section1 eventData={upcomingEvDetails} />
+      <Section2
+        speakerData={speakers}
+        committeeData={committeeList}
+        delegateData={delegateList}
+        eventData={upcomingEvDetails}
+      />
+      <Section3 />
+    </>
+  );
 }
 
-export default page
+export default page;

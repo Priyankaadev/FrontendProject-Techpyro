@@ -12,9 +12,13 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { Bounce, toast } from "react-toastify";
 import Link from "next/link";
+import { useLoader } from "@/context/loader";
+import { useRouter } from "next/navigation";
 
 function page() {
   const params = useParams();
+  const {setLoading} = useLoader()
+  const router = useRouter()
 
   const [exhibitorDetails, setExhibitorDetails] = useState([]);
   const [exhibitorDocs, setExhibitorDocs] = useState([]);
@@ -120,6 +124,7 @@ function page() {
 
   useEffect(() => {
     const fetchExhibitorDetails = async () => {
+      setLoading(true)
       try {
         const response = await event.Exhibitor({
           query: { _id: `${params.idx}` },
@@ -131,15 +136,23 @@ function page() {
         const list = response?.data?.data[0] || [];
         if (response) {
           setExhibitorDetails(list);
-        } else {
+        } else if(response.data === 401) {
+          localStorage.removeItem("authToken")
+          router.push('/signin')
+        }
+         else {
           console.log("error in storing");
         }
       } catch (error) {
         console.log("err in fetching in exhibitor", error);
+      }finally{
+        setLoading(false)
       }
     };
 
     const fetchExhibitorDocs = async () => {
+
+      setLoading(true)
       try {
         const response = await event.Documents({
           query: { exhibitorId: `${params.idx}` },
@@ -151,11 +164,17 @@ function page() {
         const list = response?.data?.data[0] || [];
         if (response) {
           setExhibitorDocs(list);
+        } else if(response.data === 401) {
+         localStorage.removeItem('authToken')
+         router.push('/signin')
+         
         } else {
           console.log("err in storing docs");
         }
       } catch (error) {
         console.log("err in fetching documents", error);
+      }finally{
+        setLoading(false)
       }
     };
 

@@ -1,5 +1,5 @@
 
-import { eventReducer} from "../slices/event"
+import eventReducer from "../slices/event"
 import {combineReducers} from "@reduxjs/toolkit";
 
 import {

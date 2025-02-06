@@ -23,22 +23,22 @@ function section2({eventDetails, committeeData, delegateData}) {
       body={eventDetails?.description} 
       />
       </div>
-      <div className='flex flex-col justify-between items-center md:justify-normal md:items-stretch px-[5%] '>
+      <div className='flex flex-col justify-between items-center md:justify-normal md:items-stretch  px-[5%] '>
         <p className='font-semibold md:text-[40px] text-[27px] mb-[3%]'>Event Video Highlights </p>
-        <div className='video-cards flex md:flex-row flex-col gap-5 md:justify-between  '>
+        <div className='video-cards flex md:flex-row  flex-col gap-5  md:justify-between  '>
             <EventVideo 
             head={"Lorem ipsum dolor sit amet"}
-            img={'/events/eventvideo1.png'}
+            vid={'/events/eventvideo1.mp4'}
             body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}
             />
             <EventVideo 
             head={"Lorem ipsum dolor sit amet"}
-            img={'/events/eventvideo2.png'}
+            vid={'/events/eventvideo1.mp4'}
             body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}
             />
             <EventVideo
             head={"Lorem ipsum dolor sit amet"}
-            img={'/events/eventvideo3.png'}
+            vid={'/events/eventvideo1.mp4'}
             body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "}
             />
             
@@ -47,17 +47,20 @@ function section2({eventDetails, committeeData, delegateData}) {
 
             {/* Committee */}
 
-            <p className="md:text-[36px] text-[27px] font-semibold p-[5%] hidden md:flex ">
+      <p className="md:text-[36px] text-[27px] font-semibold p-[5%] ">
         Committee
       </p>
-      <div className="px-[5%]">
+      <div className="px-[5%]  ">
+      
       <Swiper
             slidesPerView={4}
             pagination={{
               dynamicBullets: true,
+              
+              
             }}
             modules={[Pagination]}
-            className="mySwiper  "
+            className="mySwiper "
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -79,7 +82,8 @@ function section2({eventDetails, committeeData, delegateData}) {
             >
         {committeeData &&  (
           committeeData.map((committee) => (
-              <SwiperSlide >
+            <SwiperSlide key={committee?.id}>
+            <div className="p-2">
               <Profile2
                 id={committee?.id}
                 img={committee?.image}
@@ -87,13 +91,16 @@ function section2({eventDetails, committeeData, delegateData}) {
                 name={committee?.name}
                 type={committee?.committee_type}
                 city={committee?.city}
-              />
+                />
+                </div>
           </SwiperSlide>
             ))
           )  
         } 
-          </Swiper> 
+          </Swiper>
+      
           </div>
+    
     
 
       {/* Delegates */}

@@ -1,4 +1,3 @@
-import header from "@/layout/header/header";
 import axios from "axios";
 
 
@@ -31,7 +30,8 @@ class Event {
               ) 
             if(response.status === 200){
                 return response.data
-            }else{
+            }
+            else{
                 console.log('err in success of eventList',response.status );
                 
             }

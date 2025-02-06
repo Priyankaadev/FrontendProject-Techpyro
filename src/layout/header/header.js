@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+// import { IoSearch } from "react-icons/io5";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { CgMenuRight } from "react-icons/cg";
@@ -23,15 +23,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from 'next/link';
-import { useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { AuthContext } from "@/context/authContext";
-
+import EventSearch from "@/components/EventSearch/eventSearch";
 
 const header = () => {
   const router = useRouter();
 
+  
   const {userInfo, handleLogout} = useContext(AuthContext)
-  const [showInput, setShowInput] = useState(false);
+  // const [showInput, setShowInput] = useState(false);
+  
 
   const [openDropdown, setOpenDropdown] = useState(null); // Tracks the currently open dropdown
   const [menuOpen, setMenuOpen] = useState(false)
@@ -48,15 +50,10 @@ const header = () => {
     console.log("clicked");
     
   }
-  const handleSearch = ()=>{
-   
-    console.log("clicked");
-    setShowInput(!showInput);
-    
-  }
+
 
   return (
-    <div className="w-full md:h-[20vh]  h-[15vh]  flex-shrink-0 px-8 lg:mt-5 md:gap-[3rem] gap-[1rem] flex text-sm overflow-hidden">
+    <div className="w-full md:h-[20vh]  h-[15vh]  flex-shrink-0 px-8 lg:mt-5 md:gap-[3rem] gap-[1rem] flex text-sm ">
      
       {/* Logo */}
       <div className="logo flex lg:mb-2 basis-1/3  items-center  ">
@@ -69,11 +66,15 @@ const header = () => {
       {/* sm, md */}
       <div className="lg:hidden items-center flex justify-around  h-[100%] w-[100%]">
        
-         <IoSearch  fontSize={25} onClick={handleSearch}  className={
+         {/* <IoSearch  fontSize={25} onClick={handleSearch}  className={
           menuOpen ? "hidden" : "flex" && showInput? "hidden" :"flex" 
-          }  />
+          }  /> */}
+
+          <EventSearch 
+           menu={menuOpen}
+          />
     
-          {showInput && (
+          {/* {showInput && (
         <form  className="flex items-center ">
           <input
            
@@ -83,7 +84,7 @@ const header = () => {
           />
           
         </form>
-      )}
+      )} */}
        
       <RiAccountCircleFill fontSize={25} className={ menuOpen ? "hidden" : "flex" }
       onClick={userInfo? ()=>{router.push('/profile')} : ()=>{router.push('/signin')}}
@@ -253,7 +254,10 @@ const header = () => {
             </DropdownMenu>
          
           </div>
-          <IoSearch fontSize={25} onClick={handleSearch}  className={
+          
+          <EventSearch menu={menuOpen} />
+
+          {/* <IoSearch fontSize={25} onClick={handleSearch}  className={
           menuOpen ? "hidden" : "flex" && showInput? "hidden" :"flex mt-2" 
           }  />
     
@@ -266,7 +270,7 @@ const header = () => {
           />
           
         </form>
-      )}
+      )} */}
           {/* <IoSearch className=" h-7 w-5" /> */}
 
             <DropdownMenu
@@ -284,8 +288,13 @@ const header = () => {
               {userInfo?.full_name && <div className="pointer">{userInfo?.full_name}</div>}
                 <MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent className='cursor-pointer'>
-             <DropdownMenuLabel className='bg-white' onClick={()=>router.push('/profile')}>My Account</DropdownMenuLabel>
-                <DropdownMenuLabel className='bg-white' onClick={()=>handleLogout()}>Logout</DropdownMenuLabel>
+             <DropdownMenuLabel className='bg-white' onClick={()=>router.push(`/profile/${userInfo.id}`)}>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel className='bg-white' 
+                onClick={()=>{
+                  handleLogout()
+                       
+                  }}>
+                        Logout</DropdownMenuLabel> 
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>

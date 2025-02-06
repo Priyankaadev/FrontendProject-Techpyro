@@ -4,16 +4,19 @@ import React, { useEffect, useState } from "react";
 import Section1 from "@/content/dedicatedPastEvent/section1";
 import Section2 from "@/content/dedicatedPastEvent/section2";
 import Section3 from "@/content/dedicatedPastEvent/section3";
-import  {eventListData}  from "@/redux/slices/event";
+
 //next imports
 import { useParams } from "next/navigation";
 //mock import
 import { event } from "@/mocks/event";
 import { useDispatch, useSelector } from "react-redux";
+import { useLoader } from "@/context/loader";
 // import { upcomingEv } from '@/constant/upcomingEvents'
 
 function page() {
   const params = useParams();
+  const {setLoading} = useLoader()
+
   const [pastEvDetails, setPastEvDetails] = useState();
   const [committeeList, setCommitteeList] = useState([]);
   const [delegateList, setDelegateList] = useState([]);
@@ -22,9 +25,11 @@ function page() {
   const dispatch = useDispatch();
   const eventData = useSelector((state) => state.event);
 
+
   useEffect(() => {
 
     const fetchEvents = async () => {
+      setLoading(true);
       try {
         const details = eventData?.data?.find((event) => event.id === params.id);
         // const details = eventData?.data?.data || null;
@@ -39,9 +44,12 @@ function page() {
         }
       } catch (error) {
         console.log(error);
+      }finally{
+        setLoading(false)
       }
     }
      const fetchCommittee = async () =>{
+      setLoading(true);
           try {
               
               const response = await event.CommitteeList({limit:50, sort:{name:1}, populate:"eventId", query:{}, page:1  })
@@ -59,10 +67,14 @@ function page() {
           catch (error) {
               console.log("error", error);
               
+          }finally {
+            setLoading(false);
           }
+         
         }
     
          const fetchDelegates = async () => {
+          setLoading(true);
               try { 
                 const response = await event.DelegatesList({
                   query: {},
@@ -82,6 +94,8 @@ function page() {
                 }
               } catch (error) {
                 console.log("error while fetching delegates", error);
+              }finally{
+                setLoading(false)
               }
             }
            

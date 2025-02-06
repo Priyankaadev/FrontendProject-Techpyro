@@ -18,9 +18,6 @@ import Profile2 from "@/components/profileCard/Profile2";
 
 
 function section2({ speakerData, committeeData, eventData,delegateData }) {
-  // console.log("fetched speakerDATA", speakerData);
-  // console.log("fetched eventDATA", eventData);
-  // console.log("descript", eventData?.description);
 
   return (
     <div className="section2 py-[5%]">

@@ -1,9 +1,11 @@
 import { event } from '@/mocks/event'
 import Exhibitor from '@/components/exhibitor/exhibitor'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 function section3() {
   const [exhibitorList, setExhibitorList] = useState([])
+  const router = useRouter()
 
   useEffect(()=>{
     const fetchExhibitor = async () =>{
@@ -14,7 +16,11 @@ function section3() {
           setExhibitorList(list)
      
           
-        }else{
+        }else if(response.data.data.status ===401){
+          localStorage.removeItem("authToken")
+          router.push('/signin')
+           }
+           else{
           console.log("error in storing");
           
         }

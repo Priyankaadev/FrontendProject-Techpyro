@@ -17,8 +17,6 @@ import { Pagination } from "swiper/modules";
 
 function section1({eventData}) {
 
-  console.log('EVENT DATA',eventData);
-
   return (
     <div className="section1 w-full py-[2%]">
       

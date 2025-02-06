@@ -6,10 +6,13 @@ import React, { useEffect, useState } from "react";
 import Table from "@/components/table/table";
 import RegisterEvent from "@/components/register/registerEvent";
 import { event } from "@/mocks/event";
+import { useRouter } from "next/navigation";
 
 function section3() {
 
+
   const [agendaList, setAgendaList] = useState([])
+  const router = useRouter()
 
   useEffect(()=>{
     const fetchAgenda = async ()=>{
@@ -21,7 +24,11 @@ function section3() {
           setAgendaList(list)
           // console.log('length' , list.length);
           
-        }else{
+        }else if(response.data.data.status ===401){
+          localStorage.removeItem("authToken")
+          router.push('/signin')
+           }
+        else{
           console.log('error in storing' );
           
         }
@@ -32,9 +39,7 @@ function section3() {
       }
     }
     fetchAgenda()
-  })
-
-
+  },[])
   
   return (
     <div className=" section3 p-[5%]">

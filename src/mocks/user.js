@@ -4,7 +4,7 @@ import axios from "axios";
 
 class User {
 
-  async userUpdate(newData, id) {
+  async userUpdate({newData, id}) {
     try {
       const response = await axios.put(
         `${process.env.NEXT_PUBLIC_HOST_URL}/userapp/user/update/${id}`,
