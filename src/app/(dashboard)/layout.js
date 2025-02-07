@@ -1,5 +1,5 @@
 "use client";
-import React, {  useContext, useEffect } from "react";
+import React, {  Suspense, useContext, useEffect } from "react";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import { AuthContext } from "@/context/authContext";
@@ -42,7 +42,7 @@ function PagesLayout({ children }) {
   }
 
   return (
-    <div>
+    <Suspense>
 
       <Provider store={store}>
         <LoaderProvider >
@@ -55,7 +55,7 @@ function PagesLayout({ children }) {
         <ToastContainer />
       </Provider>
 
-    </div>
+    </Suspense>
   );
 }
 

@@ -12,7 +12,7 @@ function AuthLayout({ children }) {
 
   useEffect(() => {
     if (userInfo ) router.push("/");
-  });
+  },[]);
 
   if (isLoading || userInfo ) {
     return <Loader />;
