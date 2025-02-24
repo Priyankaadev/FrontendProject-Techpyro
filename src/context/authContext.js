@@ -43,7 +43,7 @@ export function AuthProvider({ children }) {
       .then((response) => {
         setUserInfo(response.data.data);
         setIsLoading(false);
-        console.log("data user", userInfo);
+        // console.log("data user", userInfo);
         
       })
       .catch((error) => {
