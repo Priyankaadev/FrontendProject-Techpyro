@@ -64,7 +64,7 @@ function Section3() {
         console.log("Filtered past events:", pastEv);
         if (response.data === 401) {
           localStorage.removeItem("authToken");
-          router.push("/signin");
+          router.push("/auth/signin");
         }
       } catch (err) {
         console.error("Error fetching events:", err);
@@ -131,7 +131,7 @@ function Section3() {
         <div className="flex justify-center items-center mt-5 mb-5 ">
           <button
             className="bg-[#F7A600] gap-1 p-2 flex justify-center items-center max-w-[10rem] "
-            onClick={() => router.push(`/events/${isOpen}`)}
+            onClick={() => router.push(`/dashboard/events/${isOpen}`)}
           >
             View More <FaAngleDoubleRight />
           </button>

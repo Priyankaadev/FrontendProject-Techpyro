@@ -157,7 +157,7 @@ function Page() {
             Already have an account?{" "}
             <span
               className="text-blue-400 cursor-pointer"
-              onClick={() => router.push("/signin")}
+              onClick={() => router.push("/auth/signin")}
             >
               Sign In
             </span>

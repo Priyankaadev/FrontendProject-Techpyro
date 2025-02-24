@@ -1,5 +1,5 @@
 "use client";
-import React, {  Suspense, useContext, useEffect } from "react";
+import React, {  useContext, useEffect } from "react";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import { AuthContext } from "@/context/authContext";
@@ -20,42 +20,50 @@ function PagesLayout({ children }) {
   const path = usePathname();
   
   
-  const pages = ['contact', 'aboutus', '', 'profile']
+  const pages = ['contact', 'aboutus', 'profile']
+  const pathLayout = path.includes('/auth')
   const isPageIncluded = pages.some((page) => path.split('/')[1] === page);
-  console.log(path)
+  console.log('isincluded',isPageIncluded)
   const { userInfo, isLoading  } = useContext(AuthContext);
 
   console.log("userInfo", userInfo, isLoading);
  
 
-  useEffect(() => {
-    if (!userInfo && !isLoading) {
- 
-      router.push("/signin")
+//   useEffect(() => {
+//     if (!userInfo && !isLoading) {
+//       router.push("/auth/signin")
 
-    }    //isLoading -  and no userInfo
+//     } 
    
-  },[]);
+   
+//   },[]);
+  if(userInfo ){
+    router.push("/")
+    console.log(userInfo, "userInfo");
+    
+}else{
+    console.log('redirect failed');
+}
   
-  if (isLoading || !userInfo) {
-    return <Loader />;
-  }
-
+//   if (isLoading || !userInfo) {
+//     return <Loader />;
+//   }
+  
   return (
-    <Suspense>
+    <>
 
       <Provider store={store}>
         <LoaderProvider >
-        <Header />
-         {isPageIncluded  ? null : <BreadcrumbHeader /> }
+      {!pathLayout && <Header />}
+         { isPageIncluded && <BreadcrumbHeader /> }
          
         {children}
-        <Footer />
+    { !pathLayout &&   <Footer />}
         </LoaderProvider>
         <ToastContainer />
       </Provider>
 
-    </Suspense>
+    </>
   );
 }
 

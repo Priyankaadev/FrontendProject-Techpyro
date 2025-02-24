@@ -1,8 +1,11 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/layout/header/header";
-import Footer from "@/layout/footer/footer";
 import { Providers } from "@/context/provider";
+// import Header from "@/layout/header/header";
+// import Footer from "@/layout/footer/footer";
+// import { Provider } from "react-redux";
+// import store from "@/redux/store/store";
+import PagesLayout from "@/components/layoutWrapper/layoutWrapper";
 
 
 const geistSans = localFont({
@@ -30,9 +33,12 @@ export default function RootLayout({ children }) {
         <Providers>
           {/* <Provider store={store}> */}
             {/* <Header  /> */}
+            <PagesLayout >
             {children}
           {/* </Provider> */}
+          </PagesLayout>
         </Providers>
+
         {/* <Footer /> */}
       </body>
     </html>

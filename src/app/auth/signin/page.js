@@ -1,7 +1,7 @@
 "use client";
 
 import * as Yup from "yup";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import { AuthContext } from "@/context/authContext";
 import { useRouter } from "next/navigation";
@@ -18,6 +18,11 @@ function Page() {
   const router = useRouter();
   const { handleLogin, googleLoginFirebase } = useContext(AuthContext);
   
+  useEffect(()=>{
+    if(localStorage.getItem('authToken')){
+      router.push('/')
+    }
+  })
   const handleGoogleSignIn =async ()=>{
    
       const auth = getAuth(app)
@@ -120,7 +125,7 @@ function Page() {
             Don&apos;t have an account?
             <span
               className="text-blue-400 cursor-pointer"
-              onClick={() => router.push("/signup")}
+              onClick={() => router.push("/auth/signup")}
             >
               Sign Up
             </span>

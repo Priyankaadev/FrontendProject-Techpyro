@@ -84,7 +84,7 @@ const Header = () => {
       )} */}
        
       <RiAccountCircleFill fontSize={25} className={ menuOpen ? "hidden" : "flex" }
-      onClick={userInfo? ()=>{router.push('/profile')} : ()=>{router.push('/signin')}}
+      onClick={userInfo? ()=>{router.push('/dashboard/profile')} : ()=>{router.push('/auth/signin')}}
       />
       
         <CgMenuRight fontSize={25} onClick={handleNav}  className={
@@ -112,37 +112,37 @@ const Header = () => {
               About
             </li>
             </Link>
-            <Link href='/contact'>
+            <Link href='/dashboard/contact'>
             <li className="py-2 md:py-5 cursor-pointer">
              Contact
             </li>
             </Link>
-            <Link href='/committee'>
+            <Link href='/dashboard/committee'>
             <li className="py-2 md:py-5 cursor-pointer">
               Committee
             </li>
             </Link>
-            <Link href='/events'>
+            <Link href='/dashboard/events'>
             <li className="py-2 md:py-5 cursor-pointer">
               Events
             </li>
             </Link>
-            <Link href='/careers'>
+            <Link href='/dashboard/careers'>
             <li className="py-2 md:py-5 cursor-pointer">
               Careers
             </li>
             </Link>
-            <Link href='/news'>
+            <Link href='/dashboard/news'>
             <li className="py-2 md:py-5 cursor-pointer">
               News
             </li>
             </Link>
-            <Link href='/press'>
+            <Link href='/dashboard/press'>
             <li className="py-2 md:py-5 cursor-pointer">
               Media
             </li>
             </Link>
-            <Link href='/delegates'>
+            <Link href='/dashboard/delegates'>
             <li className="py-2 md:py-5 cursor-pointer">
               Delegates
             </li>
@@ -184,11 +184,11 @@ const Header = () => {
       <div className="hidden lg:block w-full  ">
         <div className="row-1  flex justify-evenly mb-2  ">
           <div className="items md:text-[12px] lg:text-[15px] flex gap-[1rem] ">
-            <p><Link href="/contact">Contact</Link></p>
+            <p><Link href="/dashboard/contact">Contact</Link></p>
             {/* <p><Link href="/committee">Committee</Link></p> */}
-            <p> <Link href="/aboutus">About</Link></p>
-            <p><Link href="/careers">Careers</Link></p>
-            <p><Link href="/press">Press Release</Link></p>
+            <p> <Link href="/dashboard/aboutus">About</Link></p>
+            <p><Link href="/dashboard/careers">Careers</Link></p>
+            <p><Link href="/dashboard/press">Press Release</Link></p>
            
           </div>
           <ul className="icons flex gap-[1rem]  ">
@@ -225,7 +225,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-           <p ><Link href='/news'>News</Link> </p>
+           <p ><Link href='/dashboard/news'>News</Link> </p>
 
             <DropdownMenu
               open={openDropdown === "dropdown2"} // Check if this dropdown should be open
@@ -233,8 +233,8 @@ const Header = () => {
             >
               <DropdownMenuTrigger className="flex gap-1 focus:outline-none">Media<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent>
-             <Link href='/videos'>  <DropdownMenuLabel className='bg-white'>Videos</DropdownMenuLabel></Link> 
-             <Link href='/press'>  <DropdownMenuLabel className='bg-white'>Press Release</DropdownMenuLabel></Link> 
+             <Link href='/dashboard/videos'>  <DropdownMenuLabel className='bg-white'>Videos</DropdownMenuLabel></Link> 
+             <Link href='/dashboard/press'>  <DropdownMenuLabel className='bg-white'>Press Release</DropdownMenuLabel></Link> 
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -244,8 +244,8 @@ const Header = () => {
             >
               <DropdownMenuTrigger className="flex gap-1 focus:outline-none " >Events<MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent >
-                <DropdownMenuLabel  className='bg-white'><Link href="/events/upcomingEvents">Upcoming Events</Link></DropdownMenuLabel>
-                <DropdownMenuLabel className='bg-white'><Link href="/events/pastEvents">Past Events</Link></DropdownMenuLabel>
+                <DropdownMenuLabel  className='bg-white'><Link href="/dashboard/events/upcomingEvents">Upcoming Events</Link></DropdownMenuLabel>
+                <DropdownMenuLabel className='bg-white'><Link href="/dashboard/events/pastEvents">Past Events</Link></DropdownMenuLabel>
                 {/* <DropdownMenuSeparator /> */}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -277,7 +277,7 @@ const Header = () => {
               <DropdownMenuTrigger className="flex gap-1 focus:outline-none ">
 
 
-              {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]"  onClick={()=> router.push('/signin')}>
+              {!userInfo && <button className="bg-[#F7A70D] flex  p-2 text-[10px]"  onClick={()=> router.push('/auth/signin')}>
                 <RiAccountCircleFill  className="h-5 w-5"/>{ "SIGN IN"}</button> }
             
             
@@ -285,7 +285,7 @@ const Header = () => {
               {userInfo?.full_name && <div className="pointer">{userInfo?.full_name}</div>}
                 <MdOutlineArrowDropDown /></DropdownMenuTrigger>
               <DropdownMenuContent className='cursor-pointer'>
-             <DropdownMenuLabel className='bg-white' onClick={()=>router.push(`/profile/${userInfo.id}`)}>My Account</DropdownMenuLabel>
+             <DropdownMenuLabel className='bg-white' onClick={()=>router.push(`/dashboard/profile/${userInfo.id}`)}>My Account</DropdownMenuLabel>
           <DropdownMenuLabel className='bg-white' 
                 onClick={()=>{
                   handleLogout()

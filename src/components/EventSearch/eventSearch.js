@@ -90,7 +90,7 @@ function EventSearch({menu}) {
                 onClick={()=>{
                     console.log("clicked");
                     
-                   router.push(`/events/${ currentDate > result.date ? "pastEvents" : "upcomingEvents"}/${result.id}`)
+                   router.push(`/dashboard/events/${ currentDate > result.date ? "pastEvents" : "upcomingEvents"}/${result.id}`)
                 //    setSearchedEventList([])
                    setSearchInput("")
                 }}

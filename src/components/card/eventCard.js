@@ -33,7 +33,7 @@ function EventCard({ img, date, name, place, desc, idx,type}) {
       <div className=' flex items-baseline py-4 px-5'>
       <button 
       className='flex items-center p-2 w-[7rem] gap-1 h-[2rem] bg-[#F7A600] '  
-     onClick={()=>router.push(`/events/${type}/${idx}`)
+     onClick={()=>router.push(`/dashboard/events/${type}/${idx}`)
      }
       
       >

@@ -39,7 +39,7 @@ function Page() {
           setSpeakers(list);
         } else if (response.data.data.status === 401) {
           localStorage.removeItem("authToken");
-          router.push("/signin");
+          router.push("/auth/signin");
         } else {
           console.log("can't fetch speakers");
         }
@@ -65,7 +65,7 @@ function Page() {
           setCommitteeList(response?.data?.data);
         } else if (response.data.data.status === 401) {
           localStorage.removeItem("authToken");
-          router.push("/signin");
+          router.push("/auth/signin");
         } else {
           console.log("error in fetching committee");
         }
@@ -88,7 +88,7 @@ function Page() {
           setDelegateList(list);
         } else if (response.data.data.status === 401) {
           localStorage.removeItem("authToken");
-          router.push("/signin");
+          router.push("/auth/signin");
         } else {
           console.log("err");
         }
@@ -116,7 +116,7 @@ function Page() {
           // console.log("upcomdetails",upcomingEvDetails);
         } else if (response.data.data.status === 401) {
           localStorage.removeItem("authToken");
-          router.push("/signin");
+          router.push("/auth/signin");
         } else {
           console.log("can't fetch details");
         }

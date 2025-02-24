@@ -26,7 +26,7 @@ function Section3() {
           
         }else if(response.data.data.status ===401){
           localStorage.removeItem("authToken")
-          router.push('/signin')
+          router.push('/auth/signin')
            }
         else{
           console.log('error in storing' );

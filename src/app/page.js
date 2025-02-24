@@ -1,4 +1,4 @@
-import Aboutpage from "./aboutus/page";
+import Aboutpage from "./dashboard/aboutus/page";
 
 export default function Home() {
   return (

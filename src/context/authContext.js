@@ -51,7 +51,7 @@ export function AuthProvider({ children }) {
           setUserInfo(null);
           setIsLoading(false);
           localStorage.removeItem("authToken")
-          router.push('/signin')
+          router.push('/auth/signin')
         } else {
           console.error("Error fetching user info:", error);
           setIsLoading(false);
@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
         localStorage.setItem("authToken", response.data.data.token);
       }else if(response.data?.status === 401){
         localStorage.removeItem("authToken");
-        router.push('/signin')
+        router.push('/auth/signin')
       }
 
     } catch (error) {
@@ -84,7 +84,7 @@ export function AuthProvider({ children }) {
       localStorage.removeItem("authToken");
       Cookies.remove("authCookie");
       setUserInfo(null);
-      router.push("/signin");
+      router.push("/auth/signin");
     } catch (error) {
       setUserInfo(null);
       console.error("Error during logout:", error);
@@ -103,7 +103,7 @@ export function AuthProvider({ children }) {
         localStorage.setItem("authToken", response.data.data.token);
       } else if(response.data?.status === 401){
         localStorage.removeItem("authToken");
-        router.push('/signin')
+        router.push('/auth/signin')
       }
       else  {
         setUserInfo(null);
@@ -138,10 +138,10 @@ export function AuthProvider({ children }) {
         payload
       );
       if (response.data?.status === "SUCCESS") {
-        router.push("/signin");
+        router.push("/auth/signin");
       } else if (response.data?.status === 401){
         localStorage.removeItem("authToken");
-        router.push('/signin')
+        router.push('/auth/signin')
       }
       else {
         console.error("Signup error:", response.data);
